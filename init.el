@@ -8,6 +8,8 @@
 (add-hook 'after-init-hook #'(lambda ()
                                (setq gc-cons-threshold 4000000)))
 
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
 (require 'init-package)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
