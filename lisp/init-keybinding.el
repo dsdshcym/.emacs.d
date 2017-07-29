@@ -16,10 +16,30 @@
 
 (use-package general
   :config (progn
-            ;; Window Management
             (general-define-key :prefix "SPC"
                                 :non-normal-prefix "M-m"
                                 :states '(normal visual insert emacs)
+
+                                ;; File
+                                "ff" 'find-file
+                                "fel" 'find-library
+                                "fS" 'evil-write-all
+                                "fs" 'save-buffer
+                                "fvd" 'add-dir-local-variable
+                                "fvf" 'add-file-local-variable
+                                "fvp" 'add-file-local-variable-prop-line
+
+                                ;; Help
+                                "sj" 'imenu
+
+                                ;; Jumping
+                                "hdf" 'describe-function
+                                "hdv" 'describe-variable
+
+                               ;; Themes
+                               "Ts"  'load-theme
+
+                                ;; Window Management
                                 "wd" 'delete-window
                                 "wF" 'make-frame
                                 "wH" 'evil-window-move-far-left
