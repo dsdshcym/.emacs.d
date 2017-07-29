@@ -29,11 +29,17 @@
                                 "fvf" 'add-file-local-variable
                                 "fvp" 'add-file-local-variable-prop-line
 
+                                ;; Buffer
+                                "bb" 'switch-to-buffer
+                                "bd" 'kill-this-buffer
+                                "bw" 'read-only-mode
+
                                 ;; Help
                                 "sj" 'imenu
 
                                 ;; Jumping
                                 "hdf" 'describe-function
+                                "hdk" 'describe-key
                                 "hdv" 'describe-variable
 
                                ;; Themes
