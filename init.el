@@ -11,6 +11,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (require 'init-package)
+(require 'init-ui)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
 (setq version-control t)
