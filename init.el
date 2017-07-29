@@ -18,6 +18,7 @@
 (require 'init-ivy)
 (require 'init-git)
 (require 'init-projectile)
+(require 'init-company)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
 (setq version-control t)
