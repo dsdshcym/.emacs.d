@@ -10,6 +10,8 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+(setq private/cache-directory "~/.emacs.d/.cache/")
+
 (require 'init-package)
 (require 'init-ui)
 (require 'init-keybinding)
