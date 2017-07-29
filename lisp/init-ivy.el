@@ -26,6 +26,6 @@
   :general (general-define-key :prefix "SPC"
                                :non-normal-prefix "M-m"
                                :states '(normal visual insert emacs)
-                               "ss" 'swiper)
+                               "ss" 'swiper))
 
 (provide 'init-ivy)
