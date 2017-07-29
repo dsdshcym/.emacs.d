@@ -12,6 +12,7 @@
 
 (require 'init-package)
 (require 'init-ui)
+(require 'init-keybinding)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
 (setq version-control t)
