@@ -17,6 +17,7 @@
 (require 'init-keybinding)
 (require 'init-ivy)
 (require 'init-git)
+(require 'init-projectile)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
 (setq version-control t)
