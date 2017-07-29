@@ -16,7 +16,6 @@
 (private/set-monospaced-font "Iosevka" "PingFang SC" 14 14)
 
 (use-package solarized-theme
-  :ensure t
   :init (progn
           (setq solarized-use-variable-pitch nil)
           (setq solarized-scale-org-headlines nil)
