@@ -1,3 +1,7 @@
+(setq gc-cons-threshold most-positive-fixnum)
+(add-hook 'after-init-hook #'(lambda ()
+                               (setq gc-cons-threshold 4000000)))
+
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
 (setq version-control t)
