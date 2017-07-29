@@ -15,4 +15,42 @@
             ;; Escape from isearch-mode("/" and "?" in evil-mode) like vim
             (define-key isearch-mode-map (kbd "<escape>") 'isearch-cancel)))
 
+(use-package general
+  :config (progn
+            ;; Window Management
+            (general-define-key :prefix "SPC"
+                                :non-normal-prefix "M-m"
+                                :states '(normal visual insert emacs)
+                                "wd" 'delete-window
+                                "wF" 'make-frame
+                                "wH" 'evil-window-move-far-left
+                                "wh" 'evil-window-left
+                                "wJ" 'evil-window-move-very-bottom
+                                "wj" 'evil-window-down
+                                "wK" 'evil-window-move-very-top
+                                "wk" 'evil-window-up
+                                "wL" 'evil-window-move-far-right
+                                "wl" 'evil-window-right
+                                "wo" 'other-frame
+                                "ws" 'split-window-below
+                                "wS" 'split-window-below-and-focus
+                                "wU" 'winner-redo
+                                "wu" 'winner-undo
+                                "wv" 'split-window-right
+                                "wV" 'split-window-right-and-focus
+                                "ww" 'other-window
+                                "w=" 'balance-windows)))
+
+(defun split-window-below-and-focus ()
+  "Split the window vertically and focus the new window."
+  (interactive)
+  (split-window-below)
+  (windmove-down))
+
+(defun split-window-right-and-focus ()
+  "Split the window horizontally and focus the new window."
+  (interactive)
+  (split-window-right)
+  (windmove-right))
+
 (provide 'init-keybinding)
