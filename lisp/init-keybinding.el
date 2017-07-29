@@ -1,8 +1,7 @@
 (use-package evil
-  :ensure t
   :init (progn
-            (setq evil-want-C-u-scroll t)
-            (evil-mode))
+          (setq evil-want-C-u-scroll t)
+          (evil-mode))
   :config (progn
             ;; esc should always quit: http://stackoverflow.com/a/10166400/61435
             (define-key evil-normal-state-map [escape] 'keyboard-quit)
