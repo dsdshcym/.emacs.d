@@ -3,6 +3,17 @@
           (setq evil-want-C-u-scroll t)
           (evil-mode))
   :config (progn
+            (evil-define-motion evil-goto-line (count)
+              "Go to the first non-blank character of line COUNT.
+By default the (truly) last line."
+              :jump t
+              :type line
+              (if (null count)
+                  (goto-char (buffer-size))
+                (goto-char (point-min))
+                (forward-line (1- count)))
+              (evil-first-non-blank))
+
             ;; esc should always quit: http://stackoverflow.com/a/10166400/61435
             (define-key evil-normal-state-map [escape] 'keyboard-quit)
             (define-key evil-visual-state-map [escape] 'keyboard-quit)
