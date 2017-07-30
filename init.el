@@ -21,6 +21,7 @@
 (require 'init-auto-completion)
 (require 'init-org)
 (require 'init-chinese)
+(require 'init-editing)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
 (setq version-control t)
