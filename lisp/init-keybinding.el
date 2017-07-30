@@ -90,6 +90,16 @@
    :keymaps 'evil-outer-text-objects-map
    "a" 'evil-outer-arg))
 
+(use-package evil-surround
+  :init
+  (global-evil-surround-mode)
+  :general
+  (general-define-key
+   :states 'visual
+   :keymaps 'evil-surround-mode-map
+   "s" 'evil-surround-region
+   "S" 'evil-substitute))
+
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
   (interactive)
