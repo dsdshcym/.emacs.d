@@ -78,6 +78,18 @@
    :keymaps '(motion insert emacs)
    ";"  'evilnc-comment-operator))
 
+(use-package evil-args
+  :defer t
+  :init
+  (add-to-list 'evil-args-delimiters " ")
+  :general
+  (general-define-key
+   :keymaps 'evil-inner-text-objects-map
+   "a" 'evil-inner-arg)
+  (general-define-key
+   :keymaps 'evil-outer-text-objects-map
+   "a" 'evil-outer-arg))
+
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
   (interactive)
