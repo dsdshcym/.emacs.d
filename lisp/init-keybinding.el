@@ -3,6 +3,13 @@
           (setq evil-want-C-u-scroll t)
           (evil-mode))
   :config (progn
+            (setq evil-normal-state-cursor '(box "DarkGoldenrod2")
+                  evil-insert-state-cursor '((bar . 2) "chartreuse3")
+                  evil-emacs-state-cursor '(box "SkyBlue2")
+                  evil-replace-state-cursor '((hbar . 2) "chocolate")
+                  evil-visual-state-cursor '((hbar . 2) "gray")
+                  evil-motion-state-cursor '(box "plum3"))
+
             (evil-define-motion evil-goto-line (count)
               "Go to the first non-blank character of line COUNT.
 By default the (truly) last line."
