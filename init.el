@@ -16,7 +16,7 @@
 (require 'init-ui)
 (require 'init-keybinding)
 (require 'init-ivy)
-(require 'init-git)
+(require 'init-version-control)
 (require 'init-projectile)
 (require 'init-auto-completion)
 (require 'init-org)

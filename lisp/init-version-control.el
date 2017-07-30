@@ -34,4 +34,4 @@
 (use-package git-timemachine
   :defer t)
 
-(provide 'init-git)
+(provide 'init-version-control)
