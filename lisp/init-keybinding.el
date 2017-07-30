@@ -120,6 +120,9 @@
 (use-package evil-indent-plus
   :init (evil-indent-plus-default-bindings))
 
+(use-package evil-matchit
+  :init (global-evil-matchit-mode))
+
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
   (interactive)
