@@ -19,6 +19,7 @@
 (require 'init-git)
 (require 'init-projectile)
 (require 'init-company)
+(require 'init-org)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
 (setq version-control t)
