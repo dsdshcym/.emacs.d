@@ -106,6 +106,17 @@
 (use-package evil-exchange
   :init (evil-exchange-install))
 
+(use-package evil-iedit-state
+  :commands (evil-iedit-state evil-iedit-state/iedit-mode)
+  :init
+  (setq iedit-toggle-key-default nil)
+  :general
+  (general-define-key
+   :prefix "SPC"
+   :non-normal-prefix "M-m"
+   :keymaps '(motion insert emacs)
+   "se" 'evil-iedit-state/iedit-mode))
+
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
   (interactive)
