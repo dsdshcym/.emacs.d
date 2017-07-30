@@ -48,4 +48,7 @@
    "glc" 'git-link-commit
    "glh" 'git-link-homepage))
 
+(use-package diff-mode
+  :defer t)
+
 (provide 'init-version-control)
