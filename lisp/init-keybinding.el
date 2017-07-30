@@ -123,6 +123,14 @@
 (use-package evil-matchit
   :init (global-evil-matchit-mode))
 
+(use-package evil-numbers
+  :commands (evil-numbers/inc-at-pt evil-numbers/inc-at-pt)
+  :general
+  (general-define-key
+   :keymaps 'motion
+   "+" 'evil-numbers/inc-at-pt
+   "-" 'evil-numbers/dec-at-pt))
+
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
   (interactive)
