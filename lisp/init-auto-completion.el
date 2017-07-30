@@ -6,7 +6,8 @@
           company-minimum-prefix-length 2
           company-require-match nil
           company-dabbrev-ignore-case nil
-          company-dabbrev-downcase nil))
+          company-dabbrev-downcase nil)
+    (global-company-mode))
   :general
   (general-define-key
    :keymaps 'company-active-map
