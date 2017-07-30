@@ -32,7 +32,7 @@
             (setq projectile-completion-system 'ivy)
             (projectile-global-mode))
   :general (general-define-key 
-            :keymaps '(normal visual insert emacs)
+            :keymaps '(motion insert emacs)
             :prefix "SPC"
             :non-normal-prefix "M-m"
             "p!" 'projectile-run-shell-command-in-root

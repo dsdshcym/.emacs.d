@@ -2,10 +2,12 @@
   :config (progn
             (define-key ivy-minibuffer-map [escape] 'minibuffer-keyboard-quit)
             (setq ivy-initial-inputs-alist nil)
+            (setq ivy-re-builders-alist
+                  '((t . ivy--regex-ignore-order)))
             (ivy-mode))
   :general (general-define-key :prefix "SPC"
                                :non-normal-prefix "M-m"
-                               :keymaps '(normal visual insert emacs)
+                               :keymaps '(motion insert emacs)
                                ;; Buffer
                                "bb" 'ivy-switch-buffer))
 
@@ -14,7 +16,7 @@
   :config (counsel-mode)
   :general (general-define-key :prefix "SPC"
                                :non-normal-prefix "M-m"
-                               :keymaps '(normal visual insert emacs)
+                               :keymaps '(motion insert emacs)
                                ;; Insert
                                "iu" 'counsel-unicode-char
                                ;; Register/Ring
@@ -25,7 +27,7 @@
   :after ivy
   :general (general-define-key :prefix "SPC"
                                :non-normal-prefix "M-m"
-                               :keymaps '(normal visual insert emacs)
+                               :keymaps '(motion insert emacs)
                                "ss" 'swiper))
 
 (provide 'init-ivy)
