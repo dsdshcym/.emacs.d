@@ -8,7 +8,10 @@
                                :keymaps '(motion insert emacs)
                                "gs" 'magit-status
                                "gi" 'magit-init
-                               "gl" 'magit-log-buffer-file))
+                               "gl" 'magit-log-buffer-file)
+  (general-define-key
+   :keymaps '(magit-status-mode-map magit-diff-mode-map magit-log-mode-map)
+   "SPC" nil))
 
 (use-package evil-magit
   :after magit)
