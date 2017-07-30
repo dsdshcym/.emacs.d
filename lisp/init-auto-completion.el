@@ -21,4 +21,4 @@
                                           "company-statistics-cache.el"))
     (add-hook 'company-mode-hook 'company-statistics-mode)))
 
-(provide 'init-company)
+(provide 'init-auto-completion)

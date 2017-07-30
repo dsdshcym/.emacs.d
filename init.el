@@ -18,7 +18,7 @@
 (require 'init-ivy)
 (require 'init-git)
 (require 'init-projectile)
-(require 'init-company)
+(require 'init-auto-completion)
 (require 'init-org)
 (require 'init-chinese)
 (global-auto-revert-mode)
