@@ -149,6 +149,16 @@ By default the (truly) last line."
    "+" 'evil-numbers/inc-at-pt
    "-" 'evil-numbers/dec-at-pt))
 
+(use-package evil-visualstar
+  :commands (evil-visualstar/begin-search-forward
+             evil-visualstar/begin-search-backward)
+  :config (global-evil-visualstar-mode)
+  :general
+  (general-define-key
+   :keymaps 'visual
+   "*" 'evil-visualstar/begin-search-forward
+   "#" 'evil-visualstar/begin-search-backward))
+
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
   (interactive)
