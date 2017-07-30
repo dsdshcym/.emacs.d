@@ -51,4 +51,42 @@
 (use-package diff-mode
   :defer t)
 
+(use-package git-gutter+
+  :init
+  (global-git-gutter+-mode t)
+  :config
+  (setq git-gutter+-modified-sign " "
+        git-gutter+-added-sign "+"
+        git-gutter+-deleted-sign "-"
+        git-gutter+-diff-option "-w"
+        git-gutter+-hide-gutter t))
+
+(use-package git-gutter-fringe+
+  :after git-gutter+
+  :init
+  (setq git-gutter-fr+-side 'left-fringe)
+  :config
+  (progn
+    ;; custom graphics that works nice with half-width fringes
+    (fringe-helper-define 'git-gutter-fr+-added nil
+      "..X...."
+      "..X...."
+      "XXXXX.."
+      "..X...."
+      "..X...."
+      )
+    (fringe-helper-define 'git-gutter-fr+-deleted nil
+      "......."
+      "......."
+      "XXXXX.."
+      "......."
+      "......."
+      )
+    (fringe-helper-define 'git-gutter-fr+-modified nil
+      "..X...."
+      ".XXX..."
+      "XX.XX.."
+      ".XXX..."
+      "..X....")))
+
 (provide 'init-version-control)
