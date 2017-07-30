@@ -69,6 +69,15 @@
                                 "ww" 'other-window
                                 "w=" 'balance-windows)))
 
+(use-package evil-nerd-commenter
+  :defer t
+  :general
+  (general-define-key
+   :prefix "SPC"
+   :non-normal-prefix "M-m"
+   :keymaps '(motion insert emacs)
+   ";"  'evilnc-comment-operator))
+
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
   (interactive)
