@@ -22,4 +22,9 @@
                                           "company-statistics-cache.el"))
     (add-hook 'company-mode-hook 'company-statistics-mode)))
 
+(use-package smartparens
+  :defer t
+  :init (smartparens-global-mode)
+  :commands (sp-split-sexp sp-newline sp-up-sexp))
+
 (provide 'init-auto-completion)
