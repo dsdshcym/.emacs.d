@@ -5,7 +5,7 @@
             (ivy-mode))
   :general (general-define-key :prefix "SPC"
                                :non-normal-prefix "M-m"
-                               :states '(normal visual insert emacs)
+                               :keymaps '(normal visual insert emacs)
                                ;; Buffer
                                "bb" 'ivy-switch-buffer))
 
@@ -14,7 +14,7 @@
   :config (counsel-mode)
   :general (general-define-key :prefix "SPC"
                                :non-normal-prefix "M-m"
-                               :states '(normal visual insert emacs)
+                               :keymaps '(normal visual insert emacs)
                                ;; Insert
                                "iu" 'counsel-unicode-char
                                ;; Register/Ring
@@ -25,7 +25,7 @@
   :after ivy
   :general (general-define-key :prefix "SPC"
                                :non-normal-prefix "M-m"
-                               :states '(normal visual insert emacs)
+                               :keymaps '(normal visual insert emacs)
                                "ss" 'swiper))
 
 (provide 'init-ivy)

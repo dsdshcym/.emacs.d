@@ -5,7 +5,7 @@
             (setq magit-repository-directories '(("~/Projects/" . 2))))
   :general (general-define-key :prefix "SPC"
                                :non-normal-prefix "M-m"
-                               :states '(normal visual insert emacs)
+                               :keymaps '(normal visual insert emacs)
                                "gs" 'magit-status
                                "gi" 'magit-init
                                "gl" 'magit-log-buffer-file))

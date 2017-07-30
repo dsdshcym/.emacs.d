@@ -18,7 +18,8 @@
   :config (progn
             (general-define-key :prefix "SPC"
                                 :non-normal-prefix "M-m"
-                                :states '(normal visual insert emacs)
+                                :keymaps '(normal visual insert emacs)
+                                "" nil
 
                                 ;; File
                                 "ff" 'find-file
