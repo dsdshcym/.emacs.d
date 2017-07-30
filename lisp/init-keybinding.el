@@ -117,6 +117,9 @@
    :keymaps '(motion insert emacs)
    "se" 'evil-iedit-state/iedit-mode))
 
+(use-package evil-indent-plus
+  :init (evil-indent-plus-default-bindings))
+
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
   (interactive)
