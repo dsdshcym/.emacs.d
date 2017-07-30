@@ -34,4 +34,18 @@
 (use-package git-timemachine
   :defer t)
 
+(use-package git-link
+  :defer t
+  :config
+  (setq git-link-open-in-browser t)
+  :general
+  (general-define-key
+   :prefix "SPC"
+   :non-normal-prefix "M-m"
+   :keymaps '(motion insert emacs)
+   "gl" nil
+   "gll" 'git-link
+   "glc" 'git-link-commit
+   "glh" 'git-link-homepage))
+
 (provide 'init-version-control)
