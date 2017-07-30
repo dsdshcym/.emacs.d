@@ -100,6 +100,9 @@
    "s" 'evil-surround-region
    "S" 'evil-substitute))
 
+(use-package evil-ediff
+  :after ediff)
+
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
   (interactive)
