@@ -103,6 +103,9 @@
 (use-package evil-ediff
   :after ediff)
 
+(use-package evil-exchange
+  :init (evil-exchange-install))
+
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
   (interactive)
