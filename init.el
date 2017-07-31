@@ -24,6 +24,7 @@
 (require 'init-editing)
 (require 'init-syntax-checking)
 (require 'init-dired)
+(require 'init-ruby)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
 (setq version-control t)
