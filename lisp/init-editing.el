@@ -26,4 +26,11 @@
     (setq undo-tree-visualizer-timestamps t)
     (setq undo-tree-visualizer-diff t)))
 
+(use-package saveplace
+  :init
+  (progn
+    (setq save-place-file (concat private/cache-directory "places"))
+    (save-place-mode)
+    ))
+
 (provide 'init-editing)
