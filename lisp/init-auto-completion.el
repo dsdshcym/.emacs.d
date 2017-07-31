@@ -27,4 +27,7 @@
   :init (smartparens-global-mode)
   :commands (sp-split-sexp sp-newline sp-up-sexp))
 
+(use-package smartparens-config
+  :ensure smartparens)
+
 (provide 'init-auto-completion)
