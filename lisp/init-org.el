@@ -81,9 +81,75 @@
     ;; -----------------------------
     ;; Archive
     ;; -----------------------------
-    (setq org-archive-location (concat org-directory "/Archived/" "%s_archive::"))
-    )
+    (setq org-archive-location (concat org-directory "/Archived/" "%s_archive::")))
   :general
+  (general-define-key
+   :prefix "SPC m"
+   :non-normal-prefix "M-m"
+   :states '(motion insert emacs)
+   :keymaps 'org-mode-map
+   "cc" 'org-clock-cancel
+   "ci" 'org-clock-in
+   "co" 'org-clock-out
+   "cr" 'org-resolve-clocks
+   "dd" 'org-deadline
+   "ds" 'org-schedule
+   "dt" 'org-time-stamp
+   "dT" 'org-time-stamp-inactive
+
+   "e" 'org-export-dispatch
+
+   "a" 'org-agenda
+
+   "tT" 'org-show-todo-tree
+   "ti" 'org-toggle-inline-images
+   "tt" 'org-todo
+   "tx" 'org-toggle-latex-fragment
+
+   ;; More cycling options (timestamps, headlines, items, properties)
+   "L" 'org-shiftright
+   "H" 'org-shiftleft
+   "J" 'org-shiftdown
+   "K" 'org-shiftup
+
+   ;; Change between TODO sets
+   "C-S-l" 'org-shiftcontrolright
+   "C-S-h" 'org-shiftcontrolleft
+   "C-S-j" 'org-shiftcontroldown
+   "C-S-k" 'org-shiftcontrolup
+
+   ;; Subtree editing
+   "sa" 'org-archive-subtree
+   "sb" 'org-tree-to-indirect-buffer
+   "sh" 'org-promote-subtree
+   "sj" 'org-move-subtree-down
+   "sk" 'org-move-subtree-up
+   "sl" 'org-demote-subtree
+   "sn" 'org-narrow-to-subtree
+   "sN" 'widen
+   "sr" 'org-refile
+   "ss" 'org-sparse-tree
+   "sS" 'org-sort
+
+   ;; Multi-purpose keys
+   "'" 'org-ctrl-c-ctrl-c
+   "*" 'org-ctrl-c-star
+   "RET" 'org-ctrl-c-ret
+   "-" 'org-ctrl-c-minus
+   "#" 'org-update-statistics-cookies
+   ;; attachments
+   "A" 'org-attach
+   ;; insertion
+   "id" 'org-insert-drawer
+   "ie" 'org-set-effort
+   "if" 'org-footnote-new
+   "ih" 'org-insert-heading
+   "iH" 'org-insert-heading-after-current
+   "iK" 'spacemacs/insert-keybinding-org
+   "il" 'org-insert-link
+   "ip" 'org-set-property
+   "is" 'org-insert-subheading
+   "it" 'org-set-tags)
   (general-define-key 
    :prefix "SPC"
    :non-normal-prefix "M-m"
