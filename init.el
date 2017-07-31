@@ -22,6 +22,7 @@
 (require 'init-org)
 (require 'init-chinese)
 (require 'init-editing)
+(require 'init-syntax-checking)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
 (setq version-control t)
