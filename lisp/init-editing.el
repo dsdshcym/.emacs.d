@@ -15,4 +15,15 @@
    "jl" 'evil-avy-goto-line
    "jw" 'evil-avy-goto-word-or-subword-1))
 
+(use-package undo-tree
+  :defer t
+  :init
+  (global-undo-tree-mode)
+  :config
+  (progn
+    (setq undo-tree-history-directory-alist `(("." . ,(concat private/cache-directory "undo-tree-history"))))
+    (setq undo-tree-auto-save-history t)
+    (setq undo-tree-visualizer-timestamps t)
+    (setq undo-tree-visualizer-diff t)))
+
 (provide 'init-editing)
