@@ -12,4 +12,9 @@
    :keymaps 'dired-mode-map
    "SPC" nil))
 
+(use-package dired-x
+  :ensure nil
+  :commands (dired-jump
+             dired-jump-other-window))
+
 (provide 'init-dired)
