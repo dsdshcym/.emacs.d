@@ -25,6 +25,7 @@
 (require 'init-syntax-checking)
 (require 'init-dired)
 (require 'init-ruby)
+(require 'init-elfeed)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
 (setq version-control t)
