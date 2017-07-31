@@ -291,6 +291,9 @@
 
     (setq org-agenda-span 'day)
 
+    (setq org-agenda-clockreport-parameter-plist
+          '(:link t :maxlevel 5 :fileskip0 t :narrow 70! :compact t))
+
     (setq org-agenda-custom-commands
           '(("h" "Agenda and Home-related tasks"
              ((agenda "")
@@ -298,10 +301,6 @@
             ("w" "@WORK"
              ((agenda ""))
              ((org-agenda-tag-filter-preset '("+@WORK"))))))
-
-    ;; Agenda clock report parameters
-    ;;(setq org-agenda-clockreport-parameter-plist
-    ;;'(:link t :maxlevel 5 :fileskip0 t :narrow 70! :compact t))
 
     (setq org-agenda-skip-scheduled-if-deadline-is-shown 'not-today))
   :config
