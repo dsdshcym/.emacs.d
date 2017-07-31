@@ -237,7 +237,21 @@
     ;;(setq org-agenda-clockreport-parameter-plist
     ;;'(:link t :maxlevel 5 :fileskip0 t :narrow 70! :compact t))
 
-    (setq org-agenda-skip-scheduled-if-deadline-is-shown 'not-today)))
+    (setq org-agenda-skip-scheduled-if-deadline-is-shown 'not-today))
+  :config
+  (evil-set-initial-state 'org-agenda-mode 'normal)
+  :general
+  (general-evil-define-key 'normal 'org-agenda-keymap
+    "j" 'org-agenda-next-item
+    "k" 'org-agenda-previous-item
+    "L" 'org-agenda-log-mode
+    "q" 'org-agenda-quit
+    "f" 'org-agenda-later
+    "b" 'org-agenda-earlier
+    "r" 'org-agenda-redo
+    "R" 'org-agenda-clockreport-mode
+    "gj" 'org-agenda-next-line
+    "gk" 'org-agenda-previous-line))
 
 (use-package org-capture
   :ensure org-plus-contrib
