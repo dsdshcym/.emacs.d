@@ -19,6 +19,19 @@
   :config
   (add-hook 'ruby-mode-hook 'rbenv-use-corresponding))
 
+(use-package inf-ruby
+  :defer t
+  :general
+  (general-define-key
+   :prefix "SPC m"
+   :non-normal-prefix "M-m"
+   :states '(motion insert emacs)
+   :keymaps 'ruby-mode-map
+   "sf" 'ruby-send-definition
+   "sF" 'ruby-send-definition-and-go
+   "sr" 'ruby-send-region
+   "sR" 'ruby-send-region-and-go))
+
 (use-package robe
   :delight
   :defer t
