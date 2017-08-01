@@ -24,7 +24,10 @@
   :defer t)
 
 (use-package smart-mode-line
-  :init (sml/setup))
+  :init
+  (progn
+    (setq sml/position-percentage-format nil)
+    (sml/setup)))
 
 (use-package nyan-mode
   :defer t
