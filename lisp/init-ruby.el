@@ -120,7 +120,11 @@ Called interactively it prompts for a directory."
   :delight
   :after projectile
   :init
-  (projectile-rails-global-mode))
+  (projectile-rails-global-mode)
+  :general
+  (general-define-key
+   :keymaps '(projectile-rails-server-mode-map)
+   "SPC" nil))
 
 (use-package ruby-tools
   :delight
