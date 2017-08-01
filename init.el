@@ -25,6 +25,7 @@
 (require 'init-syntax-checking)
 (require 'init-dired)
 (require 'init-ruby)
+(require 'init-yaml)
 (require 'init-elfeed)
 (require 'init-ledger)
 (global-auto-revert-mode)
