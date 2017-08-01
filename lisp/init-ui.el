@@ -26,4 +26,8 @@
 (use-package smart-mode-line
   :init (sml/setup))
 
+(use-package nyan-mode
+  :defer t
+  :init (nyan-mode))
+
 (provide 'init-ui)
