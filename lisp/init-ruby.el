@@ -78,6 +78,9 @@ Called interactively it prompts for a directory."
       (rspec-run-single-file dir (rspec-core-options))))
   :general
   (general-define-key
+   :keymaps 'rspec-compilation-mode-map
+   "SPC" nil)
+  (general-define-key
    :prefix "SPC m"
    :non-normal-prefix "M-m"
    :states '(motion insert emacs)
