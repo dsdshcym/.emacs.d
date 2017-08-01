@@ -36,7 +36,9 @@
   :delight
   :defer t
   :init
-  (add-hook 'ruby-mode-hook 'robe-mode))
+  (progn
+    (add-hook 'ruby-mode-hook 'robe-mode)
+    (add-to-list 'company-backends 'company-robe)))
 
 (use-package bundler
   :defer t
