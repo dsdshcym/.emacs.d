@@ -38,7 +38,18 @@
   :init
   (progn
     (add-hook 'ruby-mode-hook 'robe-mode)
-    (add-to-list 'company-backends 'company-robe)))
+    (add-to-list 'company-backends 'company-robe))
+  :general
+  (general-define-key
+   :prefix "SPC m"
+   :non-normal-prefix "M-m"
+   :states '(motion insert emacs)
+   :keymaps 'ruby-mode-map
+   "hh" 'robe-doc
+   "rsr" 'robe-rails-refresh
+   "gg" 'robe-jump
+   "si" 'robe-start
+   "ss" 'ruby-switch-to-inf))
 
 (use-package bundler
   :defer t
