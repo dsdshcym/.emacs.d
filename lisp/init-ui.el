@@ -23,4 +23,7 @@
 (use-package delight
   :defer t)
 
+(use-package smart-mode-line
+  :init (sml/setup))
+
 (provide 'init-ui)
