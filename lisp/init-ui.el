@@ -20,4 +20,7 @@
           (setq solarized-scale-org-headlines nil)
           (load-theme 'solarized-dark t nil)))
 
+(use-package delight
+  :defer t)
+
 (provide 'init-ui)

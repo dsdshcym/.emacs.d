@@ -16,6 +16,7 @@
    "jw" 'evil-avy-goto-word-or-subword-1))
 
 (use-package undo-tree
+  :delight
   :defer t
   :init
   (global-undo-tree-mode)

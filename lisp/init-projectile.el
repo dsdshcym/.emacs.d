@@ -1,4 +1,5 @@
 (use-package projectile
+  :delight '(:eval (concat " " "{" (projectile-project-name) "}"))
   :commands (projectile-ack
              projectile-ag
              projectile-compile-project

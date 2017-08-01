@@ -52,6 +52,7 @@
   :defer t)
 
 (use-package git-gutter+
+  :delight
   :init
   (global-git-gutter+-mode t)
   :config

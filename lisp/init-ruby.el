@@ -4,6 +4,7 @@
   :interpreter "ruby")
 
 (use-package ruby-mode
+  :delight
   :defer t
   :mode (("Appraisals\\'" . ruby-mode)
          ("Puppetfile" . ruby-mode))
@@ -24,6 +25,7 @@
   (add-hook 'enh-ruby-mode-hook 'rbenv-use-corresponding))
 
 (use-package robe
+  :delight
   :defer t
   :init
   (add-hook 'enh-ruby-mode-hook 'robe-mode))
@@ -45,6 +47,7 @@
 
 (use-package rspec-mode
   :after enh-ruby-mode
+  :delight
   :config
   (progn
     (defun ruby/rspec-verify-directory (dir)
@@ -72,6 +75,7 @@ Called interactively it prompts for a directory."
    "t TAB" 'rspec-toggle-spec-and-target))
 
 (use-package rubocop
+  :delight
   :defer t
   :init
   (add-hook 'enh-ruby-mode-hook 'rubocop-mode)
@@ -89,11 +93,13 @@ Called interactively it prompts for a directory."
    "rrP" 'rubocop-autocorrect-project))
 
 (use-package projectile-rails
+  :delight
   :after projectile
   :init
   (projectile-rails-global-mode))
 
 (use-package ruby-tools
+  :delight
   :defer t
   :init
   (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)

@@ -1,4 +1,5 @@
 (use-package company
+  :delight
   :defer t
   :init
   (progn
@@ -23,6 +24,7 @@
     (add-hook 'company-mode-hook 'company-statistics-mode)))
 
 (use-package smartparens
+  :delight
   :defer t
   :init (smartparens-global-mode)
   :commands (sp-split-sexp sp-newline sp-up-sexp))

@@ -3,6 +3,7 @@
   (fcitx-evil-turn-on))
 
 (use-package pangu-spacing
+  :delight
   :defer t
   :init
   (progn
