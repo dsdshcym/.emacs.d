@@ -19,6 +19,8 @@
   :config
   (add-hook 'ruby-mode-hook 'rbenv-use-corresponding))
 
+;; (use-package xmpfilter)
+
 (use-package inf-ruby
   :defer t
   :general
@@ -75,7 +77,10 @@
       "Launch tests in DIR directory.
 Called interactively it prompts for a directory."
       (interactive "Drspec directory: ")
-      (rspec-run-single-file dir (rspec-core-options))))
+      (rspec-run-single-file dir (rspec-core-options)))
+
+    (push '(rspec-compilation-mode :dedicated t :position bottom :stick t :noselect t :height 0.4)
+          popwin:special-display-config))
   :general
   (general-define-key
    :prefix "SPC m"
@@ -118,6 +123,9 @@ Called interactively it prompts for a directory."
   :after projectile
   :init
   (projectile-rails-global-mode)
+  :config
+  (push '(projectile-rails-compilation-mode :dedicated t :position bottom :stick t :noselect t :height 0.4)
+        popwin:special-display-config)
   :general
   (general-define-key
    :prefix "SPC m"
@@ -189,6 +197,9 @@ Called interactively it prompts for a directory."
   (progn
     (setq rake-cache-file (concat private/cache-directory "rake.cache"))
     (setq rake-completion-system 'default))
+  :config
+  (push '(rake-compilation-mode :dedicated t :position bottom :stick t :noselect t :height 0.4)
+        popwin:special-display-config)
   :general
   (general-define-key
    :prefix "SPC m"

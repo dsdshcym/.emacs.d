@@ -33,4 +33,34 @@
   :defer t
   :init (nyan-mode))
 
+
+(use-package popwin
+  :after windows
+  :demand t
+  :config
+  (progn
+      (setq popwin:special-display-config nil)
+
+      (push '("*Help*"                 :dedicated t :position bottom :stick t :noselect t   :height 0.4) popwin:special-display-config)
+      (push '("*compilation*"          :dedicated t :position bottom :stick t :noselect t   :height 0.4) popwin:special-display-config)
+      (push '("*Shell Command Output*" :dedicated t :position bottom :stick t :noselect nil            ) popwin:special-display-config)
+      (push '("*Async Shell Command*"  :dedicated t :position bottom :stick t :noselect nil            ) popwin:special-display-config)
+      (push '("*undo-tree*"            :dedicated t :position right  :stick t :noselect nil :width   60) popwin:special-display-config)
+      (push '("*undo-tree Diff*"       :dedicated t :position bottom :stick t :noselect nil :height 0.3) popwin:special-display-config)
+      (push '("*ert*"                  :dedicated t :position bottom :stick t :noselect nil            ) popwin:special-display-config)
+      (push '("*grep*"                 :dedicated t :position bottom :stick t :noselect nil            ) popwin:special-display-config)
+      (push '("*nosetests*"            :dedicated t :position bottom :stick t :noselect nil            ) popwin:special-display-config)
+      (push '("^\*WoMan.+\*$" :regexp t             :position bottom                                   ) popwin:special-display-config)
+
+      (popwin-mode 1))
+  :general
+  (general-define-key
+   :prefix "SPC"
+   :non-normal-prefix "M-m"
+   :keymaps '(motion insert emacs)
+   "wpc" 'popwin:close-popup-window
+   "wps" 'popwin:stick-popup-window
+   "wpl" 'popwin:switch-to-last-buffer
+   "wpp" 'popwin:popup-last-buffer))
+
 (provide 'init-ui)
