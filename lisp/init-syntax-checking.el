@@ -2,8 +2,8 @@
   :delight
   :defer t
   :init
-  (global-flycheck-mode)
-  :config
-  (add-to-list 'flycheck-disabled-checkers 'emacs-lisp-checkdoc))
+  (progn
+    (setq flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
+    (global-flycheck-mode)))
 
 (provide 'init-syntax-checking)
