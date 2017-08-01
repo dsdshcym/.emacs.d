@@ -1,8 +1,3 @@
-(use-package enh-ruby-mode
-  :mode (("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
-         ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
-  :interpreter "ruby")
-
 (use-package ruby-mode
   :delight
   :defer t
@@ -13,7 +8,7 @@
    :prefix "SPC m"
    :non-normal-prefix "M-m"
    :states '(motion insert emacs)
-   :keymaps '(ruby-mode-map enh-ruby-mode-map)
+   :keymaps 'ruby-mode-map
    "'" 'ruby-toggle-string-quotes
    "{" 'ruby-toggle-block))
 
@@ -22,13 +17,13 @@
   :init
   (global-rbenv-mode)
   :config
-  (add-hook 'enh-ruby-mode-hook 'rbenv-use-corresponding))
+  (add-hook 'ruby-mode-hook 'rbenv-use-corresponding))
 
 (use-package robe
   :delight
   :defer t
   :init
-  (add-hook 'enh-ruby-mode-hook 'robe-mode))
+  (add-hook 'ruby-mode-hook 'robe-mode))
 
 (use-package bundler
   :defer t
@@ -37,7 +32,7 @@
    :prefix "SPC m"
    :non-normal-prefix "M-m"
    :states '(motion insert emacs)
-   :keymaps '(ruby-mode-map enh-ruby-mode-map)
+   :keymaps 'ruby-mode-map
    "bc" 'bundle-check
    "bi" 'bundle-install
    "bs" 'bundle-console
@@ -46,8 +41,8 @@
    "bo" 'bundle-open))
 
 (use-package rspec-mode
-  :after enh-ruby-mode
   :delight
+  :defer t
   :config
   (progn
     (defun ruby/rspec-verify-directory (dir)
@@ -60,7 +55,7 @@ Called interactively it prompts for a directory."
    :prefix "SPC m"
    :non-normal-prefix "M-m"
    :states '(motion insert emacs)
-   :keymaps '(ruby-mode-map enh-ruby-mode-map)
+   :keymaps 'ruby-mode-map
    "ta"    'rspec-verify-all
    "tb"    'rspec-verify
    "tc"    'rspec-verify-continue
@@ -78,13 +73,13 @@ Called interactively it prompts for a directory."
   :delight
   :defer t
   :init
-  (add-hook 'enh-ruby-mode-hook 'rubocop-mode)
+  (add-hook 'ruby-mode-hook 'rubocop-mode)
   :general
   (general-define-key
    :prefix "SPC m"
    :non-normal-prefix "M-m"
    :states '(motion insert emacs)
-   :keymaps '(ruby-mode-map enh-ruby-mode-map)
+   :keymaps 'ruby-mode-map
    "rrd" 'rubocop-check-directory
    "rrD" 'rubocop-autocorrect-directory
    "rrf" 'rubocop-check-current-file
@@ -102,13 +97,13 @@ Called interactively it prompts for a directory."
   :delight
   :defer t
   :init
-  (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
+  (add-hook 'ruby-mode-hook 'ruby-tools-mode)
   :general
   (general-define-key
    :prefix "SPC m"
    :non-normal-prefix "M-m"
    :states '(motion insert emacs)
-   :keymaps '(ruby-mode-map enh-ruby-mode-map)
+   :keymaps 'ruby-mode-map
    "x\'" 'ruby-tools-to-single-quote-string
    "x\"" 'ruby-tools-to-double-quote-string
    "x:" 'ruby-tools-to-symbol))
@@ -124,7 +119,7 @@ Called interactively it prompts for a directory."
    :prefix "SPC m"
    :non-normal-prefix "M-m"
    :states '(motion insert emacs)
-   :keymaps '(ruby-mode-map enh-ruby-mode-map)
+   :keymaps 'ruby-mode-map
    "kk"    'rake
    "kr"    'rake-rerun
    "kR"    'rake-regenerate-cache
