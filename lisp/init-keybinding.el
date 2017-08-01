@@ -85,7 +85,12 @@ By default the (truly) last line."
                                 "wv" 'split-window-right
                                 "wV" 'split-window-right-and-focus
                                 "ww" 'other-window
-                                "w=" 'balance-windows)))
+                                "w=" 'balance-windows)
+            :general
+            (general-define-key
+             :status 'motion
+             :keymaps '(info-mode-map compilation-mode-map)
+             "SPC" nil)))
 
 (use-package evil-nerd-commenter
   :defer t
