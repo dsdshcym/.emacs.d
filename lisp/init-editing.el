@@ -15,6 +15,14 @@
    "jl" 'evil-avy-goto-line
    "jw" 'evil-avy-goto-word-or-subword-1))
 
+(use-package ace-pinyin
+  :delight
+  :defer t
+  :init
+  (progn
+    (setq ace-pinyin-use-avy t)
+    (ace-pinyin-global-mode t)))
+
 (use-package undo-tree
   :delight
   :defer t
