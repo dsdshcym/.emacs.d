@@ -27,6 +27,7 @@
 (require 'init-ruby)
 (require 'init-yaml)
 (require 'init-elfeed)
+(require 'init-mu4e)
 (require 'init-ledger)
 (global-auto-revert-mode)
 (setq delete-old-versions -1)
