@@ -241,4 +241,8 @@
     "y"               'mu4e-select-other-view
     "|"               'mu4e-view-pipe))
 
+(use-package org-mu4e
+  :ensure nil
+  :after mu4e)
+
 (provide 'init-mu4e)
