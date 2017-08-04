@@ -40,7 +40,7 @@
   :after elfeed
   :init
   (progn
-    (setq elfeed-goodies/entry-pane-position 'down)
+    (setq elfeed-goodies/entry-pane-position 'bottom)
     (elfeed-goodies/setup)))
 
 (use-package elfeed-org
