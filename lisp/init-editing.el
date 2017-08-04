@@ -38,6 +38,12 @@
     (setq save-place-file (concat private/cache-directory "places"))
     (save-place-mode)))
 
+(use-package autorevert
+  :defer t
+  :delight auto-revert-mode
+  :init
+  (global-auto-revert-mode))
+
 (use-package recentf
   :defer t
   :init
