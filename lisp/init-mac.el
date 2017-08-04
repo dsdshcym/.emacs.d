@@ -1,3 +1,5 @@
+(setq mac-pass-command-to-system nil)
+
 (use-package dash-at-point
   :defer t
   :general
