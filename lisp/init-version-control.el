@@ -23,6 +23,7 @@
   :defer t)
 
 (use-package git-rebase
+  :ensure magit
   :defer t
   :general
   (general-define-key
