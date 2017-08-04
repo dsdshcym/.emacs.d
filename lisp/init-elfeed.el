@@ -18,18 +18,24 @@
    :states 'normal
    :keymaps 'elfeed-search-mode-map
    "RET" 'elfeed-search-show-entry
-   "s"  'elfeed-search-live-filter
-   "c"  'elfeed-db-compact
-   "gr" 'elfeed-update
-   "gR" 'elfeed-search-update--force
-   "gu" 'elfeed-unjam
-   "q"  'quit-window)
+   "s"   'elfeed-search-live-filter
+   "b"   'elfeed-search-browse-url
+   "c"   'elfeed-db-compact
+   "r"   'elfeed-search-untag-all-unread
+   "u"   'elfeed-search-tag-all-unread
+   "y"   'elfeed-search-yank
+   "gr"  'elfeed-update
+   "gR"  'elfeed-search-update--force
+   "gu"  'elfeed-unjam
+   "q"   'quit-window)
   (general-define-key
    :states 'normal
    :keymaps 'elfeed-show-mode-map
-   "C-n"  'elfeed-show-next
+   "C-n" 'elfeed-show-next
    "C-p" 'elfeed-show-prev
-   "q"  'quit-window)
+   "y"   'elfeed-show-yank
+   "b"   'elfeed-show-visit
+   "q"   'quit-window)
   (general-define-key
    :prefix "SPC"
    :non-normal-prefix "M-m"
