@@ -19,7 +19,7 @@
 (use-package git-commit
   :defer t)
 
-(use-package git-commit
+(use-package git-rebase
   :defer t)
 
 (use-package gitattributes-mode
