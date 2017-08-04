@@ -72,4 +72,7 @@
           savehist-autosave-interval 60)
     (savehist-mode t)))
 
+(use-package wgrep
+  :defer t)
+
 (provide 'init-editing)
