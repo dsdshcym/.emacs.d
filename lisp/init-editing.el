@@ -39,7 +39,6 @@
   :init
   (progn
     (setq save-place-file (concat private/cache-directory "places"))
-    (save-place-mode)
-    ))
+    (save-place-mode)))
 
 (provide 'init-editing)
