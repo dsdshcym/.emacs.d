@@ -33,4 +33,7 @@
   (private/set-leader-keys
    "ss" 'swiper))
 
+(use-package ivy-hydra
+  :defer t)
+
 (provide 'init-ivy)
