@@ -5,16 +5,14 @@
   (progn
     (setq company-idle-delay 0.2
           company-minimum-prefix-length 2
-          company-require-match nil
-          company-dabbrev-ignore-case nil
-          company-dabbrev-downcase nil)
+          company-require-match nil)
     (global-company-mode))
   :config
   (progn
     (setq company-backends
-          '((company-dabbrev-code company-keywords :with company-yasnippet)
-            company-capf
-            company-files)))
+          '(company-keywords
+            company-files
+            (company-capf :with company-yasnippet))))
   :general
   (general-define-key
    :keymaps 'company-active-map
