@@ -35,7 +35,8 @@ By default the (truly) last line."
             (define-key minibuffer-local-must-match-map [escape] 'abort-recursive-edit)
             (define-key minibuffer-local-isearch-map [escape] 'abort-recursive-edit)
             ;; Escape from isearch-mode("/" and "?" in evil-mode) like vim
-            (define-key isearch-mode-map (kbd "<escape>") 'isearch-cancel)))
+            (define-key isearch-mode-map (kbd "<escape>") 'isearch-cancel)
+            (define-key evil-motion-state-map [C-i] 'evil-jump-forward)))
 
 (use-package general
   :config (progn
