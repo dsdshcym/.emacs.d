@@ -11,6 +11,9 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (setq private/cache-directory "~/.emacs.d/.cache/")
+(setq private/system-is-mac (eq system-type 'darwin))
+(setq private/system-is-linux (eq system-type 'gnu/linux))
+(setq private/system-is-linux (eq system-type 'windows-nt))
 
 (require 'init-package)
 (require 'init-keybinding)
