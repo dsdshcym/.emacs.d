@@ -4,10 +4,7 @@
   :mode (("Appraisals\\'" . ruby-mode)
          ("Puppetfile" . ruby-mode))
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
    "'" 'ruby-toggle-string-quotes
    "{" 'ruby-toggle-block))
@@ -24,10 +21,7 @@
 (use-package inf-ruby
   :defer t
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
    "sf" 'ruby-send-definition
    "sF" 'ruby-send-definition-and-go
@@ -45,10 +39,7 @@
                 (make-local-variable 'company-backends)
                 (add-to-list 'company-backends 'company-robe))))
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
    "hh" 'robe-doc
    "rsr" 'robe-rails-refresh
@@ -59,10 +50,7 @@
 (use-package bundler
   :defer t
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
    "bc" 'bundle-check
    "bi" 'bundle-install
@@ -85,10 +73,7 @@ Called interactively it prompts for a directory."
     (push '(rspec-compilation-mode :dedicated t :position bottom :stick t :noselect t :height 0.4)
           popwin:special-display-config))
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
    "ta"    'rspec-verify-all
    "tb"    'rspec-verify
@@ -109,10 +94,7 @@ Called interactively it prompts for a directory."
   :init
   (add-hook 'ruby-mode-hook 'rubocop-mode)
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
    "rrd" 'rubocop-check-directory
    "rrD" 'rubocop-autocorrect-directory
@@ -130,10 +112,7 @@ Called interactively it prompts for a directory."
   (push '(projectile-rails-compilation-mode :dedicated t :position bottom :stick t :noselect t :height 0.4)
         popwin:special-display-config)
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'projectile-rails-mode-map
    "rfa" 'projectile-rails-find-locale
    "rfc" 'projectile-rails-find-controller
@@ -185,10 +164,7 @@ Called interactively it prompts for a directory."
   :init
   (add-hook 'ruby-mode-hook 'ruby-tools-mode)
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
    "x\'" 'ruby-tools-to-single-quote-string
    "x\"" 'ruby-tools-to-double-quote-string
@@ -204,10 +180,7 @@ Called interactively it prompts for a directory."
   (push '(rake-compilation-mode :dedicated t :position bottom :stick t :noselect t :height 0.4)
         popwin:special-display-config)
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
    "kk"    'rake
    "kr"    'rake-rerun

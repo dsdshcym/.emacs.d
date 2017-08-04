@@ -81,10 +81,7 @@
     ;; -----------------------------
     (setq org-archive-location (concat org-directory "/Archived/" "%s_archive::")))
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'org-mode-map
    "cc" 'org-clock-cancel
    "ci" 'org-clock-in

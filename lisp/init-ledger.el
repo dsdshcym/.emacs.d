@@ -8,10 +8,7 @@
   (with-eval-after-load company-mode
     (add-to-list 'company-backends 'company-capf))
   :general
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'ledger-mode-map
    "a" 'ledger-add-transaction
    "b" 'ledger-post-edit-amount
@@ -26,10 +23,7 @@
    "R" 'ledger-reconcile
    "t" 'ledger-insert-effective-date
    "y" 'ledger-set-year)
-  (general-define-key
-   :prefix "SPC m"
-   :non-normal-prefix "M-m m"
-   :states '(motion insert emacs)
+  (private/set-leader-keys-for-mode
    :keymaps 'ledger-reconcile-mode-map
    "'" 'ledger-reconcile-toggle
    "a" 'ledger-reconcile-add
