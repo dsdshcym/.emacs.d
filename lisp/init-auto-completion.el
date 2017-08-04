@@ -32,4 +32,11 @@
 (use-package smartparens-config
   :ensure smartparens)
 
+(use-package yasnippet
+  :commands (yas-reload-all yas-global-mode yas-minor-mode)
+  :init
+  (progn
+    (yas-reload-all)
+    (add-hook 'prog-mode-hook #'yas-minor-mode)))
+
 (provide 'init-auto-completion)
