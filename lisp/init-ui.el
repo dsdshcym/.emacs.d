@@ -30,9 +30,7 @@
     (sml/setup)))
 
 (use-package nyan-mode
-  :defer t
-  :init (nyan-mode))
-
+  :commands 'nyan-mode)
 
 (use-package popwin
   :after windows
