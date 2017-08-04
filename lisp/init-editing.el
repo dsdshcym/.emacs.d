@@ -60,4 +60,19 @@
     (add-to-list 'recentf-exclude (file-truename package-user-dir))
     (add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'")))
 
+(use-package savehist
+  :init
+  (progn
+    ;; Minibuffer history
+    (setq savehist-file (concat private/cache-directory "savehist")
+          enable-recursive-minibuffers t ; Allow commands in minibuffers
+          history-length 1000
+          savehist-additional-variables '(mark-ring
+                                          global-mark-ring
+                                          search-ring
+                                          regexp-search-ring
+                                          extended-command-history)
+          savehist-autosave-interval 60)
+    (savehist-mode t)))
+
 (provide 'init-editing)
