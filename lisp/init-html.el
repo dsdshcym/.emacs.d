@@ -2,6 +2,7 @@
   :defer t)
 
 (use-package company-css
+  :ensure company
   :defer t
   :init
   (add-hook 'css-mode-hook
