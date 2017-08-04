@@ -13,7 +13,11 @@
   :general
   (private/set-leader-keys
    ;; Buffer
-   "bb" 'ivy-switch-buffer))
+   "bb" 'ivy-switch-buffer)
+  :general
+  (private/set-leader-keys-for-mode
+   :keymaps 'ivy-occur-grep-mode-map
+   "w" 'ivy-wgrep-change-to-wgrep-mode))
 
 (use-package counsel
   :delight
