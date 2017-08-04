@@ -198,6 +198,10 @@ By default the (truly) last line."
    "*" 'evil-visualstar/begin-search-forward
    "#" 'evil-visualstar/begin-search-backward))
 
+(use-package evil-lion
+  :init
+  (evil-lion-mode))
+
 (use-package ace-window
   :defer t
   :config
