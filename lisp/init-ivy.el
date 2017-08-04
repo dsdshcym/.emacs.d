@@ -6,6 +6,7 @@
   :config
   (progn
     (define-key ivy-minibuffer-map [escape] 'minibuffer-keyboard-quit)
+    (setq ivy-use-virtual-buffers t)
     (setq ivy-initial-inputs-alist nil)
     (setq ivy-re-builders-alist
           '((t . ivy--regex-ignore-order))))
