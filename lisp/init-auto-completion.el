@@ -9,6 +9,12 @@
           company-dabbrev-ignore-case nil
           company-dabbrev-downcase nil)
     (global-company-mode))
+  :config
+  (progn
+    (setq company-backends
+          '((company-dabbrev-code company-keywords :with company-yasnippet)
+            company-capf
+            company-files)))
   :general
   (general-define-key
    :keymaps 'company-active-map
