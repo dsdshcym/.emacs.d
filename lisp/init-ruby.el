@@ -40,7 +40,10 @@
   :init
   (progn
     (add-hook 'ruby-mode-hook 'robe-mode)
-    (add-to-list 'company-backends 'company-robe))
+    (add-hook 'robe-mode-hook
+              (lambda ()
+                (make-local-variable 'company-backends)
+                (add-to-list 'company-backends 'company-robe))))
   :general
   (general-define-key
    :prefix "SPC m"
