@@ -4,9 +4,7 @@
   (progn
     (setq org-directory "~/Org")
     (setq org-default-notes-file "~/Org/refile.org")
-    (setq org-id-locations-file (concat private/cache-directory
-                                        ".org-id-locations")
-          org-publish-timestamp-directory (concat private/cache-directory
+    (setq org-publish-timestamp-directory (concat private/cache-directory
                                                   ".org-timestamps/")
           org-log-done t
           ;; this is consistent with the value of
@@ -204,7 +202,7 @@
   :ensure org-plus-contrib
   :config
   (progn
-    (setq org-id-locations-file "~/.emacs.d/org-files/.org-id-locations")
+    (setq org-id-locations-file (concat private/cache-directory ".org-id-locations"))
     (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)))
 
 (use-package ox
