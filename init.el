@@ -26,6 +26,7 @@
 (require 'init-dired)
 (require 'init-ruby)
 (require 'init-yaml)
+(require 'init-mac)
 (require 'init-elfeed)
 (require 'init-mu4e)
 (require 'init-ledger)
