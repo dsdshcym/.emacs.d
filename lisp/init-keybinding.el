@@ -13,6 +13,8 @@
                   evil-visual-state-cursor '((hbar . 2) "gray")
                   evil-motion-state-cursor '(box "plum3"))
 
+            (setq-default evil-shift-width 2)
+
             (evil-define-motion evil-goto-line (count)
               "Go to the first non-blank character of line COUNT.
 By default the (truly) last line."
