@@ -315,14 +315,10 @@
   :config
   (progn
     (defun private/capture-template-with-created ()
-      (let (
-            (created-at-property "\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
+      (let ((created-at-property "\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
             (content-before-properties (plist-get org-capture-plist :content-before-properties))
-            (content-after-properties (plist-get org-capture-plist :content-after-properties))
-            )
-        (concat content-before-properties created-at-property content-after-properties)
-        ))
-
+            (content-after-properties (plist-get org-capture-plist :content-after-properties)))
+        (concat content-before-properties created-at-property content-after-properties)))
     (setq org-capture-templates
           '(("t" "Todo Later" entry
              (file+headline "~/Org/refile.org" "Todo Later")
@@ -392,8 +388,7 @@
              :clock-in t)
             ("s" "Support Response" item
              (clock)
-             "- Response to user\n#+BEGIN_EXAMPLE\n  Hi, %?\n\n  Yiming | Strikingly Developer\n#+END_EXAMPLE")
-            ))))
+             "- Response to user\n#+BEGIN_EXAMPLE\n  Hi, %?\n\n  Yiming | Strikingly Developer\n#+END_EXAMPLE")))))
 
 (use-package org-src
   :ensure org-plus-contrib)
