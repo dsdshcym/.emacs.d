@@ -142,7 +142,7 @@ By default the (truly) last line."
 
 (use-package evil-args
   :defer t
-  :init
+  :config
   (add-to-list 'evil-args-delimiters " ")
   :general
   (general-define-key
