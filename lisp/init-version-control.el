@@ -36,7 +36,13 @@
   :defer t)
 
 (use-package git-timemachine
-  :defer t)
+  :defer t
+  :general
+  (general-define-key
+   :prefix "SPC"
+   :non-normal-prefix "M-m"
+   :keymaps '(motion insert emacs)
+   "gt" 'git-timemachine))
 
 (use-package git-link
   :defer t
