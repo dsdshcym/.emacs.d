@@ -2,10 +2,7 @@
   :ensure nil
   :defer t
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "fj" 'dired-jump
    "fJ" 'dired-jump-other-window)
   (general-define-key

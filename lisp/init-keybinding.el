@@ -62,59 +62,68 @@ By default the (truly) last line."
 
 (use-package general
   :config (progn
-            (general-define-key :prefix "SPC"
-                                :non-normal-prefix "M-m"
-                                :keymaps '(motion insert emacs)
-                                "" nil
+            (general-create-definer
+             private/set-leader-keys
+             :prefix "SPC"
+             :non-normal-prefix "M-m"
+             :keymaps '(motion insert emacs))
+            (private/set-leader-keys
+             "" nil
 
-                                "SPC" 'execute-extended-command
+             "SPC" 'execute-extended-command
 
-                                ;; File
-                                "ff" 'find-file
-                                "fel" 'find-library
-                                "fS" 'evil-write-all
-                                "fs" 'save-buffer
-                                "fvd" 'add-dir-local-variable
-                                "fvf" 'add-file-local-variable
-                                "fvp" 'add-file-local-variable-prop-line
+             "u" 'universal-argument
 
-                                ;; Buffer
-                                "bb" 'switch-to-buffer
-                                "bd" 'kill-this-buffer
-                                "bw" 'read-only-mode
+             ;; File
+             "ff" 'find-file
+             "fel" 'find-library
+             "fS" 'evil-write-all
+             "fs" 'save-buffer
+             "fvd" 'add-dir-local-variable
+             "fvf" 'add-file-local-variable
+             "fvp" 'add-file-local-variable-prop-line
 
-                                ;; Help
-                                "sj" 'imenu
+             ;; Buffer
+             "bb" 'switch-to-buffer
+             "bd" 'kill-this-buffer
+             "bw" 'read-only-mode
+             "TAB" (lambda () (interactive) (switch-to-buffer nil))
 
-                                ;; Jumping
-                                "hdf" 'describe-function
-                                "hdk" 'describe-key
-                                "hdv" 'describe-variable
+             ;; Help
+             "sj" 'imenu
 
-                               ;; Themes
-                               "Ts"  'load-theme
+             ;; Jumping
+             "hdf" 'describe-function
+             "hdk" 'describe-key
+             "hdv" 'describe-variable
 
-                                ;; Window Management
-                                "wd" 'delete-window
-                                "wF" 'make-frame
-                                "wH" 'evil-window-move-far-left
-                                "wh" 'evil-window-left
-                                "wJ" 'evil-window-move-very-bottom
-                                "wj" 'evil-window-down
-                                "wK" 'evil-window-move-very-top
-                                "wk" 'evil-window-up
-                                "wL" 'evil-window-move-far-right
-                                "wl" 'evil-window-right
-                                "wo" 'other-frame
-                                "ws" 'split-window-below
-                                "wS" 'split-window-below-and-focus
-                                "wU" 'winner-redo
-                                "wu" 'winner-undo
-                                "wv" 'split-window-right
-                                "wV" 'split-window-right-and-focus
-                                "ww" 'other-window
-                                "w=" 'balance-windows)
-            :general
+             ;; Themes
+             "Ts"  'load-theme
+
+             ;; Window Management
+             "wd" 'delete-window
+             "wm" 'delete-other-windows
+             "wf" 'make-frame
+             "wH" 'evil-window-move-far-left
+             "wh" 'evil-window-left
+             "wJ" 'evil-window-move-very-bottom
+             "wj" 'evil-window-down
+             "wK" 'evil-window-move-very-top
+             "wk" 'evil-window-up
+             "wL" 'evil-window-move-far-right
+             "wl" 'evil-window-right
+             "wo" 'other-frame
+             "ws" 'split-window-below
+             "wS" 'split-window-below-and-focus
+             "wU" 'winner-redo
+             "wu" 'winner-undo
+             "wv" 'split-window-right
+             "wV" 'split-window-right-and-focus
+             "ww" 'other-window
+             "w=" 'balance-windows
+
+             "qf" 'delete-frame
+             "qq" 'kill-emacs)
             (general-define-key
              :status 'motion
              :keymaps '(info-mode-map compilation-mode-map)
@@ -123,10 +132,7 @@ By default the (truly) last line."
 (use-package evil-nerd-commenter
   :defer t
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    ";"  'evilnc-comment-operator))
 
 (use-package evil-args
@@ -162,10 +168,7 @@ By default the (truly) last line."
   :init
   (setq iedit-toggle-key-default nil)
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "se" 'evil-iedit-state/iedit-mode))
 
 (use-package evil-indent-plus
@@ -197,10 +200,7 @@ By default the (truly) last line."
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "ww" 'ace-window
    "wM" 'ace-swap-window))
 

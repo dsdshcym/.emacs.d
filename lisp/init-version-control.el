@@ -3,13 +3,12 @@
   :config (progn
             (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
             (setq magit-repository-directories '(("~/Projects/" . 2))))
-  :general (general-define-key :prefix "SPC"
-                               :non-normal-prefix "M-m"
-                               :keymaps '(motion insert emacs)
-                               "gb" 'magit-blame
-                               "gs" 'magit-status
-                               "gi" 'magit-init
-                               "gl" 'magit-log-buffer-file)
+  :general
+  (private/set-leader-keys
+   "gb" 'magit-blame
+   "gs" 'magit-status
+   "gi" 'magit-init
+   "gl" 'magit-log-buffer-file)
   (general-define-key
    :keymaps '(magit-status-mode-map magit-diff-mode-map magit-process-mode-map magit-blame-mode-map magit-log-mode-map)
    "SPC" nil))
@@ -42,10 +41,7 @@
 (use-package git-timemachine
   :defer t
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "gt" 'git-timemachine))
 
 (use-package git-link
@@ -53,10 +49,7 @@
   :config
   (setq git-link-open-in-browser t)
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "gl" nil
    "gll" 'git-link
    "glc" 'git-link-commit

@@ -32,29 +32,28 @@
   :config (progn
             (setq projectile-completion-system 'ivy)
             (projectile-global-mode))
-  :general (general-define-key 
-            :keymaps '(motion insert emacs)
-            :prefix "SPC"
-            :non-normal-prefix "M-m"
-            "p!" 'projectile-run-shell-command-in-root
-            "p&" 'projectile-run-async-shell-command-in-root
-            "p%" 'projectile-replace-regexp
-            "pa" 'projectile-toggle-between-implementation-and-test
-            "pb" 'projectile-switch-to-buffer
-            "pc" 'projectile-compile-project
-            "pd" 'projectile-find-dir
-            "pD" 'projectile-dired
-            "pf" 'projectile-find-file
-            "pF" 'projectile-find-file-dwim
-            "pg" 'projectile-find-tag
-            "pG" 'projectile-regenerate-tags
-            "pI" 'projectile-invalidate-cache
-            "pk" 'projectile-kill-buffers
-            "pp" 'projectile-switch-project
-            "pr" 'projectile-recentf
-            "pR" 'projectile-replace
-            "pT" 'projectile-test-project
-            "pv" 'projectile-vc))
+  :general
+  (private/set-leader-keys
+   "/"  'projectile-ag
+   "p!" 'projectile-run-shell-command-in-root
+   "p&" 'projectile-run-async-shell-command-in-root
+   "p%" 'projectile-replace-regexp
+   "pa" 'projectile-toggle-between-implementation-and-test
+   "pb" 'projectile-switch-to-buffer
+   "pc" 'projectile-compile-project
+   "pd" 'projectile-find-dir
+   "pD" 'projectile-dired
+   "pf" 'projectile-find-file
+   "pF" 'projectile-find-file-dwim
+   "pg" 'projectile-find-tag
+   "pG" 'projectile-regenerate-tags
+   "pI" 'projectile-invalidate-cache
+   "pk" 'projectile-kill-buffers
+   "pp" 'projectile-switch-project
+   "pr" 'projectile-recentf
+   "pR" 'projectile-replace
+   "pT" 'projectile-test-project
+   "pv" 'projectile-vc))
 
 (use-package counsel-projectile
   :after projectile

@@ -53,10 +53,7 @@
 
       (popwin-mode 1))
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "wpc" 'popwin:close-popup-window
    "wps" 'popwin:stick-popup-window
    "wpl" 'popwin:switch-to-last-buffer

@@ -1,10 +1,7 @@
 (use-package dash-at-point
   :defer t
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "dd" 'dash-at-point
    "dD" 'dash-at-point-with-docset))
 
@@ -13,10 +10,7 @@
              osx-dictionary-search-input
              osx-dictionary-cli-find-or-recompile)
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "xd" 'osx-dictionary-search-pointer
    "xD" 'osx-dictionary-search-input)
   (general-evil-define-key 'normal 'osx-dictionary-mode-map

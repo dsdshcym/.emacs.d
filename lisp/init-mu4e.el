@@ -122,10 +122,7 @@
     (add-to-list 'mu4e-view-actions
                  '("browser" . mu4e-action-view-in-browser)))
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "am" 'mu4e
    "aM" 'mu4e-compose-new)
   (general-evil-define-key 'normal 'mu4e-main-mode-map

@@ -148,10 +148,7 @@
    "ip" 'org-set-property
    "is" 'org-insert-subheading
    "it" 'org-set-tags)
-  (general-define-key 
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "aa" 'org-agenda-list
    "oa" 'org-agenda
    "ol" 'org-store-link

@@ -5,10 +5,7 @@
     (setq avy-all-windows nil)
     (setq avy-background t))
   :general
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "jb" 'avy-pop-mark
    "jj" 'evil-avy-goto-char
    "jJ" 'evil-avy-goto-char-2

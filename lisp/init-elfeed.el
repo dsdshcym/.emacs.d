@@ -36,10 +36,7 @@
    "y"   'elfeed-show-yank
    "b"   'elfeed-show-visit
    "q"   'quit-window)
-  (general-define-key
-   :prefix "SPC"
-   :non-normal-prefix "M-m"
-   :keymaps '(motion insert emacs)
+  (private/set-leader-keys
    "af"  'elfeed))
 
 (use-package elfeed-goodies
