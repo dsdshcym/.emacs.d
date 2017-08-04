@@ -69,7 +69,7 @@ By default the (truly) last line."
              :keymaps '(motion insert emacs))
             (general-create-definer
              private/set-leader-keys-for-mode
-             :prefix "SPC m"
+             :prefix "'"
              :non-normal-prefix "M-m m"
              :states '(motion insert emacs))
             (private/set-leader-keys
