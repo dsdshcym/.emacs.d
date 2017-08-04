@@ -13,8 +13,8 @@
 (setq private/cache-directory "~/.emacs.d/.cache/")
 
 (require 'init-package)
-(require 'init-ui)
 (require 'init-keybinding)
+(require 'init-ui)
 (require 'init-ivy)
 (require 'init-version-control)
 (require 'init-projectile)
