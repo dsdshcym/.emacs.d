@@ -69,7 +69,7 @@
 (use-package git-gutter-fringe+
   :after git-gutter+
   :init
-  (setq git-gutter-fr+-side 'left-fringe)
+  (setq git-gutter-fr+-side 'right-fringe)
   :config
   (progn
     ;; custom graphics that works nice with half-width fringes
