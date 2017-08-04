@@ -6,6 +6,7 @@
 (setq scroll-conservatively 101)
 (setq column-number-mode t)
 (setq-default cursor-in-non-selected-windows nil)
+(setq x-underline-at-descent-line t)
 
 ;; copy/pasted from spacemacs chinese layer
 (defun private/set-monospaced-font (english chinese english-size chinese-size)
