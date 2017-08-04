@@ -120,8 +120,6 @@ By default the (truly) last line."
              "wo" 'other-frame
              "ws" 'split-window-below
              "wS" 'split-window-below-and-focus
-             "wU" 'winner-redo
-             "wu" 'winner-undo
              "wv" 'split-window-right
              "wV" 'split-window-right-and-focus
              "ww" 'other-window
@@ -208,6 +206,14 @@ By default the (truly) last line."
   (private/set-leader-keys
    "ww" 'ace-window
    "wM" 'ace-swap-window))
+
+(use-package winner
+  :init
+  (winner-mode)
+  :general
+  (private/set-leader-keys
+   "wU" 'winner-redo
+   "wu" 'winner-undo))
 
 (defun split-window-below-and-focus ()
   "Split the window vertically and focus the new window."
