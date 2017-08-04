@@ -34,6 +34,7 @@
 (require 'init-elfeed)
 (require 'init-mu4e)
 (require 'init-ledger)
+(require 'init-server)
 (setq delete-old-versions -1)
 (setq version-control t)
 (setq vc-make-backup-files t)
