@@ -1,11 +1,14 @@
 (use-package ivy
-  :config (progn
-            (define-key ivy-minibuffer-map [escape] 'minibuffer-keyboard-quit)
-            (setq ivy-initial-inputs-alist nil)
-            (setq ivy-re-builders-alist
-                  '((t . ivy--regex-ignore-order)))
-            (ivy-mode))
   :delight
+  :defer t
+  :init
+  (ivy-mode t)
+  :config
+  (progn
+    (define-key ivy-minibuffer-map [escape] 'minibuffer-keyboard-quit)
+    (setq ivy-initial-inputs-alist nil)
+    (setq ivy-re-builders-alist
+          '((t . ivy--regex-ignore-order))))
   :general
   (private/set-leader-keys
    ;; Buffer
