@@ -36,4 +36,10 @@
 (use-package ivy-hydra
   :defer t)
 
+(use-package smex
+  :defer t
+  :init
+  (setq-default smex-history-length 32
+                smex-save-file (concat private/cache-directory ".smex-items")))
+
 (provide 'init-ivy)
