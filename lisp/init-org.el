@@ -85,7 +85,7 @@
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'org-mode-map
    "cc" 'org-clock-cancel

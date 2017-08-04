@@ -6,7 +6,7 @@
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'ruby-mode-map
    "'" 'ruby-toggle-string-quotes
@@ -26,7 +26,7 @@
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'ruby-mode-map
    "sf" 'ruby-send-definition
@@ -47,7 +47,7 @@
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'ruby-mode-map
    "hh" 'robe-doc
@@ -61,7 +61,7 @@
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'ruby-mode-map
    "bc" 'bundle-check
@@ -87,7 +87,7 @@ Called interactively it prompts for a directory."
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'ruby-mode-map
    "ta"    'rspec-verify-all
@@ -111,7 +111,7 @@ Called interactively it prompts for a directory."
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'ruby-mode-map
    "rrd" 'rubocop-check-directory
@@ -132,7 +132,7 @@ Called interactively it prompts for a directory."
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'projectile-rails-mode-map
    "rfa" 'projectile-rails-find-locale
@@ -187,7 +187,7 @@ Called interactively it prompts for a directory."
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'ruby-mode-map
    "x\'" 'ruby-tools-to-single-quote-string
@@ -206,7 +206,7 @@ Called interactively it prompts for a directory."
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'ruby-mode-map
    "kk"    'rake

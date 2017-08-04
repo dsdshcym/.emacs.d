@@ -10,7 +10,7 @@
   :general
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'ledger-mode-map
    "a" 'ledger-add-transaction
@@ -28,7 +28,7 @@
    "y" 'ledger-set-year)
   (general-define-key
    :prefix "SPC m"
-   :non-normal-prefix "M-m"
+   :non-normal-prefix "M-m m"
    :states '(motion insert emacs)
    :keymaps 'ledger-reconcile-mode-map
    "'" 'ledger-reconcile-toggle
