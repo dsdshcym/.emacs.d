@@ -4,6 +4,27 @@
           (setq evil-want-C-u-scroll t)
           (evil-mode))
   :config (progn
+            (mapc #'evil-declare-ignore-repeat
+                  '(kill-this-buffer
+                    ido-kill-buffer
+                    outline-next-visible-heading
+                    outline-previous-visible-heading
+                    outline-up-heading
+                    evil-visualstar/begin-search-forward
+                    evil-visualstar/begin-search-backward
+                    org-export-dispatch
+                    org-end-of-line
+                    org-beginning-of-line
+                    org-open-at-point
+                    org-cycle
+                    org-shifttab
+                    org-ctrl-c-ctrl-c
+                    org-next-visible-heading
+                    org-previous-visible-heading
+                    split-window-below
+                    split-window-below-and-focus
+                    split-window-right
+                    split-window-right-and-focus))
             (defalias 'evil-visual-update-x-selection 'ignore)
 
             (setq evil-normal-state-cursor '(box "DarkGoldenrod2")
