@@ -4,6 +4,8 @@
           (setq evil-want-C-u-scroll t)
           (evil-mode))
   :config (progn
+            (defalias 'evil-visual-update-x-selection 'ignore)
+
             (setq evil-normal-state-cursor '(box "DarkGoldenrod2")
                   evil-insert-state-cursor '((bar . 2) "chartreuse3")
                   evil-emacs-state-cursor '(box "SkyBlue2")
