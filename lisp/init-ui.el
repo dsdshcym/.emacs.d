@@ -5,6 +5,7 @@
 (setq mouse-highlight nil)
 (setq scroll-conservatively 101)
 (setq column-number-mode t)
+(setq-default cursor-in-non-selected-windows nil)
 
 ;; copy/pasted from spacemacs chinese layer
 (defun private/set-monospaced-font (english chinese english-size chinese-size)
