@@ -1,5 +1,6 @@
 (use-package evil
   :init (progn
+          (setq evil-want-Y-yank-to-eol t)
           (setq evil-want-C-u-scroll t)
           (evil-mode))
   :config (progn
