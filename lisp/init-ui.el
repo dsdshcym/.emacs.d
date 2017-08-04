@@ -2,6 +2,7 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (tooltip-mode -1)
+(setq mouse-highlight nil)
 
 ;; copy/pasted from spacemacs chinese layer
 (defun private/set-monospaced-font (english chinese english-size chinese-size)
