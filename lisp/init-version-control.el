@@ -14,6 +14,9 @@
    :keymaps '(magit-status-mode-map magit-diff-mode-map magit-process-mode-map magit-blame-mode-map magit-log-mode-map)
    "SPC" nil))
 
+(use-package orgit
+  :defer t)
+
 (use-package evil-magit
   :after magit)
 
