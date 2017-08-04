@@ -25,4 +25,12 @@
    "s" 'osx-dictionary-search-input
    "o" 'osx-dictionary-open-dictionary.app))
 
+(use-package osx-browse
+  :pin manual
+  :commands 'osx-browse-url
+  :init
+  (progn
+    (setq osx-browse-prefer-background t)
+    (setq browse-url-browser-function 'osx-browse-url)))
+
 (provide 'init-mac)
