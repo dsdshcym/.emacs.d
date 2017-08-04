@@ -6,6 +6,7 @@
   :general (general-define-key :prefix "SPC"
                                :non-normal-prefix "M-m"
                                :keymaps '(motion insert emacs)
+                               "gb" 'magit-blame
                                "gs" 'magit-status
                                "gi" 'magit-init
                                "gl" 'magit-log-buffer-file)
