@@ -10,7 +10,7 @@
                                "gi" 'magit-init
                                "gl" 'magit-log-buffer-file)
   (general-define-key
-   :keymaps '(magit-status-mode-map magit-diff-mode-map magit-log-mode-map)
+   :keymaps '(magit-status-mode-map magit-diff-mode-map magit-process-mode-map magit-blame-mode-map magit-log-mode-map)
    "SPC" nil))
 
 (use-package evil-magit
