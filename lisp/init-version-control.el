@@ -20,7 +20,11 @@
   :defer t)
 
 (use-package git-rebase
-  :defer t)
+  :defer t
+  :general
+  (general-define-key
+   :keymaps '(git-rebase-mode-map)
+   "SPC" nil))
 
 (use-package gitattributes-mode
   :defer t)
