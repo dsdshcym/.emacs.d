@@ -45,4 +45,30 @@
     (yas-reload-all)
     (add-hook 'prog-mode-hook #'yas-minor-mode)))
 
+(use-package hippie-expand
+  :ensure nil
+  :defer t
+  :init
+  (progn
+    (defun private/evil-complete (arg)
+      "Expand wih company mode if available, otherwise hippie-expand."
+      (interactive)
+      (if company-mode
+          (company-complete)
+        (hippie-expand arg)))
+
+    (defun private/hippie-expand-previous (arg)
+      (interactive)
+      (when he-tried-table
+        (let ((l (length (car he-tried-table))))
+          (when (string= (buffer-substring (- (point) l) (point))
+                         (car he-tried-table))
+            (delete-region (- (point) l) (point))
+            (when (cadr he-tried-table)
+              (insert (cadr he-tried-table)))
+            (setq he-tried-table (cdr he-tried-table))))))
+
+    (setq evil-complete-next-func 'hippie-expand)
+    (setq evil-complete-previous-func 'private/hippie-expand-previous)))
+
 (provide 'init-auto-completion)
