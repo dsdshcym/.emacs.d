@@ -30,9 +30,7 @@
 
 (use-package smart-mode-line
   :init
-  (progn
-    (setq sml/position-percentage-format nil)
-    (sml/setup)))
+  (sml/setup))
 
 (use-package nyan-mode
   :commands 'nyan-mode)
