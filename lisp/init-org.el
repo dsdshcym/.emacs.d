@@ -153,7 +153,6 @@
    "os" 'org-save-all-org-buffers
    "og" 'org-clock-goto
    "oo" 'org-clock-out
-   "op" 'org-pomodoro
    "oc" 'org-capture
    "oj" '(lambda () (interactive) (org-refile '(4)))))
 
@@ -424,5 +423,11 @@
     (add-hook 'evil-org-mode-hook
               (lambda ()
                 (evil-org-set-key-theme)))))
+
+(use-package org-pomodoro
+  :commands 'org-pomodoro
+  :general
+  (private/set-leader-keys
+   "op" 'org-pomodoro))
 
 (provide 'init-org)
