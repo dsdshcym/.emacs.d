@@ -30,6 +30,7 @@
 (require 'init-ruby)
 (require 'init-yaml)
 (require 'init-html)
+(require 'init-coffee)
 (require 'init-mac)
 (require 'init-elfeed)
 (require 'init-mu4e)
