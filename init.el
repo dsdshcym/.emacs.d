@@ -31,6 +31,7 @@
 (require 'init-yaml)
 (require 'init-html)
 (require 'init-coffee)
+(require 'init-lua)
 (require 'init-mac)
 (require 'init-elfeed)
 (require 'init-mu4e)
