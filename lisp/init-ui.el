@@ -35,6 +35,13 @@
 (use-package nyan-mode
   :commands 'nyan-mode)
 
+(use-package whitespace-mode
+  :init
+  (progn
+    (setq whitespace-style
+          '(face trailing indentation empty space-after-tab space-before-tab tab-mark))
+    (global-whitespace-mode)))
+
 (use-package popwin
   :after windows
   :demand t
