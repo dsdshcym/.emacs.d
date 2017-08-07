@@ -6,7 +6,6 @@
     (setq org-default-notes-file "~/Org/refile.org")
     (setq org-publish-timestamp-directory (concat private/cache-directory
                                                   ".org-timestamps/")
-          org-log-done t
           ;; this is consistent with the value of
           ;; `helm-org-headings-max-depth'.
           org-imenu-depth 8
@@ -62,7 +61,19 @@
                                  (org-refile-get-targets)))
 
     (setq org-log-into-drawer "LOGBOOK")
-    (setq org-log-reschedule t)
+    (setq org-log-reschedule 'note)
+    (setq org-log-redeadline 'note)
+    (setq org-log-done 'time)
+    (setq org-log-note-headings
+          '((done . "CLOSING NOTE %t")
+            (state . "State %-12s from %-12S %t")
+            (note . "Note taken on %t")
+            (reschedule . "Rescheduled from %S to %s on %t")
+            (delschedule . "Not scheduled, was %S on %t")
+            (redeadline . "New deadline from %S to %s on %t")
+            (deldeadline . "Removed deadline, was %S on %t")
+            (refile . "Refiled on %t")
+            (clock-out . "")))
 
     ;; -----------------------------
     ;; Tags
