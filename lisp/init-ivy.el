@@ -8,6 +8,11 @@
     (define-key ivy-minibuffer-map [escape] 'minibuffer-keyboard-quit)
     (setq ivy-use-virtual-buffers t)
     (setq ivy-initial-inputs-alist nil)
+
+    (add-hook 'minibuffer-setup-hook
+              (lambda ()
+                (visual-line-mode 1)))
+
     (setq ivy-re-builders-alist
           '((t . ivy--regex-ignore-order))))
   :general
