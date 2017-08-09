@@ -108,10 +108,7 @@
 
    "a" 'org-agenda
 
-   "tT" 'org-show-todo-tree
-   "ti" 'org-toggle-inline-images
-   "tt" 'org-todo
-   "tx" 'org-toggle-latex-fragment
+   "t" 'org-todo
 
    ;; More cycling options (timestamps, headlines, items, properties)
    "L" 'org-shiftright
