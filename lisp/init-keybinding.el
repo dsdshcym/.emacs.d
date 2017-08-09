@@ -145,7 +145,6 @@ By default the (truly) last line."
     (general-define-key
      :keymaps 'input-decode-map
      "C-h" "DEL"
-     "M-h" "C-h"
      "C-i" [C-i])))
 
 (use-package evil-nerd-commenter
