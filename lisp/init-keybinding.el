@@ -71,15 +71,18 @@ By default the (truly) last line."
      :prefix "SPC"
      :non-normal-prefix "M-m"
      :keymaps '(motion insert emacs))
+
     (general-create-definer
      private/set-leader-keys-for-mode
      :prefix "'"
      :non-normal-prefix "M-m m"
      :states '(motion insert emacs))
+
     (general-create-definer
      private/enable-leader-key-for-mode
      :status 'motion
      "SPC" nil)
+
     (private/set-leader-keys
      "" nil
 
@@ -135,8 +138,10 @@ By default the (truly) last line."
 
      "qf" 'delete-frame
      "qq" 'kill-emacs)
+
     (private/enable-leader-key-for-mode
      :keymaps '(info-mode-map compilation-mode-map))
+
     (general-define-key
      :keymaps 'input-decode-map
      "C-h" "DEL"
