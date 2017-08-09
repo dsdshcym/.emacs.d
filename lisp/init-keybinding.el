@@ -150,7 +150,12 @@ By default the (truly) last line."
 
     (general-define-key
      :keymaps 'motion
-     "C-i" 'evil-jump-forward)))
+     "C-i" 'evil-jump-forward)
+
+    (general-define-key
+     :keymaps '(normal visual)
+     "j" 'evil-next-visual-line
+     "k" 'evil-previous-visual-line)))
 
 (use-package evil-nerd-commenter
   :defer t
