@@ -130,7 +130,10 @@ By default the (truly) last line."
             (general-define-key
              :status 'motion
              :keymaps '(info-mode-map compilation-mode-map)
-             "SPC" nil)))
+             "SPC" nil)
+            (general-define-key
+             :keymaps 'input-decode-map
+             "C-i" [C-i])))
 
 (use-package evil-nerd-commenter
   :defer t
