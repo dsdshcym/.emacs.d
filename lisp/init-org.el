@@ -441,7 +441,7 @@
 
 (use-package org-expiry
   :ensure org-plus-contrib
-  :commands 
+  :commands
   (org-expiry-insinuate
    org-expiry-deinsinuate
    org-expiry-insert-created
@@ -451,7 +451,7 @@
    org-expiry-process-entry
    org-expiry-process-entries)
   :after org
-  :config 
+  :config
   (progn
     (setq org-expiry-inactive-timestamps t)
     (org-expiry-insinuate)))
