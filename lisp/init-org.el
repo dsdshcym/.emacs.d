@@ -425,8 +425,8 @@
     (org-expiry-insinuate)))
 
 (use-package evil-org
+  :defer t
   :ensure t
-  :after org
   :init
   (progn
     (setq evil-org-special-o/O nil)
