@@ -248,6 +248,7 @@
   :ensure org-plus-contrib
   :config
   (progn
+    (setq org-clock-mode-line-total 'current)
     ;; Show lot of clocking history so it's easy to pick items
     (setq org-clock-history-length 20)
     ;; Resume clocking task on clock-in if the clock is open
