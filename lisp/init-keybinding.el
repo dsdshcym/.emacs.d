@@ -27,7 +27,8 @@
             split-window-below
             split-window-below-and-focus
             split-window-right
-            split-window-right-and-focus))
+            split-window-right-and-focus
+            evilmi-jump-items))
     (defalias 'evil-visual-update-x-selection 'ignore)
 
     (setq evil-normal-state-cursor '(box "DarkGoldenrod2")
