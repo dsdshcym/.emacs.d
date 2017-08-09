@@ -1,5 +1,6 @@
 (use-package org
   :ensure org-plus-contrib
+  :defer t
   :init
   (progn
     (setq org-directory "~/Org")
