@@ -51,6 +51,24 @@
   :init
   (progn
     (setq rmh-elfeed-org-files '("~/Org/rss_feed.org"))
-    (elfeed-org)))
+    (elfeed-org))
+  :config
+  (progn
+    (defun rmh-elfeed-org-convert-tree-to-headlines (parsed-org)
+      (org-element-map parsed-org 'headline
+        (lambda (h)
+          (let* ((heading (org-element-property :raw-value h))
+                 (tags (mapcar 'intern (org-element-property :tags h))))
+            (-concat (list heading) tags)))))
+
+    (defun rmh-elfeed-org-filter-relevant (list)
+      "Filter relevant entries from the LIST."
+      (-filter
+       (lambda (entry)
+         (and
+          (string-match "\\(http\\|entry-title\\)" (car entry))
+          (member (intern rmh-elfeed-org-tree-id) entry)
+          (not (member (intern rmh-elfeed-org-ignore-tag) entry))))
+       list))))
 
 (provide 'init-elfeed)
