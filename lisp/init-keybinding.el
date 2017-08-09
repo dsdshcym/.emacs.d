@@ -209,7 +209,9 @@ By default the (truly) last line."
   :general
   (private/set-leader-keys
    "ww" 'ace-window
-   "wM" 'ace-swap-window))
+   "wW" 'ace-swap-window
+   "wD" 'ace-delete-window
+   "wM" 'ace-delete-other-windows))
 
 (use-package winner
   :init
