@@ -473,4 +473,15 @@
   (private/set-leader-keys
    "op" 'org-pomodoro))
 
+(use-package org-page
+  :commands (op/new-post op/do-publication op/do-publication-and-preview-site)
+  :config
+  (progn
+    (setq op/repository-directory "~/Projects/dsdshcym.github.io/")
+    (setq op/site-domain "http://dsdshcym.github.io")
+    (setq op/personal-github-link "https://github.com/dsdshcym")
+    (setq op/site-main-title "dsdshome")
+    (setq op/site-sub-title "This is my small blog :)")
+    (setq op/theme 'wy)))
+
 (provide 'init-org)
