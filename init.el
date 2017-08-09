@@ -37,6 +37,10 @@
 (require 'init-mu4e)
 (require 'init-ledger)
 (require 'init-server)
+
+(defun private/push-to-kindle (url)
+  (browse-url (concat "http://fivefilters.org/kindle-it/send.php?url=" url)))
+
 (setq delete-old-versions -1)
 (setq version-control t)
 (setq vc-make-backup-files t)
