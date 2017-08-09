@@ -36,6 +36,7 @@
   :commands 'nyan-mode)
 
 (use-package whitespace-mode
+  :ensure nil
   :init
   (progn
     (setq whitespace-style
