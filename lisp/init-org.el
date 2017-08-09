@@ -93,6 +93,14 @@
     ;; -----------------------------
     (setq org-archive-location (concat org-directory "/Archived/" "%s_archive::")))
   :general
+  (general-define-key
+   :states 'motion
+   :keymaps 'org-mode-map
+   "RET" 'org-open-at-point
+   "C-<return>" (lambda () (interactive) (evil-org-eol-call 'org-insert-heading-respect-content))
+   "C-S-<return>" (lambda () (interactive) (evil-org-eol-call 'org-insert-todo-heading-respect-content))
+   "M-<return>" (lambda () (interactive) (evil-org-eol-call 'org-meta-return))
+   "M-S-<return>" (lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil)))))
   (private/set-leader-keys-for-mode
    :keymaps 'org-mode-map
    "cc" 'org-clock-cancel
