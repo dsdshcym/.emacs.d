@@ -293,7 +293,7 @@
     (setq org-agenda-span 'day)
 
     (setq org-agenda-clockreport-parameter-plist
-          '(:link t :maxlevel 5 :fileskip0 t :narrow 70! :compact t))
+          '(:link t :maxlevel 9 :fileskip0 t :narrow 70! :compact t))
 
     (setq org-agenda-custom-commands
           '(("h" "Agenda and Home-related tasks"
