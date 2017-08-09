@@ -20,7 +20,9 @@
   :general
   (private/set-leader-keys-for-mode
    :keymaps 'ivy-occur-grep-mode-map
-   "w" 'ivy-wgrep-change-to-wgrep-mode))
+   "w" 'ivy-wgrep-change-to-wgrep-mode)
+  (private/enable-leader-key-for-mode
+   :keymaps 'ivy-occur-grep-mode-map))
 
 (use-package counsel
   :delight

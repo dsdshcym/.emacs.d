@@ -9,9 +9,8 @@
    "gs" 'magit-status
    "gi" 'magit-init
    "gl" 'magit-log-buffer-file)
-  (general-define-key
-   :keymaps '(magit-status-mode-map magit-diff-mode-map magit-process-mode-map magit-blame-mode-map magit-log-mode-map)
-   "SPC" nil))
+  (private/enable-leader-key-for-mode
+   :keymaps '(magit-status-mode-map magit-diff-mode-map magit-process-mode-map magit-blame-mode-map magit-log-mode-map)))
 
 (use-package orgit
   :defer t)
@@ -26,9 +25,8 @@
   :ensure magit
   :defer t
   :general
-  (general-define-key
-   :keymaps '(git-rebase-mode-map)
-   "SPC" nil))
+  (private/enable-leader-key-for-mode
+   :keymaps 'git-rebase-mode-map))
 
 (use-package gitattributes-mode
   :defer t)

@@ -5,9 +5,8 @@
   (private/set-leader-keys
    "fj" 'dired-jump
    "fJ" 'dired-jump-other-window)
-  (general-define-key
-   :keymaps 'dired-mode-map
-   "SPC" nil))
+  (private/enable-leader-key-for-mode
+   :keymaps 'dired-mode-map))
 
 (use-package dired-x
   :ensure nil
