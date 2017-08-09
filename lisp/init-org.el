@@ -305,7 +305,10 @@
 
     (setq org-agenda-skip-scheduled-if-deadline-is-shown 'not-today))
   :config
-  (evil-set-initial-state 'org-agenda-mode 'normal)
+  (progn
+    (add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt 'append)
+
+    (run-at-time "24:01" 3600 'org-agenda-to-appt))
   :general
   (general-evil-define-key 'normal 'org-agenda-keymap
     "RET" 'org-agenda-switch-to
@@ -323,6 +326,23 @@
     "R" 'org-agenda-clockreport-mode
     "gj" 'org-agenda-next-line
     "gk" 'org-agenda-previous-line))
+
+(use-package appt
+  :ensure nil
+  :defer t
+  :config
+  (progn
+    (defun private/macos-do-not-display-is-on? ()
+      (string-prefix-p "1"
+                       (shell-command-to-string
+                        "defaults read ~/Library/Preferences/ByHost/com.apple.notificationcenterui.plist doNotDisturb")))
+
+    (defun private/appt-display (min-to-app new-time msg)
+      (if (private/macos-do-not-display-is-on?)
+          (appt-disp-window min-to-app new-time msg)
+        (private/notification "Org Agenda Appointment" msg (format "Appointment in %s minute(s)" min-to-app) "1")))
+
+    (setq appt-disp-window-function 'private/appt-display)))
 
 (use-package org-capture
   :ensure org-plus-contrib

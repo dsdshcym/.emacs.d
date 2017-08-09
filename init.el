@@ -41,6 +41,24 @@
 (defun private/push-to-kindle (url)
   (browse-url (concat "http://fivefilters.org/kindle-it/send.php?url=" url)))
 
+(defun private/notification (title msg &optional subtitle group-id sound)
+  (interactive)
+  (if private/system-is-mac
+      (call-process-shell-command
+       (concat "terminal-notifier"
+               " -title \"" title
+               "\" -message \"" msg
+               (if subtitle (concat "\" -subtitle \"" subtitle))
+               (if sound (concat "\" -sound \"" sound))
+               (if group-id (concat "\" -group \"" group-id))
+               "\" -activate " "org.gnu.Emacs"
+               " -sender " "org.gnu.Emacs"
+               " -timeout " "3"
+               "&")))
+  (if private/system-is-linux
+      (call-process-shell-command
+       (concat "notify-send" " \"" title "\" \"" msg "\""))))
+
 (setq delete-old-versions -1)
 (setq version-control t)
 (setq vc-make-backup-files t)
