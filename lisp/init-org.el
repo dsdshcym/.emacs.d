@@ -308,8 +308,13 @@
   (evil-set-initial-state 'org-agenda-mode 'normal)
   :general
   (general-evil-define-key 'normal 'org-agenda-keymap
-    "j" 'org-agenda-next-item
-    "k" 'org-agenda-previous-item
+    "RET" 'org-agenda-switch-to
+    "i" 'org-agenda-clock-in
+    "s" 'org-agenda-schedule
+    "d" 'org-agenda-deadline
+    "t" 'org-agenda-todo
+    "j" 'org-agenda-next-line
+    "k" 'org-agenda-previous-line
     "L" 'org-agenda-log-mode
     "q" 'org-agenda-quit
     "f" 'org-agenda-later
