@@ -327,6 +327,8 @@ unwanted space when exporting org-mode to html."
     (setq org-agenda-skip-scheduled-if-deadline-is-shown 'not-today))
   :config
   (progn
+    (evil-set-initial-state 'org-agenda-mode 'normal)
+
     (add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt 'append)
 
     (run-at-time "24:01" 3600 'org-agenda-to-appt))
