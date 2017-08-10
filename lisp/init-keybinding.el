@@ -213,6 +213,10 @@ By default the (truly) last line."
    "p" 'evil-multiedit-prev)
 
   (general-define-key
+   :keymaps 'evil-multiedit-insert-state-map
+   "<escape>" (lambda () (interactive) (evil-multiedit-state) (evil-move-cursor-back)))
+
+  (general-define-key
    :keymaps '(motion evil-multiedit-state-map)
    "RET" 'evil-multiedit-toggle-or-restrict-region))
 
