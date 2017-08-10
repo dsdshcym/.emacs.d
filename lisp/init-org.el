@@ -329,9 +329,13 @@ unwanted space when exporting org-mode to html."
   (progn
     (evil-set-initial-state 'org-agenda-mode 'normal)
 
-    (add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt 'append)
+    (defun private/org-agenda-refresh-appt ()
+      (interactive)
+      (org-agenda-to-appt t))
 
-    (run-at-time "24:01" 3600 'org-agenda-to-appt))
+    (add-hook 'org-finalize-agenda-hook 'private/org-agenda-refresh-appt 'append)
+
+    (run-at-time "24:01" 3600 'private/org-agenda-refresh-appt))
   :general
   (general-evil-define-key 'normal 'org-agenda-keymap
     "RET" 'org-agenda-switch-to
