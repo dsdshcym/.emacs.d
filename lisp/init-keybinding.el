@@ -191,13 +191,30 @@ By default the (truly) last line."
 (use-package evil-exchange
   :init (evil-exchange-install))
 
-(use-package evil-iedit-state
-  :commands (evil-iedit-state evil-iedit-state/iedit-mode)
-  :init
-  (setq iedit-toggle-key-default nil)
+(use-package evil-multiedit
+  :commands (evil-multiedit-match-all
+             evil-multiedit-match-and-next
+             evil-multiedit-match-and-prev
+             evil-multiedit-toggle-marker-here
+             evil-multiedit-ex-match)
+  :config
+  (evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match)
   :general
   (private/set-leader-keys
-   "se" 'evil-iedit-state/iedit-mode))
+   "se" 'evil-multiedit-match-all
+   "sr" 'evil-multiedit-restore
+   "sm" 'evil-multiedit-toggle-marker-here)
+
+  (general-define-key
+   :keymaps 'evil-multiedit-state-map
+   "C-f" 'iedit-restrict-function
+   "S" 'evil-multiedit--substitute
+   "n" 'evil-multiedit-next
+   "p" 'evil-multiedit-prev)
+
+  (general-define-key
+   :keymaps '(motion evil-multiedit-state-map)
+   "RET" 'evil-multiedit-toggle-or-restrict-region))
 
 (use-package evil-indent-plus
   :init (evil-indent-plus-default-bindings))
