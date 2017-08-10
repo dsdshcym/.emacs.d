@@ -333,8 +333,6 @@ unwanted space when exporting org-mode to html."
       (interactive)
       (org-agenda-to-appt t))
 
-    (add-hook 'org-finalize-agenda-hook 'private/org-agenda-refresh-appt 'append)
-
     (run-at-time "24:01" 3600 'private/org-agenda-refresh-appt))
   :general
   (general-evil-define-key 'normal 'org-agenda-keymap
