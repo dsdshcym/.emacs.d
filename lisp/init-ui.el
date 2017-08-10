@@ -70,4 +70,8 @@
    "wpl" 'popwin:switch-to-last-buffer
    "wpp" 'popwin:popup-last-buffer))
 
+(use-package hl-todo
+  :init
+  (add-hook 'prog-mode-hook 'hl-todo-mode))
+
 (provide 'init-ui)
