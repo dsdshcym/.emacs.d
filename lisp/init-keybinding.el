@@ -157,11 +157,16 @@ By default the (truly) last line."
      "j" 'evil-next-visual-line
      "k" 'evil-previous-visual-line)))
 
-(use-package evil-nerd-commenter
-  :defer t
+(use-package evil-commentary
+  :delight
+  :commands (evil-commentary
+             evil-commentary-yank
+             evil-commentary-line)
   :general
-  (private/set-leader-keys
-   ";"  'evilnc-comment-operator))
+  (general-define-key
+   :keymaps 'motion
+   "gc"     'evil-commentary
+   "gy"     'evil-commentary-yank))
 
 (use-package evil-args
   :defer t
