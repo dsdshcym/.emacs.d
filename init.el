@@ -36,6 +36,7 @@
 (require 'init-elfeed)
 (require 'init-mu4e)
 (require 'init-ledger)
+(require 'init-pdf)
 (require 'init-server)
 
 (defun private/push-to-kindle (url)
