@@ -444,10 +444,7 @@ unwanted space when exporting org-mode to html."
              (function private/capture-template-with-created)
              :content-before-properties "* NEXT Review %u"
              :content-after-properties "- Amazing things that happened today\n  1. %?\n- How could today have been even better?\n  1. "
-             :clock-in t)
-            ("s" "Support Response" item
-             (clock)
-             "- Response to user\n#+BEGIN_EXAMPLE\n  Hi, %?\n\n  Yiming | Strikingly Developer\n#+END_EXAMPLE")))))
+             :clock-in t)))))
 
 (use-package org-src
   :ensure org-plus-contrib)
