@@ -171,7 +171,9 @@
    "og" 'org-clock-goto
    "oo" 'org-clock-out
    "oc" 'org-capture
-   "oj" '(lambda () (interactive) (org-refile '(4)))))
+   "oC" 'org-capture-goto-last-stored
+   "oj" '(lambda () (interactive) (org-refile '(4)))
+   "oJ" 'org-refile-goto-last-stored))
 
 (use-package org-habit
   :ensure org-plus-contrib
@@ -445,7 +447,7 @@ unwanted space when exporting org-mode to html."
              :content-before-properties "* NEXT Review %u"
              :content-after-properties "- Amazing things that happened today\n  1. %?\n- How could today have been even better?\n  1. "
              :clock-in t)
-            ("D" "Daily Report at Ekohe" item
+            ("D" "Daily Report at Ekohe" plain
              (file+headline "~/Org/ekohe.org" "Daily Report")
              "- %u\n  + Yesterday%?\n  + Today")))))
 
