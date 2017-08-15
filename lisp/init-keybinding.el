@@ -214,8 +214,8 @@ By default the (truly) last line."
    :keymaps 'evil-multiedit-state-map
    "C-f" 'iedit-restrict-function
    "S" 'evil-multiedit--substitute
-   "n" 'evil-multiedit-next
-   "p" 'evil-multiedit-prev)
+   "C-n" 'evil-multiedit-next
+   "C-p" 'evil-multiedit-prev)
 
   (general-define-key
    :keymaps 'evil-multiedit-insert-state-map
