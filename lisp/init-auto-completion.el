@@ -65,7 +65,7 @@
               (insert (cadr he-tried-table)))
             (setq he-tried-table (cdr he-tried-table))))))
 
-    (setq evil-complete-next-func 'hippie-expand)
+    (setq evil-complete-next-func 'private/evil-complete)
     (setq evil-complete-previous-func 'private/hippie-expand-previous)))
 
 (provide 'init-auto-completion)
