@@ -51,8 +51,7 @@
     (defun private/evil-complete (arg)
       "Expand wih company mode if available, otherwise hippie-expand."
       (interactive)
-      (if company-mode
-          (company-complete)
+      (unless (company-complete)
         (hippie-expand arg)))
 
     (defun private/hippie-expand-previous (arg)
