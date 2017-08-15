@@ -386,77 +386,79 @@ unwanted space when exporting org-mode to html."
          ((string-match "sspai"         host) " :少数派:")
          ((string-match "weixin.qq.com" host) " :WeChat:"))))
 
-    (defun private/capture-template-with-created ()
-      (let ((created-at-property "\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
-            (content-before-properties (plist-get org-capture-plist :content-before-properties))
-            (content-after-properties (plist-get org-capture-plist :content-after-properties)))
-        (concat content-before-properties created-at-property content-after-properties)))
+    (defun private/capture-template ()
+      (let ((link-to-org-tags "%(private/link-to-org-tags \"%l\")")
+            (properties "\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
+            (content-before (plist-get org-capture-plist :content-before))
+            (content-after (plist-get org-capture-plist :content-after)))
+        (concat content-before link-to-org-tags properties content-after)))
+
     (setq org-capture-templates
           '(("t" "Todo Later" entry
              (file+headline "~/Org/refile.org" "Todo Later")
-             (function private/capture-template-with-created)
-             :content-before-properties "* TODO %?")
+             (function private/capture-template)
+             :content-before "* TODO %?")
             ("w" "Watch Later" entry
              (file+headline "~/Org/refile.org" "Watch Later")
-             (function private/capture-template-with-created)
-             :content-before-properties "* TODO %a"
+             (function private/capture-template)
+             :content-before "* TODO %a"
              :immediate-finish t)
             ("r" "Read Later" entry
              (file+headline "~/Org/refile.org" "Read Later")
-             (function private/capture-template-with-created)
-             :content-before-properties "* TODO %a"
+             (function private/capture-template)
+             :content-before "* TODO %a"
              :immediate-finish t)
             ("b" "Blog Thought" entry
              (file+headline "~/Org/personal.org" "Blog")
-             (function private/capture-template-with-created)
-             :content-before-properties "* TODO %^{Title}"
+             (function private/capture-template)
+             :content-before "* TODO %^{Title}"
              :immediate-finish t)
             ("T" "Clock-in Task" entry
              (file "~/Org/refile.org")
-             (function private/capture-template-with-created)
-             :content-before-properties "* NEXT %?"
+             (function private/capture-template)
+             :content-before "* NEXT %?"
              :clock-in t
              :clock-resume t)
             ("i" "Interruption" entry
              (file+headline "~/Org/refile.org" "Todo Later")
-             (function private/capture-template-with-created)
-             :content-before-properties "* TODO %^{Task}\nSCHEDULED: %t"
+             (function private/capture-template)
+             :content-before "* TODO %^{Task}\nSCHEDULED: %t"
              :immediate-finish t)
             ("l" "Link to current file" entry
              (file "~/Org/refile.org")
-             (function private/capture-template-with-created)
-             :content-before-properties "* TODO %a")
+             (function private/capture-template)
+             :content-before "* TODO %a")
             ("L" "(Clocked in) Link to current file" entry
              (file "~/Org/refile.org")
-             (function private/capture-template-with-created)
-             :content-before-properties "* NEXT %a"
+             (function private/capture-template)
+             :content-before "* NEXT %a"
              :clock-in t
              :clock-resume t)
             ("c" "Link under current clock" entry
              (clock)
-             (function private/capture-template-with-created)
-             :content-before-properties "* TODO %a")
+             (function private/capture-template)
+             :content-before "* TODO %a")
             ("C" "(Clocked-in) Link under current clock" entry
              (clock)
-             (function private/capture-template-with-created)
-             :content-before-properties "* TODO %a"
+             (function private/capture-template)
+             :content-before "* TODO %a"
              :clock-in t
              :clock-resume t)
             ("k" "Push to Kindle" entry
              (file+headline "~/Org/refile.org" "Push to Kindle")
-             (function private/capture-template-with-created)
-             :content-before-properties "* TODO %a %(private/push-to-kindle \"%l\")"
+             (function private/capture-template)
+             :content-before "* TODO %a %(private/push-to-kindle \"%l\")"
              :immediate-finish t)
             ("p" "Github PR" entry
              (clock)
-             (function private/capture-template-with-created)
-             :content-before-properties "* PENDING %a\nDEADLINE: %t"
+             (function private/capture-template)
+             :content-before "* PENDING %a\nDEADLINE: %t"
              :immediate-finish t)
             ("d" "Daily Review" entry
              (file+headline "~/Org/review.org" "Daily Review")
-             (function private/capture-template-with-created)
-             :content-before-properties "* NEXT Review %u"
-             :content-after-properties "- Amazing things that happened today\n  1. %?\n- How could today have been even better?\n  1. "
+             (function private/capture-template)
+             :content-before "* NEXT Review %u"
+             :content-after "- Amazing things that happened today\n  1. %?\n- How could today have been even better?\n  1. "
              :clock-in t)
             ("D" "Daily Report at Ekohe" plain
              (file+headline "~/Org/ekohe.org" "Daily Report")
