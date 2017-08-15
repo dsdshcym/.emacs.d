@@ -3,7 +3,7 @@
   :defer t
   :init
   (progn
-    (setq company-idle-delay 0.2
+    (setq company-idle-delay nil
           company-minimum-prefix-length 2
           company-require-match nil)
     (global-company-mode))
