@@ -375,6 +375,17 @@ unwanted space when exporting org-mode to html."
   :ensure org-plus-contrib
   :config
   (progn
+    (defun private/link-to-org-tags (url)
+      (let* ((parsed-url (url-generic-parse-url url))
+             (host (url-host parsed-url)))
+        (cond
+         ((not host) "")
+         ((string-match "youtube"       host) " :YouTube:")
+         ((string-match "bilibili"      host) " :Bilibili:")
+         ((string-match "zhihu"         host) " :Zhihu:")
+         ((string-match "sspai"         host) " :少数派:")
+         ((string-match "weixin.qq.com" host) " :WeChat:"))))
+
     (defun private/capture-template-with-created ()
       (let ((created-at-property "\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
             (content-before-properties (plist-get org-capture-plist :content-before-properties))
