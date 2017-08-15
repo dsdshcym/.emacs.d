@@ -5,7 +5,9 @@
   (progn
     (setq company-idle-delay nil
           company-minimum-prefix-length 2
-          company-require-match nil)
+          company-require-match nil
+          company-dabbrev-ignore-case nil
+          company-dabbrev-downcase nil)
     (global-company-mode))
   :config
   (progn
