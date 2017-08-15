@@ -1,5 +1,6 @@
 (use-package slim-mode
-  :defer t)
+  :defer t
+  :mode ("\\.slim\\'" . slim-mode))
 
 (use-package company-css
   :ensure company
