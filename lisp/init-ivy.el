@@ -12,7 +12,7 @@
     (setq ivy-truncate-lines nil)
 
     (setq ivy-re-builders-alist
-          '((t . ivy--regex-ignore-order))))
+          '((t . ivy--regex-plus))))
   :general
   (private/set-leader-keys
    ;; Buffer
