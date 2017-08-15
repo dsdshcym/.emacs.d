@@ -5,6 +5,8 @@
   (progn
     (evil-set-initial-state 'doc-view-mode 'normal)
 
+    (setq doc-view-resolution 300)
+
     (defun private/doc-view-search-new-query ()
       "Initiate a new query."
       (interactive)
