@@ -12,7 +12,9 @@
     (setq company-backends
           '(company-keywords
             company-files
-            (company-capf :with company-yasnippet))))
+            company-capf
+            company-dabbrev-code
+            company-dabbrev)))
   :general
   (general-define-key
    :keymaps 'company-active-map
