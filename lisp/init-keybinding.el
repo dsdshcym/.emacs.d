@@ -264,6 +264,15 @@ By default the (truly) last line."
    "wD" 'ace-delete-window
    "wM" 'ace-delete-other-windows))
 
+(use-package dumb-jump
+  :commands (dumb-jump-go)
+  :config
+  (setq dumb-jump-selector 'ivy)
+  :general
+  (general-define-key
+   :keymaps 'motion
+   "gd" 'dumb-jump-go))
+
 (use-package winner
   :init
   (winner-mode)
