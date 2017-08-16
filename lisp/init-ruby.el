@@ -109,13 +109,27 @@ Called interactively it prompts for a directory."
    "tr" 'minitest-rerun
    "tt" 'minitest-verify-single))
 
+(use-package ruby-test-mode
+  :defer t
+  :init
+  (add-hook 'ruby-mode
+            (lambda ()
+              (if (eq (private/projectile-ruby-test-framework) 'ruby-test)
+                  (ruby-test-mode))))
+  :general
+  (private/set-leader-keys-for-mode
+   :keymaps 'ruby-test-mode-map
+   "tb" 'ruby-test-run
+   "tt" 'ruby-test-run-at-point
+   "t TAB" 'ruby-test-toggle-implementation-and-specification))
+
 (defun private/projectile-ruby-test-framework ()
   "Return current test framework. Either 'minitest or 'rspec"
   (interactive)
   (cond
    ((projectile-file-exists-p (concat (projectile-project-root) "spec")) 'rspec)
    ((projectile-file-exists-p (concat (projectile-project-root) "test")) 'minitest)
-   (t (message "Cannot detect current test framework"))))
+   (t 'ruby-test)))
 
 (use-package rubocop
   :delight
