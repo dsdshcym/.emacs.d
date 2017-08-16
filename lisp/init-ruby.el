@@ -216,4 +216,20 @@ Called interactively it prompts for a directory."
    "kR"    'rake-regenerate-cache
    "kf"    'rake-find-task))
 
+(use-package ruby-refactor
+  :defer t
+  :init
+  (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
+  :config
+  (setq ruby-refactor-add-parens t)
+  :general
+  (private/set-leader-keys-for-mode
+   :keymaps 'ruby-mode-map
+   "Rm" 'ruby-refactor-extract-to-method
+   "Rv" 'ruby-refactor-extract-local-variable
+   "Rc" 'ruby-refactor-convert-post-conditional
+   "RC" 'ruby-refactor-extract-constant
+   "Rp" 'ruby-refactor-add-parameter
+   "Rl" 'ruby-refactor-extract-to-let))
+
 (provide 'init-ruby)
