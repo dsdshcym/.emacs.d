@@ -138,7 +138,7 @@ Called interactively it prompts for a directory."
   (add-hook 'ruby-mode-hook 'rubocop-mode)
   :general
   (private/set-leader-keys-for-mode
-   :keymaps 'ruby-mode-map
+   :keymaps 'rubocop-mode-map
    "cd" 'rubocop-check-directory
    "cD" 'rubocop-autocorrect-directory
    "cf" 'rubocop-check-current-file
