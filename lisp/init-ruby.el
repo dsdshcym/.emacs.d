@@ -208,7 +208,7 @@ Called interactively it prompts for a directory."
   (add-hook 'ruby-mode-hook 'ruby-tools-mode)
   :general
   (private/set-leader-keys-for-mode
-   :keymaps 'ruby-mode-map
+   :keymaps 'ruby-tools-mode-map
    "r\'" 'ruby-tools-to-single-quote-string
    "r\"" 'ruby-tools-to-double-quote-string
    "r:" 'ruby-tools-to-symbol))
