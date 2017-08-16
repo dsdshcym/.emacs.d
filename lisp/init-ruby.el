@@ -62,6 +62,10 @@
 (use-package rspec-mode
   :delight
   :defer t
+  :init
+  (defadvice rspec-enable-appropriate-mode (around enable-rspec-when-it-is-current-test-framework)
+    (if (eq (private/projectile-ruby-test-framework) 'rspec)
+        ad-do-it))
   :config
   (progn
     (defun ruby/rspec-verify-directory (dir)
@@ -74,7 +78,7 @@ Called interactively it prompts for a directory."
           popwin:special-display-config))
   :general
   (private/set-leader-keys-for-mode
-   :keymaps 'ruby-mode-map
+   :keymaps '(rspec-mode-map rspec-verifiable-mode-map)
    "ta"    'rspec-verify-all
    "tb"    'rspec-verify
    "tc"    'rspec-verify-continue
@@ -90,6 +94,10 @@ Called interactively it prompts for a directory."
 
 (use-package minitest
   :defer t
+  :init
+  (defadvice minitest-enable-appropriate-mode (around enable-minitest-when-it-is-current-test-framework)
+    (if (eq (private/projectile-ruby-test-framework) 'minitest)
+        ad-do-it))
   :general
   (private/set-leader-keys-for-mode
    :keymaps 'minitest-mode-map
@@ -97,6 +105,14 @@ Called interactively it prompts for a directory."
    "tb" 'minitest-verify
    "tr" 'minitest-rerun
    "tt" 'minitest-verify-single))
+
+(defun private/projectile-ruby-test-framework ()
+  "Return current test framework. Either 'minitest or 'rspec"
+  (interactive)
+  (cond
+   ((projectile-file-exists-p (concat (projectile-project-root) "spec")) 'rspec)
+   ((projectile-file-exists-p (concat (projectile-project-root) "test")) 'minitest)
+   (t (message "Cannot detect current test framework"))))
 
 (use-package rubocop
   :delight
