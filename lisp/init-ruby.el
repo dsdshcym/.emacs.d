@@ -98,6 +98,9 @@ Called interactively it prompts for a directory."
   (defadvice minitest-enable-appropriate-mode (around enable-minitest-when-it-is-current-test-framework)
     (if (eq (private/projectile-ruby-test-framework) 'minitest)
         ad-do-it))
+  :config
+  (push '(minitest-compilation-mode :dedicated t :position bottom :stick t :noselect t :height 0.4)
+        popwin:special-display-config)
   :general
   (private/set-leader-keys-for-mode
    :keymaps 'minitest-mode-map
