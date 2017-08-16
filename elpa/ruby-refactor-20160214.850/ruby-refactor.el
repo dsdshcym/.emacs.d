@@ -235,7 +235,7 @@ This depends the value of `ruby-refactor-let-position'."
 (defun ruby-refactor-new-params (existing-params new-variable)
   "Append or create parameter list, doing the right thing for parens."
   (let ((param-list (mapconcat 'identity
-                      (ruby-refactor-trim-list (remove "" (append (split-string existing-params ",") (list new-variable))))
+                      (ruby-refactor-trim-list (remove "" (append (split-string (replace-regexp-in-string "[\(|\)]" "" existing-params) ",") (list new-variable))))
                       ", " )))
     (if ruby-refactor-add-parens
         (format "(%s)" param-list)
