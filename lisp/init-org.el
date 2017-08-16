@@ -93,8 +93,7 @@
     ;; -----------------------------
     (setq org-archive-location (concat org-directory "/Archived/" "%s_archive::")))
   :general
-  (general-define-key
-   :states 'motion
+  (general-mmap
    :keymaps 'org-mode-map
    "RET" 'org-open-at-point
    "C-<return>" (lambda () (interactive) (evil-org-eol-call 'org-insert-heading-respect-content))

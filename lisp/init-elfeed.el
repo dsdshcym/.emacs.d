@@ -14,8 +14,7 @@
           )))
     (add-hook 'org-store-link-functions 'private/org-elfeed-entry-store-link))
   :general
-  (general-define-key
-   :states 'normal
+  (general-nmap
    :keymaps 'elfeed-search-mode-map
    "RET" 'elfeed-search-show-entry
    "s"   'elfeed-search-live-filter
@@ -28,8 +27,7 @@
    "gR"  'elfeed-search-update--force
    "gu"  'elfeed-unjam
    "q"   'quit-window)
-  (general-define-key
-   :states 'normal
+  (general-nmap
    :keymaps 'elfeed-show-mode-map
    "C-n" 'elfeed-show-next
    "C-p" 'elfeed-show-prev

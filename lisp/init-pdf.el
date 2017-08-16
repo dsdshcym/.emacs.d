@@ -27,8 +27,7 @@
   :general
   (private/enable-leader-key-for-mode
    :keymaps 'doc-view-mode)
-  (general-define-key
-   :states 'normal
+  (general-nmap
    :keymaps 'doc-view-mode-map
    "/"  'private/doc-view-search-new-query
    "?"  'private/doc-view-search-new-query-backward

@@ -93,8 +93,7 @@
              string-inflection-underscore
              string-inflection-upcase)
   :general
-  (general-define-key
-   :keymaps 'motion
+  (general-mmap
    "gsc" 'string-inflection-lower-camelcase
    "gsC" 'string-inflection-camelcase
    "gs-" 'string-inflection-kebab-case

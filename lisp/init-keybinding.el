@@ -54,6 +54,10 @@ By default the (truly) last line."
 (use-package general
   :config
   (progn
+    (setq general-vim-definer-default 'states)
+
+    (general-evil-setup)
+
     (general-create-definer
      private/set-leader-keys
      :prefix "SPC"
@@ -148,12 +152,10 @@ By default the (truly) last line."
      "C-h" "DEL"
      "C-i" [C-i])
 
-    (general-define-key
-     :keymaps 'motion
-     "C-i" 'evil-jump-forward)
+    (general-mmap
+     [C-i] 'evil-jump-forward)
 
-    (general-define-key
-     :keymaps '(normal visual)
+    (general-nvmap
      "j" 'evil-next-visual-line
      "k" 'evil-previous-visual-line)))
 
@@ -163,8 +165,7 @@ By default the (truly) last line."
              evil-commentary-yank
              evil-commentary-line)
   :general
-  (general-define-key
-   :keymaps 'motion
+  (general-mmap
    "gc"     'evil-commentary
    "gy"     'evil-commentary-yank))
 
@@ -184,8 +185,7 @@ By default the (truly) last line."
   :init
   (global-evil-surround-mode)
   :general
-  (general-define-key
-   :states 'visual
+  (general-vmap
    :keymaps 'evil-surround-mode-map
    "s" 'evil-surround-region
    "S" 'evil-substitute))
@@ -234,8 +234,7 @@ By default the (truly) last line."
 (use-package evil-numbers
   :commands (evil-numbers/inc-at-pt evil-numbers/inc-at-pt)
   :general
-  (general-define-key
-   :keymaps 'motion
+  (general-mmap
    "+" 'evil-numbers/inc-at-pt
    "-" 'evil-numbers/dec-at-pt))
 
@@ -244,8 +243,7 @@ By default the (truly) last line."
              evil-visualstar/begin-search-backward)
   :config (global-evil-visualstar-mode)
   :general
-  (general-define-key
-   :keymaps 'visual
+  (general-vmap
    "*" 'evil-visualstar/begin-search-forward
    "#" 'evil-visualstar/begin-search-backward))
 
@@ -269,8 +267,7 @@ By default the (truly) last line."
   :config
   (setq dumb-jump-selector 'ivy)
   :general
-  (general-define-key
-   :keymaps 'motion
+  (general-mmap
    "gd" 'dumb-jump-go))
 
 (use-package winner
