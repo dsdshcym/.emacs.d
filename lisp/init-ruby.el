@@ -88,6 +88,16 @@ Called interactively it prompts for a directory."
    "t~"    'rspec-toggle-spec-and-target-find-example
    "t TAB" 'rspec-toggle-spec-and-target))
 
+(use-package minitest
+  :defer t
+  :general
+  (private/set-leader-keys-for-mode
+   :keymaps 'minitest-mode-map
+   "ta" 'minitest-verify-all
+   "tb" 'minitest-verify
+   "tr" 'minitest-rerun
+   "tt" 'minitest-verify-single))
+
 (use-package rubocop
   :delight
   :defer t
