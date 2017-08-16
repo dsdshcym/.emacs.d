@@ -209,9 +209,9 @@ Called interactively it prompts for a directory."
   :general
   (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
-   "x\'" 'ruby-tools-to-single-quote-string
-   "x\"" 'ruby-tools-to-double-quote-string
-   "x:" 'ruby-tools-to-symbol))
+   "r\'" 'ruby-tools-to-single-quote-string
+   "r\"" 'ruby-tools-to-double-quote-string
+   "r:" 'ruby-tools-to-symbol))
 
 (use-package rake
   :defer t
