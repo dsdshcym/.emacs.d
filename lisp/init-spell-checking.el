@@ -10,6 +10,8 @@
   :init
   (progn
     (setq flyspell-issue-message-flag nil)
+    (setq flyspell-prog-text-faces
+          '(font-lock-comment-face font-lock-doc-face))
     (add-hook 'prog-mode-hook 'flyspell-prog-mode)
     (add-hook 'text-mode-hook 'flyspell-mode)
     (add-hook 'org-mode-hook 'flyspell-mode))
