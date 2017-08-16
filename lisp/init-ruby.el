@@ -139,12 +139,12 @@ Called interactively it prompts for a directory."
   :general
   (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
-   "rrd" 'rubocop-check-directory
-   "rrD" 'rubocop-autocorrect-directory
-   "rrf" 'rubocop-check-current-file
-   "rrF" 'rubocop-autocorrect-current-file
-   "rrp" 'rubocop-check-project
-   "rrP" 'rubocop-autocorrect-project))
+   "cd" 'rubocop-check-directory
+   "cD" 'rubocop-autocorrect-directory
+   "cf" 'rubocop-check-current-file
+   "cF" 'rubocop-autocorrect-current-file
+   "cp" 'rubocop-check-project
+   "cP" 'rubocop-autocorrect-project))
 
 (use-package projectile-rails
   :delight
