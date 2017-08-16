@@ -6,8 +6,8 @@
   :general
   (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
-   "'" 'ruby-toggle-string-quotes
-   "{" 'ruby-toggle-block))
+   "R'" 'ruby-toggle-string-quotes
+   "R{" 'ruby-toggle-block))
 
 (use-package rbenv
   :defer t
