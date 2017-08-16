@@ -86,4 +86,19 @@
 (use-package wgrep
   :defer t)
 
+(use-package string-inflection
+  :commands (string-inflection-camelcase
+             string-inflection-lower-camelcase
+             string-inflection-kebab-case
+             string-inflection-underscore
+             string-inflection-upcase)
+  :general
+  (general-define-key
+   :keymaps 'motion
+   "gsc" 'string-inflection-lower-camelcase
+   "gsC" 'string-inflection-camelcase
+   "gs-" 'string-inflection-kebab-case
+   "gs_" 'string-inflection-underscore
+   "gsU" 'string-inflection-upcase))
+
 (provide 'init-editing)
