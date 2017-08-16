@@ -6,8 +6,8 @@
   :general
   (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
-   "R'" 'ruby-toggle-string-quotes
-   "R{" 'ruby-toggle-block))
+   "r'" 'ruby-toggle-string-quotes
+   "r{" 'ruby-toggle-block))
 
 (use-package rbenv
   :defer t
@@ -240,11 +240,11 @@ Called interactively it prompts for a directory."
   :general
   (private/set-leader-keys-for-mode
    :keymaps 'ruby-mode-map
-   "Rm" 'ruby-refactor-extract-to-method
-   "Rv" 'ruby-refactor-extract-local-variable
-   "Rc" 'ruby-refactor-convert-post-conditional
-   "RC" 'ruby-refactor-extract-constant
-   "Rp" 'ruby-refactor-add-parameter
-   "Rl" 'ruby-refactor-extract-to-let))
+   "rm" 'ruby-refactor-extract-to-method
+   "rv" 'ruby-refactor-extract-local-variable
+   "rc" 'ruby-refactor-convert-post-conditional
+   "rC" 'ruby-refactor-extract-constant
+   "rp" 'ruby-refactor-add-parameter
+   "rl" 'ruby-refactor-extract-to-let))
 
 (provide 'init-ruby)
