@@ -26,6 +26,7 @@
 (require 'init-chinese)
 (require 'init-editing)
 (require 'init-syntax-checking)
+(require 'init-spell-checking)
 (require 'init-dired)
 (require 'init-ruby)
 (require 'init-yaml)
