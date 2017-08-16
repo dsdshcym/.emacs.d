@@ -247,4 +247,11 @@ Called interactively it prompts for a directory."
    "rp" 'ruby-refactor-add-parameter
    "rl" 'ruby-refactor-extract-to-let))
 
+(use-package ruby-hash-syntax
+  :defer t
+  :general
+  (private/set-leader-keys-for-mode
+   :keymaps 'ruby-mode-map
+   "rh" 'ruby-toggle-hash-syntax))
+
 (provide 'init-ruby)
