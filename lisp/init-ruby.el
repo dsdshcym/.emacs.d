@@ -218,6 +218,7 @@ Called interactively it prompts for a directory."
 
 (use-package ruby-refactor
   :defer t
+  :pin manual
   :init
   (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
   :config
