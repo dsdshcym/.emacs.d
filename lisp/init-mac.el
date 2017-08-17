@@ -13,8 +13,8 @@
              osx-dictionary-cli-find-or-recompile)
   :general
   (private/set-leader-keys
-   "xd" 'osx-dictionary-search-pointer
-   "xD" 'osx-dictionary-search-input)
+   "dw" 'osx-dictionary-search-pointer
+   "dW" 'osx-dictionary-search-input)
   (general-evil-define-key 'normal 'osx-dictionary-mode-map
    "q" 'osx-dictionary-quit
    "r" 'osx-dictionary-read-word
