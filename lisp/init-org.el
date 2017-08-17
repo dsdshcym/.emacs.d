@@ -165,6 +165,7 @@
    "aa" 'org-agenda-list
    "oa" 'org-agenda
    "ol" 'org-store-link
+   "oL" 'org-insert-link-global
    "ob" 'org-iswitchb
    "os" 'org-save-all-org-buffers
    "og" 'org-clock-goto
