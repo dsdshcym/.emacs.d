@@ -1,3 +1,12 @@
+(use-package web-mode
+  :defer t
+  :mode
+  (("\\.html\\'"       . web-mode)
+   ("\\.htm\\'"        . web-mode)
+   ("\\.erb\\'"        . web-mode)
+   ("\\.mustache\\'"   . web-mode)
+   ("\\.ejs\\'"        . web-mode)))
+
 (use-package slim-mode
   :defer t
   :mode ("\\.slim\\'" . slim-mode))
