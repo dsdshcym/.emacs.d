@@ -33,6 +33,7 @@
 (require 'init-html)
 (require 'init-coffee)
 (require 'init-lua)
+(require 'init-elixir)
 (require 'init-mac)
 (require 'init-elfeed)
 (require 'init-mu4e)
