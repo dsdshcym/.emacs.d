@@ -28,12 +28,15 @@
 (require 'init-syntax-checking)
 (require 'init-spell-checking)
 (require 'init-dired)
+
+(require 'init-prog)
 (require 'init-ruby)
 (require 'init-yaml)
 (require 'init-html)
 (require 'init-coffee)
 (require 'init-lua)
 (require 'init-elixir)
+
 (require 'init-mac)
 (require 'init-elfeed)
 (require 'init-mu4e)
