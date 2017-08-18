@@ -11,6 +11,9 @@
   :defer t
   :mode ("\\.slim\\'" . slim-mode))
 
+(use-package haml-mode
+  :defer t)
+
 (use-package company-css
   :ensure company
   :defer t
