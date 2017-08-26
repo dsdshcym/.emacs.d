@@ -20,4 +20,11 @@
   :init
   (dired-quick-sort-setup))
 
+(use-package wdired
+  :ensure nil
+  :general
+  (private/set-leader-keys-for-mode
+   :keymaps 'dired-mode-map
+   "w" 'wdired-change-to-wdired-mode))
+
 (provide 'init-dired)
