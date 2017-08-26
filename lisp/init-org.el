@@ -91,7 +91,17 @@
     ;; -----------------------------
     ;; Archive
     ;; -----------------------------
-    (setq org-archive-location (concat org-directory "/Archived/" "%s_archive::")))
+    (setq org-archive-location (concat org-directory "/Archived/" "%s_archive::"))
+
+    ;; -----------------------------
+    ;; Link
+    ;; -----------------------------
+    (defadvice org-insert-link (before cleanup-org-stored-links)
+      "org-link-fontify-links-to-this-file cannot handle (nil
+      \"\") in org-stored-links and will cause org-insert-link to
+      fail"
+      (setq org-stored-links
+             (remove-if (lambda (x) (eq nil (car x))) org-stored-links))))
   :general
   (general-mmap
    :keymaps 'org-mode-map
