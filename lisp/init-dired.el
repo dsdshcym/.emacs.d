@@ -13,4 +13,9 @@
   :commands (dired-jump
              dired-jump-other-window))
 
+(use-package dired-quick-sort
+  :defer t
+  :init
+  (dired-quick-sort-setup))
+
 (provide 'init-dired)
