@@ -463,7 +463,7 @@ unwanted space when exporting org-mode to html."
             ("p" "Github PR" entry
              (clock)
              (function private/capture-template)
-             :content-before "* PENDING %a\nDEADLINE: %t"
+             :content-before "* PENDING %a"
              :immediate-finish t)
             ("d" "Daily Review" entry
              (file+headline "~/Org/review.org" "Daily Review")
