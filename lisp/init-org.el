@@ -200,6 +200,7 @@
        (scheme . t)
        (plantuml . t)
        (ledger . t)
+       (js . t)
        ))
     (setq org-export-babel-evaluate nil
           org-confirm-babel-evaluate nil)))
