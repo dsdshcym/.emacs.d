@@ -1,6 +1,8 @@
 (use-package dired
   :ensure nil
   :defer t
+  :config
+  (setq dired-dwim-target t)
   :general
   (private/set-leader-keys
    "fj" 'dired-jump
