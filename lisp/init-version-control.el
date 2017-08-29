@@ -30,6 +30,26 @@
   (private/set-leader-keys
    "gb" 'private/magit-blame-hydra/body))
 
+(use-package smerge
+  :ensure nil
+  :defer t
+  :config
+  (defhydra private/smerge-mode-hydra (:foreign-keys run)
+    ("n" smerge-next "next conflict")
+    ("p" smerge-prev "previous conflict")
+    ("a" smerge-keep-all "keep all")
+    ("b" smerge-keep-base "keep base")
+    ("m" smerge-keep-mine "keep mine")
+    ("o" smerge-keep-other "keep other")
+    ("c" smerge-keep-current "keep current")
+    ("C" smerge-combine-with-next "combine with next")
+    ("r" smerge-refine "refine")
+    ("q" nil :exit t))
+  :general
+  (private/set-leader-keys-for-mode
+   :keymaps 'smerge-mode-map
+   "'" 'private/smerge-mode-hydra/body))
+
 (use-package orgit
   :defer t)
 
