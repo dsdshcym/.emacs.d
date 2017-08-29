@@ -29,4 +29,30 @@
     (setq osx-browse-prefer-background t)
     (setq browse-url-browser-function 'osx-browse-url)))
 
+(use-package mac-win
+  :ensure nil
+  :config
+  (progn
+    (setq mac-frame-tabbing nil)
+
+    (defun private/mac-new-tab ()
+      "Create a new tab on mac"
+      (interactive)
+      (let ((mac-frame-tabbing t))
+        (new-frame)))
+
+    (defun private/mac-kill-tab ()
+      "Kill a tab (Just an alias for delete-frame since a tab on
+mac is actually just a frame)"
+      (interactive)
+      (delete-frame)))
+  :general
+  (general-nmap
+   "gt" 'mac-next-tab
+   "gT" 'mac-previous-tab)
+
+  (private/set-leader-keys
+   "wt" 'private/mac-new-tab
+   "qt" 'private/mac-kill-tab))
+
 (provide 'init-mac)
