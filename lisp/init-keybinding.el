@@ -159,6 +159,9 @@ By default the (truly) last line."
      "j" 'evil-next-visual-line
      "k" 'evil-previous-visual-line)))
 
+(use-package hydra
+  :defer t)
+
 (use-package evil-commentary
   :delight
   :commands (evil-commentary
