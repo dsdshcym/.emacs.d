@@ -5,12 +5,30 @@
             (setq magit-repository-directories '(("~/Projects/" . 2))))
   :general
   (private/set-leader-keys
-   "gb" 'magit-blame
    "gs" 'magit-status
    "gi" 'magit-init
    "gl" 'magit-log-buffer-file)
   (private/enable-leader-key-for-mode
    :keymaps '(magit-status-mode-map magit-diff-mode-map magit-process-mode-map magit-blame-mode-map magit-log-mode-map)))
+
+(use-package magit-blame
+  :ensure magit
+  :defer t
+  :config
+  (progn
+    (defun private/magit-blame-quit-completely ()
+      (interactive)
+      (while magit-blame-mode
+        (magit-blame-quit)))
+
+    (defhydra private/magit-blame-hydra (:body-pre (call-interactively 'magit-blame))
+      ("b" magit-blame-popup "magit blame popup" :exit t)
+      ("p" magit-blame "blame previous version")
+      ("n" magit-blame-quit "blame next version")
+      ("q" private/magit-blame-quit-completely "quit magit blame completely" :exit t)))
+  :general
+  (private/set-leader-keys
+   "gb" 'private/magit-blame-hydra/body))
 
 (use-package orgit
   :defer t)
