@@ -14,4 +14,11 @@
    "C-n" 'Info-next
    "C-p" 'Info-prev))
 
+(use-package which-key
+  :defer t
+  :init
+  (which-key-mode)
+  :config
+  (setq which-key-idle-delay 1.0))
+
 (provide 'init-doc)
