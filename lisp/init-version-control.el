@@ -39,9 +39,15 @@
 
 (use-package git-timemachine
   :defer t
+  :config
+  (defhydra private/git-timemachine-hydra (:body-pre (git-timemachine))
+    ("p" git-timemachine-show-previous-revision "previous revision")
+    ("n" git-timemachine-show-next-revision "next revision")
+    ("g" git-timemachine-show-nth-revision "goto revision")
+    ("q" git-timemachine-quit "quit timemachine"))
   :general
   (private/set-leader-keys
-   "gt" 'git-timemachine))
+   "gt" 'private/git-timemachine-hydra/body))
 
 (use-package git-link
   :defer t
