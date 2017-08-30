@@ -542,4 +542,9 @@ unwanted space when exporting org-mode to html."
    "Sp" 'org-tree-slide-move-previous-tree
    "Sc" 'org-tree-slide-content))
 
+(use-package ox-reveal
+  :after ox
+  :config
+  (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/"))
+
 (provide 'init-org)
