@@ -100,4 +100,12 @@
    "gs_" 'string-inflection-underscore
    "gsU" 'string-inflection-upcase))
 
+(use-package files
+  :ensure nil
+  :config
+  (progn
+    (setq backup-directory-alist `(("." . "~/.emacs.d/.cache/backups")))
+    (setq auto-save-list-file-prefix "~/.emacs.d/.cache/auto-save-list/.saves-")
+    (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/.cache/auto-save-list/" t)))))
+
 (provide 'init-editing)
