@@ -1,3 +1,5 @@
+(setq create-lockfiles nil)
+
 (use-package avy
   :defer t
   :init
