@@ -96,6 +96,8 @@
     ;; -----------------------------
     ;; Link
     ;; -----------------------------
+    (setq org-keep-stored-link-after-insertion t)
+
     (defadvice org-insert-link (before remove-nil-link-from-org-stored-links)
       "org-link-fontify-links-to-this-file cannot handle (nil \"\")"
       (setq org-stored-links
