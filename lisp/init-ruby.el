@@ -170,7 +170,7 @@ Called interactively it prompts for a directory."
    "fo" 'projectile-rails-find-log
    "fp" 'projectile-rails-find-spec
    "fr" 'projectile-rails-find-rake-task
-   "fs" 'projectile-rails-find-stylesheet
+   "fs" 'projectile-rails-find-spec
    "ft" 'projectile-rails-find-test
    "ff" 'projectile-rails-find-fixture
    "fv" 'projectile-rails-find-view
@@ -187,7 +187,7 @@ Called interactively it prompts for a directory."
    "Fn" 'projectile-rails-find-current-migration
    "Fp" 'projectile-rails-find-current-spec
    "Fr" 'projectile-rails-goto-routes
-   "Fs" 'projectile-rails-find-current-stylesheet
+   "Fs" 'projectile-rails-find-current-spec
    "Ft" 'projectile-rails-find-current-test
    "Ff" 'projectile-rails-find-current-fixture
    "Fv" 'projectile-rails-find-current-view
