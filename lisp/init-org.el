@@ -101,7 +101,10 @@
       \"\") in org-stored-links and will cause org-insert-link to
       fail"
       (setq org-stored-links
-             (remove-if (lambda (x) (eq nil (car x))) org-stored-links))))
+            (remove-if (lambda (x) (eq nil (car x))) org-stored-links)))
+
+    (defadvice org-insert-link (before remove-dups-in-org-stored-links)
+      (delete-dups org-stored-links)))
   :general
   (general-mmap
    :keymaps 'org-mode-map
