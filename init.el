@@ -44,6 +44,7 @@
 (require 'init-pdf)
 (require 'init-doc)
 (require 'init-server)
+(require 'init-chrome)
 
 (defun private/push-to-kindle (url)
   (browse-url (concat "http://fivefilters.org/kindle-it/send.php?url=" url)))
