@@ -96,10 +96,8 @@
     ;; -----------------------------
     ;; Link
     ;; -----------------------------
-    (defadvice org-insert-link (before cleanup-org-stored-links)
-      "org-link-fontify-links-to-this-file cannot handle (nil
-      \"\") in org-stored-links and will cause org-insert-link to
-      fail"
+    (defadvice org-insert-link (before remove-nil-link-from-org-stored-links)
+      "org-link-fontify-links-to-this-file cannot handle (nil \"\")"
       (setq org-stored-links
             (remove-if (lambda (x) (eq nil (car x))) org-stored-links)))
 
