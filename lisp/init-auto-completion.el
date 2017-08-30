@@ -36,6 +36,8 @@
   :delight
   :defer t
   :init (smartparens-global-mode)
+  :config
+  (show-smartparens-mode)
   :commands (sp-split-sexp sp-newline sp-up-sexp))
 
 (use-package smartparens-config
