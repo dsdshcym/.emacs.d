@@ -160,7 +160,7 @@ Called interactively it prompts for a directory."
    "fa" 'projectile-rails-find-locale
    "fc" 'projectile-rails-find-controller
    "fe" 'projectile-rails-find-environment
-   "ff" 'projectile-rails-find-feature
+   "fF" 'projectile-rails-find-feature
    "fh" 'projectile-rails-find-helper
    "fi" 'projectile-rails-find-initializer
    "fj" 'projectile-rails-find-javascript
@@ -172,7 +172,7 @@ Called interactively it prompts for a directory."
    "fr" 'projectile-rails-find-rake-task
    "fs" 'projectile-rails-find-stylesheet
    "ft" 'projectile-rails-find-test
-   "fu" 'projectile-rails-find-fixture
+   "ff" 'projectile-rails-find-fixture
    "fv" 'projectile-rails-find-view
    "fy" 'projectile-rails-find-layout
    "f@" 'projectile-rails-find-mailer
@@ -189,7 +189,7 @@ Called interactively it prompts for a directory."
    "Fr" 'projectile-rails-goto-routes
    "Fs" 'projectile-rails-find-current-stylesheet
    "Ft" 'projectile-rails-find-current-test
-   "Fu" 'projectile-rails-find-current-fixture
+   "Ff" 'projectile-rails-find-current-fixture
    "Fv" 'projectile-rails-find-current-view
    "Fz" 'projectile-rails-goto-spec-helper
    "F." 'projectile-rails-goto-file-at-point
