@@ -530,4 +530,16 @@ unwanted space when exporting org-mode to html."
     (setq op/site-sub-title "This is my small blog :)")
     (setq op/theme 'wy)))
 
+(use-package org-tree-slide
+  :commands 'org-tree-slide-mode
+  :config
+  (org-tree-slide-simple-profile)
+  :general
+  (private/set-leader-keys-for-mode
+   :keymaps '(org-mode-map org-tree-slide-mode-map)
+   "Ss" 'org-tree-slide-mode
+   "Sn" 'org-tree-slide-move-next-tree
+   "Sp" 'org-tree-slide-move-previous-tree
+   "Sc" 'org-tree-slide-content))
+
 (provide 'init-org)
