@@ -175,7 +175,13 @@ By default the (truly) last line."
 (use-package evil-args
   :defer t
   :config
-  (add-to-list 'evil-args-delimiters " ")
+  ;; TODO:
+  ;; use a mode to delimiters alist to set delimiters for different modes
+  ;; See also https://github.com/wcsmith/evil-args/issues/7
+  (add-hook 'emacs-lisp-mode-hook
+            (lambda ()
+              (make-local-variable 'evil-args-delimiters)
+              (add-to-list 'evil-args-delimiters " ")))
   :general
   (general-define-key
    :keymaps 'evil-inner-text-objects-map
