@@ -74,6 +74,25 @@
   :init
   (add-hook 'prog-mode-hook 'hl-todo-mode))
 
+(use-package zoom-frm
+  :config
+  (progn
+    (defhydra private/zoom-frm-hydra ()
+      ("+" zoom-frm-in "Frame zoom in")
+      ("=" zoom-frm-in "Frame zoom in")
+      ("-" zoom-frm-out "Frame zoom out")
+      ("0" zoom-frm-unzoom "Frame unzoom"))
+
+    (defhydra private/zoom-text-hydra ()
+      ("+" text-scale-increase "Text zoom in")
+      ("=" text-scale-increase "Text zoom in")
+      ("-" text-scale-decrease "Text zoom out")
+      ("0" (text-scale-set 0) "Text unzoom")))
+  :general
+  (private/set-leader-keys
+   "zf" 'private/zoom-frm-hydra/body
+   "zx" 'private/zoom-text-hydra/body))
+
 (use-package centered-window-mode
   :config
   (progn
