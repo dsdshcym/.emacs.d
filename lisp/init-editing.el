@@ -110,4 +110,23 @@
     (setq auto-save-list-file-prefix "~/.emacs.d/.cache/auto-save-list/.saves-")
     (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/.cache/auto-save-list/" t)))))
 
+(use-package origami
+  :init
+  (global-origami-mode)
+  :general
+  (general-nmap
+   "za" 'origami-forward-toggle-node
+   "zc" 'origami-close-node
+   "zC" 'origami-close-node-recursively
+   "zO" 'origami-open-node-recursively
+   "zo" 'origami-open-node
+   "zr" 'origami-open-all-nodes
+   "zm" 'origami-close-all-nodes
+   "zs" 'origami-show-only-node
+   "zn" 'origami-next-fold
+   "zp" 'origami-previous-fold
+   "zR" 'origami-reset
+   "z <tab>" 'origami-recursively-toggle-node
+   "z TAB" 'origami-recursively-toggle-node))
+
 (provide 'init-editing)
