@@ -74,4 +74,10 @@
   :init
   (add-hook 'prog-mode-hook 'hl-todo-mode))
 
+(use-package centered-window-mode
+  :config
+  (progn
+    (setq cwm-use-vertical-padding t)
+    (setq cwm-frame-internal-border 70)))
+
 (provide 'init-ui)
