@@ -88,7 +88,16 @@
    "oi" 'alchemist-macroexpand-once-region
    "oI" 'alchemist-macroexpand-once-print-region
    "or" 'alchemist-macroexpand-region
-   "oR" 'alchemist-macroexpand-print-region)
+   "oR" 'alchemist-macroexpand-print-region
+
+   "fc" 'alchemist-phoenix-find-controllers
+   "fC" 'alchemist-phoenix-find-channels
+   "fm" 'alchemist-phoenix-find-models
+   "fr" 'alchemist-phoenix-router
+   "fs" 'alchemist-phoenix-find-static
+   "ft" 'alchemist-phoenix-find-templates
+   "fv" 'alchemist-phoenix-find-views
+   "fw" 'alchemist-phoenix-find-web)
   (general-nmap
    :keymaps '(alchemist-compile-mode-map
               alchemist-eval-mode-map
