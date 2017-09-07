@@ -193,6 +193,21 @@ By default the (truly) last line."
 (use-package evil-surround
   :init
   (global-evil-surround-mode)
+  :config
+  (progn
+    (defun private/evil-surround-org-drawer ()
+      (let ((drawer-name (read-from-minibuffer "" "")))
+        (cons (format ":%s:" (upcase (or drawer-name ""))) ":END:")))
+
+    (defun private/evil-surround-org-source ()
+      (let ((language (read-from-minibuffer "" "")))
+        (cons (format "#+BEGIN_SRC %s" (or language "")) "#+END_SRC")))
+
+    (defun private/add-evil-surrounds-for-org-mode ()
+      (push '(?: . private/evil-surround-org-drawer) evil-surround-pairs-alist)
+      (push '(?s . private/evil-surround-org-source) evil-surround-pairs-alist))
+
+    (add-hook 'org-mode-hook 'private/add-evil-surrounds-for-org-mode))
   :general
   (general-vmap
    :keymaps 'evil-surround-mode-map
