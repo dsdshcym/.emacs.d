@@ -547,6 +547,10 @@ unwanted space when exporting org-mode to html."
   :config
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/"))
 
+(use-package ox-md
+  :ensure org
+  :after ox)
+
 (use-package ox-gfm
   :after ox)
 
