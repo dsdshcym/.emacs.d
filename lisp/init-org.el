@@ -108,11 +108,7 @@
   :general
   (general-mmap
    :keymaps 'org-mode-map
-   "RET" 'org-open-at-point
-   "C-<return>" (lambda () (interactive) (evil-org-eol-call 'org-insert-heading-respect-content))
-   "C-S-<return>" (lambda () (interactive) (evil-org-eol-call 'org-insert-todo-heading-respect-content))
-   "M-<return>" (lambda () (interactive) (evil-org-eol-call 'org-meta-return))
-   "M-S-<return>" (lambda () (interactive) (evil-org-eol-call (lambda() (org-insert-todo-heading nil)))))
+   "RET" 'org-open-at-point)
   (private/set-leader-keys-for-mode
    :keymaps 'org-mode-map
    "cc" 'org-clock-cancel
@@ -503,7 +499,9 @@ unwanted space when exporting org-mode to html."
     (org-expiry-insinuate)))
 
 (use-package evil-org
-  :defer t
+  :commands
+  (evil-org-define-eol-command
+   evil-org-define-bol-command)
   :ensure t
   :init
   (progn
@@ -511,7 +509,14 @@ unwanted space when exporting org-mode to html."
     (add-hook 'org-mode-hook 'evil-org-mode)
     (add-hook 'evil-org-mode-hook
               (lambda ()
-                (evil-org-set-key-theme)))))
+                (evil-org-set-key-theme))))
+  :general
+  (general-mmap
+   :keymaps 'org-mode-map
+   "C-<return>" (evil-org-define-eol-command org-insert-heading-respect-content)
+   "C-S-<return>" (evil-org-define-eol-command org-insert-todo-heading-respect-content)
+   "M-<return>" (evil-org-define-eol-command org-meta-return)
+   "M-S-<return>" (evil-org-define-eol-command org-insert-todo-heading)))
 
 (use-package org-pomodoro
   :commands 'org-pomodoro
