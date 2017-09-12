@@ -1,5 +1,12 @@
 (setq create-lockfiles nil)
 
+(put 'narrow-to-region 'disabled nil)
+(private/set-leader-keys
+ "nw" 'widen
+ "nf" 'narrow-to-defun
+ "nr" 'narrow-to-region
+ "np" 'narrow-to-page)
+
 (use-package avy
   :defer t
   :init
