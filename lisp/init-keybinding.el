@@ -97,13 +97,11 @@ By default the (truly) last line."
      "bw" 'read-only-mode
      "TAB" (lambda () (interactive) (switch-to-buffer nil))
 
-     ;; Help
+     ;; Jumping
      "sj" 'imenu
 
-     ;; Jumping
-     "hdf" 'describe-function
-     "hdk" 'describe-key
-     "hdv" 'describe-variable
+     ;; Help
+     "h" (general-simulate-keys "<f1>")
 
      ;; Themes
      "Ts"  'load-theme
