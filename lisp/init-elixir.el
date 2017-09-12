@@ -110,4 +110,12 @@
               alchemist-test-report-mode-map)
    "q" 'quit-window))
 
+(use-package smartparens-elixir
+  :ensure smartparens
+  :config
+  (sp-with-modes 'elixir-mode
+    (sp-local-pair "cond" "end"
+                   :when '(("RET" "<evil-ret>"))
+                   :post-handlers '(sp-elixir-empty-do-block-post-handler))))
+
 (provide 'init-elixir)
