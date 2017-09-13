@@ -53,6 +53,7 @@ mac is actually just a frame)"
 
   (private/set-leader-keys
    "wt" 'private/mac-new-tab
-   "qt" 'private/mac-kill-tab))
+   "qt" 'private/mac-kill-tab
+   "td" 'mac-move-tab-to-new-frame))
 
 (provide 'init-mac)
