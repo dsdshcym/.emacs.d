@@ -95,7 +95,7 @@ By default the (truly) last line."
      "bb" 'switch-to-buffer
      "bd" 'kill-this-buffer
      "bw" 'read-only-mode
-     "TAB" (lambda () (interactive) (switch-to-buffer nil))
+     "TAB" (lambda () (interactive) (switch-to-buffer (other-buffer (current-buffer) t)))
 
      ;; Jumping
      "sj" 'imenu
