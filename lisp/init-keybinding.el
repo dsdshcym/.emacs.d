@@ -257,8 +257,8 @@ By default the (truly) last line."
   :commands (evil-numbers/inc-at-pt evil-numbers/inc-at-pt)
   :general
   (general-mmap
-   "+" 'evil-numbers/inc-at-pt
-   "-" 'evil-numbers/dec-at-pt))
+   "C-a" 'evil-numbers/inc-at-pt
+   "C-x" 'evil-numbers/dec-at-pt))
 
 (use-package evil-visualstar
   :commands (evil-visualstar/begin-search-forward
