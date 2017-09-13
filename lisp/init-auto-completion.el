@@ -38,7 +38,13 @@
   :init (smartparens-global-mode)
   :config
   (show-smartparens-mode)
-  :commands (sp-split-sexp sp-newline sp-up-sexp))
+  :commands (sp-split-sexp sp-newline sp-up-sexp)
+  :general
+  (general-imap
+   "C-s" 'sp-forward-slurp-sexp
+   "S-C-s" 'sp-forward-barf-sexp
+   "M-s" 'sp-backward-slurp-sexp
+   "S-M-s" 'sp-backward-barf-sexp))
 
 (use-package smartparens-config
   :ensure smartparens)
