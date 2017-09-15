@@ -34,6 +34,7 @@
    "m:" 'alchemist-mix-run
    "mc" 'alchemist-mix-compile
    "mx" 'alchemist-mix
+   "mr" 'alchemist-mix-rerun-last-task
 
    "'"  'alchemist-iex-run
    "sc" 'alchemist-iex-compile-this-buffer
