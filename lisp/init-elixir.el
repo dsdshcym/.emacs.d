@@ -31,9 +31,9 @@
    "hh" 'alchemist-help-search-at-point
    "hr" 'alchemist-help--search-marked-region
 
-   "m:" 'alchemist-mix
+   "m:" 'alchemist-mix-run
    "mc" 'alchemist-mix-compile
-   "mx" 'alchemist-mix-run
+   "mx" 'alchemist-mix
 
    "'"  'alchemist-iex-run
    "sc" 'alchemist-iex-compile-this-buffer
