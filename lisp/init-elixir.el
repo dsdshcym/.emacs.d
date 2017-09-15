@@ -113,9 +113,20 @@
 (use-package smartparens-elixir
   :ensure smartparens
   :config
-  (sp-with-modes 'elixir-mode
-    (sp-local-pair "cond" "end"
-                   :when '(("RET" "<evil-ret>"))
-                   :post-handlers '(sp-elixir-empty-do-block-post-handler))))
+  (progn
+    (defun private/elixir-do-end-close-action (id action context)
+      (when (eq action 'insert)
+        (save-excursion (newline-and-indent))
+        (indent-according-to-mode)))
+
+    (sp-with-modes 'elixir-mode
+      (sp-local-pair "cond" "end"
+                     :when '(("RET" "<evil-ret>"))
+                     :post-handlers '(sp-elixir-empty-do-block-post-handler))
+
+      (sp-local-pair "do" "end"
+                     :when '(("RET" "<evil-ret>"))
+                     :skip-match 'sp-elixir-skip-def-p
+                     :post-handlers '(private/elixir-do-end-close-action)))))
 
 (provide 'init-elixir)
