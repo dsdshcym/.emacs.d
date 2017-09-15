@@ -120,13 +120,21 @@
         (indent-according-to-mode)))
 
     (sp-with-modes 'elixir-mode
-      (sp-local-pair "cond" "end"
-                     :when '(("RET" "<evil-ret>"))
-                     :post-handlers '(sp-elixir-empty-do-block-post-handler))
+      (sp-local-pair "do" "end" :actions :rem)
+      (sp-local-pair "def" "end" :actions :rem)
+      (sp-local-pair "defp" "end" :actions :rem)
+      (sp-local-pair "defmodule" "end" :actions :rem)
+      (sp-local-pair "fn" "end" :actions :rem)
+      (sp-local-pair "if" "end" :actions :rem)
+      (sp-local-pair "unless" "end" :actions :rem)
+      (sp-local-pair "case" "end" :actions :rem)
+      (sp-local-pair "receive" "end" :actions :rem)
 
       (sp-local-pair "do" "end"
                      :when '(("RET" "<evil-ret>"))
-                     :skip-match 'sp-elixir-skip-def-p
-                     :post-handlers '(private/elixir-do-end-close-action)))))
+                     :post-handlers '(private/elixir-do-end-close-action))
+
+      (sp-local-pair "fn" "end"
+                     :when '(("SPC" "RET" "<evil-ret>"))))))
 
 (provide 'init-elixir)
