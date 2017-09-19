@@ -1,4 +1,5 @@
 (setq mac-pass-command-to-system nil)
+(mac-auto-operator-composition-mode t)
 
 (use-package dash-at-point
   :defer t
