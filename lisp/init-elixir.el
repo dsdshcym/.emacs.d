@@ -138,4 +138,12 @@
       (sp-local-pair "fn" "end"
                      :when '(("SPC" "RET" "<evil-ret>"))))))
 
+(use-package flycheck-credo
+  :after flycheck
+  :config
+  (progn
+    (flycheck-credo-setup)
+    (setq flycheck-elixir-credo-strict t)
+    (add-hook 'elixir-mode-hook 'flycheck-mode)))
+
 (provide 'init-elixir)
