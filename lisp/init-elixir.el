@@ -146,4 +146,9 @@
     (setq flycheck-elixir-credo-strict t)
     (add-hook 'elixir-mode-hook 'flycheck-mode)))
 
+(use-package flycheck-mix
+  :after flycheck
+  :init
+  (flycheck-mix-setup))
+
 (provide 'init-elixir)
