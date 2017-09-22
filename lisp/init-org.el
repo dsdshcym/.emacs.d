@@ -142,7 +142,7 @@
 
    ;; Subtree editing
    "sa" 'org-archive-subtree
-   "sb" 'org-tree-to-indirect-buffer
+   "sb" (lambda () (interactive) (org-tree-to-indirect-buffer 4))
    "sh" 'org-promote-subtree
    "sj" 'org-move-subtree-down
    "sk" 'org-move-subtree-up
