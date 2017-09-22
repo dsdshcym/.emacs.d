@@ -3,6 +3,8 @@
   :defer t
   :init
   (progn
+    (add-hook 'org-mode-hook 'auto-fill-mode)
+
     (setq org-directory "~/Org")
     (setq org-default-notes-file "~/Org/refile.org")
     (setq org-publish-timestamp-directory (concat private/cache-directory
