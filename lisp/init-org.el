@@ -561,4 +561,13 @@ unwanted space when exporting org-mode to html."
 (use-package ox-gfm
   :after ox)
 
+(use-package clip2org
+  :commands 'clip2org
+  :ensure nil
+  :config
+  (progn
+    (setq clip2org-clippings-file "/Volumes/Kindle/documents/My Clippings.txt")
+    (setq clip2org-persistence-file
+          (expand-file-name "clip2org-persist.txt" private/cache-directory))))
+
 (provide 'init-org)
