@@ -9,6 +9,7 @@
                                (setq gc-cons-threshold 4000000)))
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/local/")
 
 (setq private/cache-directory "~/.emacs.d/.cache/")
 (setq private/system-is-mac (eq system-type 'darwin))
