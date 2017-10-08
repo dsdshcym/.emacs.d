@@ -388,15 +388,13 @@ unwanted space when exporting org-mode to html."
   :config
   (progn
     (defun private/link-to-org-tags (url)
-      (let* ((parsed-url (url-generic-parse-url url))
-             (host (url-host parsed-url)))
-        (cond
-         ((not host) "")
-         ((string-match "youtube"       host) " :YouTube:")
-         ((string-match "bilibili"      host) " :Bilibili:")
-         ((string-match "zhihu"         host) " :Zhihu:")
-         ((string-match "sspai"         host) " :少数派:")
-         ((string-match "weixin.qq.com" host) " :WeChat:"))))
+      (cond
+       ((not url) "")
+       ((string-match-p "youtube"      url) " :YouTube:")
+       ((string-match-p "bilibili"     url) " :Bilibili:")
+       ((string-match-p "zhihu"        url) " :Zhihu:")
+       ((string-match-p "sspai"        url) " :少数派:")
+       ((string-match-p "weixin.qq.com" url) " :WeChat:")))
 
     (defun private/capture-template ()
       (let ((link-to-org-tags "%(private/link-to-org-tags \"%l\")")
