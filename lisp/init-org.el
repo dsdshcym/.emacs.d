@@ -390,10 +390,11 @@ unwanted space when exporting org-mode to html."
     (defun private/link-to-org-tags (url)
       (cond
        ((not url) "")
-       ((string-match-p "youtube"      url) " :YouTube:")
-       ((string-match-p "bilibili"     url) " :Bilibili:")
-       ((string-match-p "zhihu"        url) " :Zhihu:")
-       ((string-match-p "sspai"        url) " :少数派:")
+       ((string-match-p "wanqu.co"      url) " :Wanqu:")
+       ((string-match-p "youtube"       url) " :YouTube:")
+       ((string-match-p "bilibili"      url) " :Bilibili:")
+       ((string-match-p "zhihu"         url) " :Zhihu:")
+       ((string-match-p "sspai"         url) " :少数派:")
        ((string-match-p "weixin.qq.com" url) " :WeChat:")))
 
     (defun private/capture-template ()
