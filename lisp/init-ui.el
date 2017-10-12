@@ -108,4 +108,12 @@
    "thi" 'highlight-indentation-mode
    "thc" 'highlight-indentation-current-column-mode))
 
+(use-package indent-guide
+  :delight
+  :defer t
+  :general
+  (private/set-leader-keys
+   "ti" 'indent-guide-mode
+   "t TAB" 'indent-guide-global-mode))
+
 (provide 'init-ui)
