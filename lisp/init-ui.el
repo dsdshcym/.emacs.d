@@ -100,4 +100,12 @@
     (setq cwm-use-vertical-padding t)
     (setq cwm-frame-internal-border 70)))
 
+(use-package highlight-indentation
+  :delight
+  :defer t
+  :general
+  (private/set-leader-keys
+   "thi" 'highlight-indentation-mode
+   "thc" 'highlight-indentation-current-column-mode))
+
 (provide 'init-ui)
