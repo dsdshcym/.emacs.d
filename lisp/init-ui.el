@@ -116,4 +116,16 @@
    "ti" 'indent-guide-mode
    "t TAB" 'indent-guide-global-mode))
 
+(use-package display-line-numbers
+  :ensure nil
+  :if (>= emacs-major-version 26)
+  :init
+  (progn
+    (setq display-line-numbers-type 'visual)
+    (add-hook 'prog-mode-hook 'display-line-numbers-mode))
+  :general
+  (private/set-leader-keys
+   "tn" 'display-line-numbers-mode
+   "tN" 'global-display-line-numbers-mode))
+
 (provide 'init-ui)
