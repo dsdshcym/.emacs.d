@@ -37,13 +37,6 @@
   (private/set-leader-keys
    "af"  'elfeed))
 
-(use-package elfeed-goodies
-  :after elfeed
-  :init
-  (progn
-    (setq elfeed-goodies/entry-pane-position 'bottom)
-    (elfeed-goodies/setup)))
-
 (use-package elfeed-org
   :defer t
   :init
