@@ -3,7 +3,7 @@
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (setq mouse-highlight nil)
-(setq scroll-conservatively 101)
+(setq scroll-conservatively 0)
 (setq column-number-mode t)
 (setq-default cursor-in-non-selected-windows nil)
 (setq x-underline-at-descent-line t)
