@@ -556,6 +556,36 @@ Do not clutter =init.el= please.
     :init
     (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
 #+END_SRC
+* Projectile
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:10]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :init
+    (setq projectile-sort-order 'recentf
+          projectile-cache-file (concat private/local-directory "projectile.cache")
+          projectile-known-projects-file (concat private/local-directory "projectile-bookmarks.eld"))
+    (projectile-mode +1))
+#+END_SRC
+** counsel-projectile
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:29]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package counsel-projectile
+    :after projectile
+    :general
+    (general-define-key
+     [remap projectile-find-file]        #'counsel-projectile-find-file
+     [remap projectile-find-dir]         #'counsel-projectile-find-dir
+     [remap projectile-switch-to-buffer] #'counsel-projectile-switch-to-buffer
+     [remap projectile-grep]             #'counsel-projectile-grep
+     [remap projectile-ag]               #'counsel-projectile-ag
+     [remap projectile-switch-project]   #'counsel-projectile-switch-project)
+    (private/leader
+     "/" #'counsel-projectile-rg))
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
