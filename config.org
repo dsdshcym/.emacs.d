@@ -172,6 +172,17 @@ Do not clutter =init.el= please.
   (dolist (charset '(kana han cjk-misc bopomofo))
       (set-fontset-font (frame-parameter nil 'font) charset private/cjk-font))
 #+END_SRC
+**** JIT optimizations
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:18]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (setq-default
+   jit-lock-defer-time nil
+   jit-lock-stealth-nice 0.1
+   jit-lock-stealth-time 0.2
+   jit-lock-stealth-verbose nil)
+#+END_SRC
 *** Modeline
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:11]
