@@ -546,6 +546,9 @@ Do not clutter =init.el= please.
   (use-package ivy-rich
     :after ivy
     :init
+    (setq ivy-virtual-abbreviate 'full
+          ivy-rich-switch-buffer-align-virtual-buffer t)
+    :config
     (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
 #+END_SRC
 * Projectile
