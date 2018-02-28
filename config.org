@@ -440,6 +440,19 @@ Do not clutter =init.el= please.
   (setq mac-command-modifier 'meta
         mac-option-modifier  'alt)
 #+END_SRC
+* macOS
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:39]
+:END:
+** exec-path-from-shell
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:39]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package exec-path-from-shell
+    :init
+    (exec-path-from-shell-initialize))
+#+END_SRC
 * Ivy
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:30]
