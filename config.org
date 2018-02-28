@@ -289,6 +289,7 @@ Do not clutter =init.el= please.
     (setq evil-want-visual-char-semi-exclusive t)
     (evil-mode)
     :config
+    (evil-select-search-module 'evil-search-module 'evil-search)
     (mapc #'evil-declare-ignore-repeat
           '(kill-this-buffer
             ido-kill-buffer
