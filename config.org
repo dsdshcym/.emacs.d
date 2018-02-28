@@ -464,6 +464,26 @@ Do not clutter =init.el= please.
      "dd" 'dash-at-point
      "dD" 'dash-at-point-with-docset))
 #+END_SRC
+** osx-dictionary
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:43]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package osx-dictionary
+    :commands (osx-dictionary-search-pointer
+               osx-dictionary-search-input
+               osx-dictionary-cli-find-or-recompile)
+    :general
+    (private/leader
+     "dw" 'osx-dictionary-search-pointer
+     "dW" 'osx-dictionary-search-input)
+    (nmap
+     :keymaps 'osx-dictionary-mode-map
+     "q" 'osx-dictionary-quit
+     "r" 'osx-dictionary-read-word
+     "s" 'osx-dictionary-search-input
+     "o" 'osx-dictionary-open-dictionary.app))
+#+END_SRC
 * Ivy
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:30]
