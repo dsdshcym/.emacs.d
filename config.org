@@ -124,6 +124,54 @@ Do not clutter =init.el= please.
 #+BEGIN_SRC emacs-lisp
   (setq custom-file (expand-file-name "custom.el" private/local-directory))
 #+END_SRC
+** UI
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 15:59]
+:END:
+*** Reaonable default
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:00]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (blink-cursor-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (tooltip-mode -1)
+  (setq mouse-highlight nil)
+  (setq scroll-conservatively 0)
+  (setq column-number-mode t)
+  (setq-default cursor-in-non-selected-windows nil)
+  (setq x-underline-at-descent-line t)
+  (setq x-stretch-cursor t)
+  (setq frame-resize-pixelwise t)
+#+END_SRC
+*** Theme
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:01]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package solarized-theme
+    :init
+    (setq solarized-use-variable-pitch nil)
+    (setq solarized-scale-org-headlines nil)
+    (load-theme 'solarized-dark t))
+#+END_SRC
+*** Fonts
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:02]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (setq private/main-font (font-spec :family "Iosevka" :size 14))
+  (setq private/cjk-font (font-spec :family "Sarasa Mono SC"))
+  (setq private/emoji-font (font-spec :family "Apple Color Emoji"))
+
+  (set-face-attribute 'default nil :font private/main-font)
+  (set-fontset-font t 'unicode private/emoji-font)
+
+  (dolist (charset '(kana han cjk-misc bopomofo))
+      (set-fontset-font (frame-parameter nil 'font) charset private/cjk-font))
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
