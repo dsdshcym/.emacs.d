@@ -112,6 +112,18 @@ previously compiled manually then all of the package initialization will still t
     (require 'use-package)
     (setq use-package-always-ensure t))
 #+END_SRC
+* Emacs Configurations
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 15:40]
+:END:
+** Custom variables
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 15:40]
+:END:
+Do not clutter =init.el= please.
+#+BEGIN_SRC emacs-lisp
+  (setq custom-file (expand-file-name "custom.el" private/local-directory))
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
