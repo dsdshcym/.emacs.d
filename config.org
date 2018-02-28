@@ -1,66 +1,11 @@
 #+TITLE: Emacs Literate Configuration
-#+AUTHOR: Your Name Here
 #+PROPERTY: header-args :tangle yes
 
-* Configuration
-:PROPERTIES:
-:VISIBILITY: children
-:END:
-
-** Table of Contents :TOC_3_gh:
-- [[#configuration][Configuration]]
-  - [[#about-this-file][About this file]]
-  - [[#org-file-tweaks][Org File Tweaks]]
-    - [[#automatically-tangle][Automatically Tangle]]
-    - [[#visibility-settings][Visibility Settings]]
-    - [[#table-of-contents][Table of Contents]]
-  - [[#personal-information][Personal Information]]
-  - [[#emacs-initialization][Emacs Initialization]]
-    - [[#settings][Settings]]
-    - [[#package-management][Package Management]]
-  - [[#packages][Packages]]
-    - [[#evil][Evil]]
-    - [[#ivy][Ivy]]
-    - [[#counsel][Counsel]]
-    - [[#swiper][Swiper]]
-    - [[#magit][Magit]]
-    - [[#projectile][Projectile]]
-    - [[#org][Org]]
-    - [[#toc-org][Toc-org]]
-  - [[#post-initialization][Post Initialization]]
-
-** About this file
+* About this file
 This is an Emacs literate configuration template. It contains the basic structure
 of a literate config along with some optimizations to ensure a fast load time.
 
-** Org File Tweaks
-There are a few tweaks included in this org file that make it a little easier to
-work with.
-
-*** Automatically Tangle
-First there is a property defined on the file:
-
-#+BEGIN_SRC :tangle no
-header-args :tangle yes
-#+END_SRC
-
-This tells emacs to automatically tangle (include) all code blocks in this file when
-generating the code for the config, unless the code block explicitly includes
-=:tangle no= as the above code block does.
-
-*** Visibility Settings
-Next we have a property defined on the [[Configuration][Configuration]] heading that defines the visibility
-that tells org to show it's direct children on startup. This way a clean outline of all
-sub headings under Configuration is shown each time this file is opened in org-mode.
-
-*** Table of Contents
-Finally, there is a [[Table of Contents][Table of Contents]] heading that includes the tag: =:TOC_3_gh:=. This
-tells an org-mode package =toc-org= to generate a table of contents under this heading
-that has a max depth of 3 and is created using Github-style hrefs. This table of contents
-is updated everytime the file is saved and makes for a functional table of contents that
-works property directly on github.
-
-** Personal Information
+* Personal Information
 Let's set some variables with basic user information.
 
 #+BEGIN_SRC emacs-lisp
@@ -68,9 +13,8 @@ Let's set some variables with basic user information.
       user-mail-address "user@email.com")
 #+END_SRC
 
-** Emacs Initialization
-
-*** Settings
+* Emacs Initialization
+** Settings
 We're going to increase the gc-cons-threshold to a very high number to decrease the load and compile time.
 We'll lower this value significantly after initialization has completed. We don't want to keep this value
 too high or it will result in long GC pauses during normal usage.
@@ -87,10 +31,8 @@ if you would like to see any and all byte compiler warnings.
 #+BEGIN_SRC emacs-lisp
 (setq byte-compile-warnings '(not free-vars unresolved noruntime lexical make-local))
 #+END_SRC
-
-*** Package Management
-
-**** Package Settings
+** Package Management
+*** Package Settings
 We're going to set the =load-path= ourselves and avoid calling =(package-initilize)= (for
 performance reasons) so we need to set =package--init-file-ensured= to true to tell =package.el=
 to not automatically call it on our behalf. Additionally we're setting
@@ -107,8 +49,7 @@ to not automatically call it on our behalf. Additionally we're setting
     (unless (file-directory-p package-user-dir)
       (make-directory package-user-dir t)))
 #+END_SRC
-
-**** Use-Package Settings
+*** Use-Package Settings
 Tell =use-package= to always defer loading packages unless explicitly told otherwise. This speeds up
 initialization significantly as many packages are only loaded later when they are explicitly used.
 
@@ -116,8 +57,7 @@ initialization significantly as many packages are only loaded later when they ar
   (setq use-package-always-defer t
         use-package-verbose t)
 #+END_SRC
-
-**** Manually Set Load Path
+*** Manually Set Load Path
 We're going to set the load path ourselves so that we don't have to call =package-initialize= at
 runtime and incur a large performance hit. This load-path will actually be faster than the one
 created by =package-initialize= because it appends the elpa packages to the end of the load path.
@@ -128,8 +68,7 @@ first.
   (eval-and-compile
     (setq load-path (append load-path (directory-files package-user-dir t "^[^.]" t))))
 #+END_SRC
-
-**** Initialize Package Management
+*** Initialize Package Management
 Next we are going to require =package.el= and add our additional package archives, 'melpa' and 'org'.
 Afterwards we need to initialize our packages and then ensure that =use-package= is installed, which
 we promptly install if it's missing. Finally we load =use-package= and tell it to always install any
@@ -159,66 +98,7 @@ previously compiled manually then all of the package initialization will still t
     (require 'use-package)
     (setq use-package-always-ensure t))
 #+END_SRC
-
-
-** Packages
-
-*** Evil
-Install, automatically load, and enable evil. It's like vim, but better!
-
-#+BEGIN_SRC emacs-lisp
-(use-package evil
-  :demand t
-  :config
-  (evil-mode 1))
-#+END_SRC
-
-*** Ivy
-Generic completion frontend that's just awesome! Let's install and enable it.
-
-#+BEGIN_SRC emacs-lisp
-(use-package ivy
-  :demand t)
-#+END_SRC
-
-*** Counsel
-Counsel allows us to utilize ivy by replacing many built-in and common functions
-with richer versions. Let's install it!
-
-#+BEGIN_SRC emacs-lisp
-(use-package counsel-projectile)
-(use-package counsel
-  :demand t)
-#+END_SRC
-
-*** Swiper
-Swiper is an awesome searching utility with a quick preview. Let's install it and
-load it when =swiper= or =swiper-all= is called.
-
-#+BEGIN_SRC emacs-lisp
-(use-package swiper
-  :commands (swiper swiper-all))
-#+END_SRC
-
-*** Magit
-The magical git client. Let's load magit only when one of the several entry pont
-functions we invoke regularly outside of magit is called.
-
-#+BEGIN_SRC emacs-lisp
-(use-package magit
-  :commands (magit-status magit-blame magit-log-buffer-file magit-log-all))
-#+END_SRC
-
-*** Projectile
-Projectile is a quick and easy project management package that "just works". We're
-going to install it and make sure it's loaded immediately.
-
-#+BEGIN_SRC emacs-lisp
-(use-package projectile
-  :demand t)
-#+END_SRC
-
-*** Org
+* Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
 want is prioritized instead.
@@ -233,18 +113,7 @@ want is prioritized instead.
 (require 'cl)
 (setq load-path (remove-if (lambda (x) (string-match-p "org$" x)) load-path))
 #+END_SRC
-
-*** Toc-org
-Let's install and load the =toc-org= package after org mode is loaded. This is the
-package that automatically generates an up to date table of contents for us.
-
-#+BEGIN_SRC emacs-lisp
-(use-package toc-org
-  :after org
-  :init (add-hook 'org-mode-hook #'toc-org-enable))
-#+END_SRC
-
-** Post Initialization
+* Post Initialization
 Let's lower our GC thresholds back down to a sane level.
 
 #+BEGIN_SRC emacs-lisp
