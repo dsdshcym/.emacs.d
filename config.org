@@ -578,6 +578,33 @@ Do not clutter =init.el= please.
     (private/leader
      "/" #'counsel-projectile-rg))
 #+END_SRC
+* Version Control
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:54]
+:END:
+** magit
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:54]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :config
+    (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+    (setq magit-repository-directories '(("~/Projects/" . 2)))
+    :general
+    (private/leader
+     "gs" 'magit-status
+     "gi" 'magit-init
+     "gl" 'magit-log-buffer-file))
+#+END_SRC
+** evil-magit
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:55]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-magit
+    :after magit)
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
