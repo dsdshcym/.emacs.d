@@ -453,6 +453,17 @@ Do not clutter =init.el= please.
     :init
     (exec-path-from-shell-initialize))
 #+END_SRC
+** dash-at-point
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:41]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package dash-at-point
+    :general
+    (private/leader
+     "dd" 'dash-at-point
+     "dD" 'dash-at-point-with-docset))
+#+END_SRC
 * Ivy
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:30]
