@@ -551,6 +551,41 @@ Do not clutter =init.el= please.
     :config
     (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
 #+END_SRC
+* Auto Completion
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 18:16]
+:END:
+** company
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 18:16]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+    :init
+    (setq company-idle-delay nil
+          company-require-match 'never
+          company-tooltip-align-annotations t
+          company-dabbrev-ignore-case nil
+          company-dabbrev-downcase nil)
+    :config
+    (global-company-mode)
+    (setq company-backends
+          '(company-keywords
+            company-files
+            company-capf
+            company-dabbrev-code
+            company-dabbrev))
+    :general
+    (general-define-key
+     :keymaps 'company-active-map
+     "C-n" 'company-select-next
+     "C-p" 'company-select-previous))
+
+  (use-package company-statistics
+    :hook (company-mode . company-statistics-mode)
+    :init
+    (setq company-statistics-file (concat private/local-directory "company-statistics-cache.el")))
+#+END_SRC
 * Projectile
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:10]
