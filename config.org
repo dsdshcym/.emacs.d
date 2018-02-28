@@ -351,6 +351,65 @@ Do not clutter =init.el= please.
    "qf" #'delete-frame
    "qq" #'save-buffers-kill-terminal)
 #+END_SRC
+* Ivy
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:30]
+:END:
+** Ivy itself
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:31]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy
+    :init
+    (add-hook 'after-init-hook #'ivy-mode)
+    :config
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-initial-inputs-alist nil)
+    (setq ivy-truncate-lines nil)
+    (setq ivy-re-builders-alist
+          '((t . ivy--regex-plus)))
+    :general
+    (private/local-leader
+     :keymaps 'ivy-occur-grep-mode-map
+     "w" #'ivy-wgrep-change-to-wgrep-mode))
+#+END_SRC
+** Counsel
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:32]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package counsel
+    :after ivy
+    :config (counsel-mode)
+    :general
+    (private/leader
+     "iu" #'counsel-unicode-char
+     "ry" #'counsel-yank-pop
+     "rm" #'counsel-mark-ring))
+#+END_SRC
+** Swiper
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:34]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package swiper
+    :after ivy
+    :general
+    (private/leader
+     "ss" #'swiper))
+#+END_SRC
+** Sort M-x candidates using smex
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:36]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package smex
+    :after ivy
+    :init
+    (setq-default smex-history-length 32
+                  smex-save-file (concat private/local-directory ".smex-items")))
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
