@@ -417,6 +417,20 @@ Do not clutter =init.el= please.
    "qf" #'delete-frame
    "qq" #'save-buffers-kill-terminal)
 #+END_SRC
+*** Truly escape key
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:15]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (general-define-key
+   :keymaps '(minibuffer-local-map
+              minibuffer-local-ns-map
+              minibuffer-local-completion-map
+              minibuffer-local-must-match-map
+              minibuffer-local-isearch-map
+              read-expression-map)
+   [escape] 'abort-recursive-edit)
+#+END_SRC
 * Ivy
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:30]
@@ -436,6 +450,9 @@ Do not clutter =init.el= please.
     (setq ivy-re-builders-alist
           '((t . ivy--regex-plus)))
     :general
+    (general-define-key
+     :keymaps 'ivy-minibuffer-map
+     [escape] 'minibuffer-keyboard-quit)
     (private/local-leader
      :keymaps 'ivy-occur-grep-mode-map
      "w" #'ivy-wgrep-change-to-wgrep-mode))
