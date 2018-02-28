@@ -643,6 +643,18 @@ Do not clutter =init.el= please.
   (use-package evil-magit
     :after magit)
 #+END_SRC
+** gitconfig-mode and gitignore-mode
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 18:08]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package gitconfig-mode
+    :mode "/\\.?git/?config$"
+    :mode "/\\.gitmodules$")
+
+  (use-package gitignore-mode
+    :mode "/\\.gitignore$")
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
