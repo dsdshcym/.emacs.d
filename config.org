@@ -145,6 +145,7 @@ Do not clutter =init.el= please.
   (setq x-underline-at-descent-line t)
   (setq x-stretch-cursor t)
   (setq frame-resize-pixelwise t)
+  (setq inhibit-startup-screen t)
 #+END_SRC
 *** Theme
 :PROPERTIES:
