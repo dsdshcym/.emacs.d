@@ -63,14 +63,6 @@ to not automatically call it on our behalf. Additionally we're setting
     (unless (file-directory-p package-user-dir)
       (make-directory package-user-dir t)))
 #+END_SRC
-*** Use-Package Settings
-Tell =use-package= to always defer loading packages unless explicitly told otherwise. This speeds up
-initialization significantly as many packages are only loaded later when they are explicitly used.
-
-#+BEGIN_SRC emacs-lisp
-  (setq use-package-always-defer t
-        use-package-verbose t)
-#+END_SRC
 *** Manually Set Load Path
 We're going to set the load path ourselves so that we don't have to call =package-initialize= at
 runtime and incur a large performance hit. This load-path will actually be faster than the one
