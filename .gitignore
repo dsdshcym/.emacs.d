@@ -1,0 +1,3 @@
+*.elc
+/config.el
+/.local
