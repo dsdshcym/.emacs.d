@@ -206,6 +206,24 @@ Do not clutter =init.el= please.
     (setq-default display-line-numbers-width 4)
     (setq display-line-numbers-type 'visual))
 #+END_SRC
+** Core
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:51]
+:END:
+*** Encoding
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:51]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (when (fboundp 'set-charset-priority)
+    (set-charset-priority 'unicode))
+  (prefer-coding-system        'utf-8)
+  (set-terminal-coding-system  'utf-8)
+  (set-keyboard-coding-system  'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (setq locale-coding-system   'utf-8)
+  (setq-default buffer-file-coding-system 'utf-8)
+#+END_SRC
 * Keybindings
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:55]
