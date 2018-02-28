@@ -410,6 +410,16 @@ Do not clutter =init.el= please.
     (setq-default smex-history-length 32
                   smex-save-file (concat private/local-directory ".smex-items")))
 #+END_SRC
+** ivy-rich
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:37]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy-rich
+    :after ivy
+    :init
+    (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
