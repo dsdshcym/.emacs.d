@@ -20,9 +20,15 @@ We'll lower this value significantly after initialization has completed. We don'
 too high or it will result in long GC pauses during normal usage.
 
 #+BEGIN_SRC emacs-lisp
-(eval-and-compile
-  (setq gc-cons-threshold 402653184
-        gc-cons-percentage 0.6))
+  (eval-and-compile
+    (setq gc-cons-threshold 402653184
+          gc-cons-percentage 0.6))
+
+  (defun private/set-gc-cons-variables ()
+    (setq gc-cons-threshold 16777216
+          gc-cons-percentage 0.1))
+
+  (add-hook 'after-init-hook #'private/set-gc-cons-variables)
 #+END_SRC
 
 Disable certain byte compiler warnings to cut down on the noise. This is a personal choice and can be removed
@@ -112,11 +118,4 @@ want is prioritized instead.
 ;; Ensure ELPA org is prioritized above built-in org.
 (require 'cl)
 (setq load-path (remove-if (lambda (x) (string-match-p "org$" x)) load-path))
-#+END_SRC
-* Post Initialization
-Let's lower our GC thresholds back down to a sane level.
-
-#+BEGIN_SRC emacs-lisp
-(setq gc-cons-threshold 16777216
-      gc-cons-percentage 0.1)
 #+END_SRC
