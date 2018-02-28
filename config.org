@@ -12,6 +12,15 @@ Let's set some variables with basic user information.
 (setq user-full-name "Yiming Chen"
       user-mail-address "dsdshcym@gmail.com")
 #+END_SRC
+* Constants
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 15:29]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (setq private/emacs-directory (file-truename user-emacs-directory))
+  (setq private/local-directory (concat private/emacs-directory ".local/"))
+  (setq private/packages-directory (concat private/local-directory "packages/"))
+#+END_SRC
 * Emacs Initialization
 ** Settings
 We're going to increase the gc-cons-threshold to a very high number to decrease the load and compile time.
