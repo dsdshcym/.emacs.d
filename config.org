@@ -267,6 +267,90 @@ Do not clutter =init.el= please.
         (forward-line (1- count)))
       (evil-first-non-blank)))
 #+END_SRC
+** General
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:14]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package general
+    :after evil
+    :config
+    (general-evil-setup)
+
+    (general-create-definer
+     private/leader
+     :prefix "SPC"
+     :non-normal-prefix "M-m"
+     :states '(motion insert emacs))
+
+    (general-create-definer
+     private/local-leader
+     :prefix "'"
+     :non-normal-prefix "M-m m"
+     :states '(motion insert emacs)))
+#+END_SRC
+*** Leader Keys
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:26]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (private/leader
+   "" nil
+
+   "SPC" #'execute-extended-command
+
+   "u" #'universal-argument
+
+   ;; File
+   "ff" #'find-file
+   "fel" #'find-library
+   "fS" #'evil-write-all
+   "fs" #'save-buffer
+   "fvd" #'add-dir-local-variable
+   "fvf" #'add-file-local-variable
+   "fvp" #'add-file-local-variable-prop-line
+
+   ;; Buffer
+   "bb" #'switch-to-buffer
+   "bd" #'kill-this-buffer
+   "bw" #'read-only-mode
+   "TAB" (lambda () (interactive) (switch-to-buffer nil))
+
+   ;; Jumping
+   "sj" #'imenu
+
+   ;; Help
+   "h" (general-simulate-keys "<f1>")
+
+   ;; Themes
+   "Ts"  #'load-theme
+
+   "en"  #'next-error
+   "ep"  #'previous-error
+
+   ;; Window Management
+   "wd" #'delete-window
+   "wm" #'delete-other-windows
+   "wf" #'make-frame
+   "wH" #'evil-window-move-far-left
+   "wh" #'evil-window-left
+   "wJ" #'evil-window-move-very-bottom
+   "wj" #'evil-window-down
+   "wK" #'evil-window-move-very-top
+   "wk" #'evil-window-up
+   "wL" #'evil-window-move-far-right
+   "wl" #'evil-window-right
+   "wo" #'other-frame
+   "wS" #'split-window-below
+   "ws" #'split-window-below-and-focus
+   "wV" #'split-window-right
+   "wv" #'split-window-right-and-focus
+   "ww" #'other-window
+   "w=" #'balance-windows
+
+   "qf" #'delete-frame
+   "qq" #'save-buffers-kill-terminal)
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
