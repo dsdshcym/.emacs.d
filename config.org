@@ -342,7 +342,7 @@ Do not clutter =init.el= please.
   (use-package general
     :after evil
     :config
-    (general-evil-setup)
+    (general-evil-setup t)
 
     (general-create-definer
      private/leader
