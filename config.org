@@ -9,10 +9,9 @@ of a literate config along with some optimizations to ensure a fast load time.
 Let's set some variables with basic user information.
 
 #+BEGIN_SRC emacs-lisp
-(setq user-full-name "Your Name Here"
-      user-mail-address "user@email.com")
+(setq user-full-name "Yiming Chen"
+      user-mail-address "dsdshcym@gmail.com")
 #+END_SRC
-
 * Emacs Initialization
 ** Settings
 We're going to increase the gc-cons-threshold to a very high number to decrease the load and compile time.
