@@ -620,6 +620,14 @@ Do not clutter =init.el= please.
      "s" 'osx-dictionary-search-input
      "o" 'osx-dictionary-open-dictionary.app))
 #+END_SRC
+** transparent title-bar
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 16:12]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . 'nil))
+#+END_SRC
 * Ivy
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:30]
