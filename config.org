@@ -388,6 +388,68 @@ Do not clutter =init.el= please.
     (mmap
      "gc" #'evil-commentary))
 #+END_SRC
+*** evil-exchange
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 12:19]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-exchange
+    :after evil
+    :config (evil-exchange-install))
+#+END_SRC
+*** evil-indent-plus
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 12:21]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-indent-plus
+    :after evil
+    :config (evil-indent-plus-default-bindings))
+#+END_SRC
+*** evil-matchit
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 12:21]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-matchit
+    :after evil
+    :config (global-evil-matchit-mode))
+#+END_SRC
+*** evil-numbers
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 12:22]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-numbers
+    :commands (evil-numbers/inc-at-pt evil-numbers/inc-at-pt)
+    :general
+    (mmap
+     "C-a" #'evil-numbers/inc-at-pt
+     "C-x" #'evil-numbers/dec-at-pt))
+#+END_SRC
+*** evil-visualstar
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 12:22]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-visualstar
+    :commands (evil-visualstar/begin-search-forward
+               evil-visualstar/begin-search-backward)
+    :config (global-evil-visualstar-mode)
+    :general
+    (vmap
+     "*" #'evil-visualstar/begin-search-forward
+     "#" #'evil-visualstar/begin-search-backward))
+#+END_SRC
+*** evil-lion
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 12:23]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-lion
+    :after evil
+    :config (evil-lion-mode))
+#+END_SRC
 ** Leader Keys
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:26]
