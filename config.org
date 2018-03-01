@@ -17,9 +17,9 @@ Let's set some variables with basic user information.
 :CREATED:  [2018-02-28 Wed 15:29]
 :END:
 #+BEGIN_SRC emacs-lisp
-  (setq private/emacs-directory (file-truename user-emacs-directory))
-  (setq private/local-directory (concat private/emacs-directory ".local/"))
-  (setq private/packages-directory (concat private/local-directory "packages/"))
+  (setq +emacs-directory (file-truename user-emacs-directory))
+  (setq +local-directory (concat +emacs-directory ".local/"))
+  (setq +packages-directory (concat +local-directory "packages/"))
 #+END_SRC
 * Emacs Initialization
 ** Settings
@@ -32,11 +32,11 @@ too high or it will result in long GC pauses during normal usage.
     (setq gc-cons-threshold 402653184
           gc-cons-percentage 0.6))
 
-  (defun private/set-gc-cons-variables ()
+  (defun +set-gc-cons-variables ()
     (setq gc-cons-threshold 16777216
           gc-cons-percentage 0.1))
 
-  (add-hook 'after-init-hook #'private/set-gc-cons-variables)
+  (add-hook 'after-init-hook #'+set-gc-cons-variables)
 #+END_SRC
 
 Disable certain byte compiler warnings to cut down on the noise. This is a personal choice and can be removed
@@ -56,7 +56,7 @@ to not automatically call it on our behalf. Additionally we're setting
 #+BEGIN_SRC emacs-lisp
   (eval-and-compile
     (setq load-prefer-newer t
-          package-user-dir (expand-file-name "elpa" private/packages-directory)
+          package-user-dir (expand-file-name "elpa" +packages-directory)
           package--init-file-ensured t
           package-enable-at-startup nil)
 
@@ -114,7 +114,7 @@ previously compiled manually then all of the package initialization will still t
 :END:
 Do not clutter =init.el= please.
 #+BEGIN_SRC emacs-lisp
-  (setq custom-file (expand-file-name "custom.el" private/local-directory))
+  (setq custom-file (expand-file-name "custom.el" +local-directory))
 #+END_SRC
 ** UI
 :PROPERTIES:
@@ -155,15 +155,15 @@ Do not clutter =init.el= please.
 :CREATED:  [2018-02-28 Wed 16:02]
 :END:
 #+BEGIN_SRC emacs-lisp
-  (setq private/main-font (font-spec :family "Iosevka" :size 14))
-  (setq private/cjk-font (font-spec :family "Sarasa Mono SC"))
-  (setq private/emoji-font (font-spec :family "Apple Color Emoji"))
+  (setq +main-font (font-spec :family "Iosevka" :size 14))
+  (setq +cjk-font (font-spec :family "Sarasa Mono SC"))
+  (setq +emoji-font (font-spec :family "Apple Color Emoji"))
 
-  (set-face-attribute 'default nil :font private/main-font)
-  (set-fontset-font t 'unicode private/emoji-font)
+  (set-face-attribute 'default nil :font +main-font)
+  (set-fontset-font t 'unicode +emoji-font)
 
   (dolist (charset '(kana han cjk-misc bopomofo))
-      (set-fontset-font (frame-parameter nil 'font) charset private/cjk-font))
+      (set-fontset-font (frame-parameter nil 'font) charset +cjk-font))
 #+END_SRC
 **** JIT optimizations
 :PROPERTIES:
@@ -222,7 +222,7 @@ Do not clutter =init.el= please.
 :END:
 #+BEGIN_SRC emacs-lisp
   (setq history-length 500
-        savehist-file (concat private/local-directory "savehist")
+        savehist-file (concat +local-directory "savehist")
         savehist-save-minibuffer-history t
         savehist-autosave-interval nil ; save on kill only
         savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
@@ -234,7 +234,7 @@ Do not clutter =init.el= please.
 :CREATED:  [2018-02-28 Wed 16:54]
 :END:
 #+BEGIN_SRC emacs-lisp
-  (setq save-place-file (concat private/local-directory "saveplace"))
+  (setq save-place-file (concat +local-directory "saveplace"))
   (save-place-mode 1)
 #+END_SRC
 *** Auto Backup
@@ -242,11 +242,11 @@ Do not clutter =init.el= please.
 :CREATED:  [2018-02-28 Wed 16:58]
 :END:
 #+BEGIN_SRC emacs-lisp
-  (setq backup-directory-alist `(("." . ,(concat private/local-directory "backups/"))))
+  (setq backup-directory-alist `(("." . ,(concat +local-directory "backups/"))))
   (setq delete-old-versions -1)
   (setq version-control t)
   (setq vc-make-backup-files t)
-  (setq auto-save-file-name-transforms `((".*" ,(concat private/local-directory "auto-save-list/") t)))
+  (setq auto-save-file-name-transforms `((".*" ,(concat +local-directory "auto-save-list/") t)))
 #+END_SRC
 *** Rencentf mode
 :PROPERTIES:
@@ -256,12 +256,12 @@ Do not clutter =init.el= please.
   (use-package recentf
     :hook (after-init . recentf-mode)
     :init
-    (setq recentf-save-file (concat private/local-directory "recentf")
+    (setq recentf-save-file (concat +local-directory "recentf")
           recentf-max-saved-items 1000
           recentf-filename-handlers '(file-truename)
           recentf-auto-cleanup 'never)
     :config
-    (add-to-list 'recentf-exclude (file-truename private/local-directory))
+    (add-to-list 'recentf-exclude (file-truename +local-directory))
     (add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'"))
 #+END_SRC
 * Keybindings
@@ -337,18 +337,18 @@ Do not clutter =init.el= please.
     (general-evil-setup t)
 
     (general-create-definer
-     private/leader
+     +leader
      :prefix "SPC"
      :non-normal-prefix "M-m"
      :states '(motion insert emacs))
 
     (general-create-definer
-     private/enable-leader
+     +enable-leader
      :status '(motion normal visual)
      "SPC" nil)
 
     (general-create-definer
-     private/local-leader
+     +local-leader
      :prefix "'"
      :non-normal-prefix "M-m m"
      :states '(motion insert emacs)))
@@ -358,7 +358,7 @@ Do not clutter =init.el= please.
 :CREATED:  [2018-02-28 Wed 16:26]
 :END:
 #+BEGIN_SRC emacs-lisp
-  (private/leader
+  (+leader
    "" nil
 
    "SPC" #'execute-extended-command
@@ -439,7 +439,7 @@ Do not clutter =init.el= please.
 #+BEGIN_SRC emacs-lisp
   (use-package dash-at-point
     :general
-    (private/leader
+    (+leader
      "dd" 'dash-at-point
      "dD" 'dash-at-point-with-docset))
 #+END_SRC
@@ -453,7 +453,7 @@ Do not clutter =init.el= please.
                osx-dictionary-search-input
                osx-dictionary-cli-find-or-recompile)
     :general
-    (private/leader
+    (+leader
      "dw" 'osx-dictionary-search-pointer
      "dW" 'osx-dictionary-search-input)
     (nmap
@@ -485,7 +485,7 @@ Do not clutter =init.el= please.
     (general-define-key
      :keymaps 'ivy-minibuffer-map
      [escape] 'minibuffer-keyboard-quit)
-    (private/local-leader
+    (+local-leader
      :keymaps 'ivy-occur-grep-mode-map
      "w" #'ivy-wgrep-change-to-wgrep-mode))
 #+END_SRC
@@ -498,7 +498,7 @@ Do not clutter =init.el= please.
     :after ivy
     :config (counsel-mode)
     :general
-    (private/leader
+    (+leader
      "iu" #'counsel-unicode-char
      "ry" #'counsel-yank-pop
      "rm" #'counsel-mark-ring))
@@ -511,7 +511,7 @@ Do not clutter =init.el= please.
   (use-package swiper
     :after ivy
     :general
-    (private/leader
+    (+leader
      "ss" #'swiper))
 #+END_SRC
 ** Sort M-x candidates using smex
@@ -523,7 +523,7 @@ Do not clutter =init.el= please.
     :after ivy
     :init
     (setq-default smex-history-length 32
-                  smex-save-file (concat private/local-directory ".smex-items")))
+                  smex-save-file (concat +local-directory ".smex-items")))
 #+END_SRC
 ** ivy-rich
 :PROPERTIES:
@@ -571,7 +571,7 @@ Do not clutter =init.el= please.
   (use-package company-statistics
     :hook (company-mode . company-statistics-mode)
     :init
-    (setq company-statistics-file (concat private/local-directory "company-statistics-cache.el")))
+    (setq company-statistics-file (concat +local-directory "company-statistics-cache.el")))
 #+END_SRC
 ** smartparens
    #+BEGIN_SRC emacs-lisp
@@ -594,12 +594,12 @@ Do not clutter =init.el= please.
   (use-package projectile
     :init
     (setq projectile-sort-order 'recentf
-	  projectile-cache-file (concat private/local-directory "projectile.cache")
-	  projectile-known-projects-file (concat private/local-directory "projectile-bookmarks.eld"))
+	  projectile-cache-file (concat +local-directory "projectile.cache")
+	  projectile-known-projects-file (concat +local-directory "projectile-bookmarks.eld"))
     :config
     (projectile-mode +1)
     :general
-    (private/leader
+    (+leader
       "p!" 'projectile-run-shell-command-in-root
       "p&" 'projectile-run-async-shell-command-in-root
       "p%" 'projectile-replace-regexp
@@ -633,7 +633,7 @@ Do not clutter =init.el= please.
      [remap projectile-grep]             #'counsel-projectile-grep
      [remap projectile-ag]               #'counsel-projectile-ag
      [remap projectile-switch-project]   #'counsel-projectile-switch-project)
-    (private/leader
+    (+leader
      "/" #'counsel-projectile-rg))
 #+END_SRC
 * Version Control
@@ -650,7 +650,7 @@ Do not clutter =init.el= please.
     (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
     (setq magit-repository-directories '(("~/Projects/" . 2)))
     :general
-    (private/enable-leader
+    (+enable-leader
      :keymaps
      '(magit-mode-map
        magit-status-mode-map
@@ -658,7 +658,7 @@ Do not clutter =init.el= please.
        magit-process-mode-map
        magit-blame-mode-map
        magit-log-mode-map))
-    (private/leader
+    (+leader
      "gs" 'magit-status
      "gi" 'magit-init
      "gl" 'magit-log-buffer-file))
