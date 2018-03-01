@@ -278,6 +278,46 @@ Do not clutter =init.el= please.
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:55]
 :END:
+** General
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 16:14]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package general
+    :config
+    (general-evil-setup t)
+
+    (general-create-definer
+     +leader
+     :prefix "SPC"
+     :non-normal-prefix "M-m"
+     :states '(motion insert emacs))
+
+    (general-create-definer
+     +enable-leader
+     :status '(motion normal visual)
+     "SPC" nil)
+
+    (general-create-definer
+     +local-leader
+     :prefix "'"
+     :non-normal-prefix "M-m m"
+     :states '(motion insert emacs)))
+#+END_SRC
+*** Truly escape key
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 17:15]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (general-define-key
+   :keymaps '(minibuffer-local-map
+              minibuffer-local-ns-map
+              minibuffer-local-completion-map
+              minibuffer-local-must-match-map
+              minibuffer-local-isearch-map
+              read-expression-map)
+   [escape] 'abort-recursive-edit)
+#+END_SRC
 ** Evil
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:53]
@@ -336,34 +376,7 @@ Do not clutter =init.el= please.
         (forward-line (1- count)))
       (evil-first-non-blank)))
 #+END_SRC
-** General
-:PROPERTIES:
-:CREATED:  [2018-02-28 Wed 16:14]
-:END:
-#+BEGIN_SRC emacs-lisp
-  (use-package general
-    :after evil
-    :config
-    (general-evil-setup t)
-
-    (general-create-definer
-     +leader
-     :prefix "SPC"
-     :non-normal-prefix "M-m"
-     :states '(motion insert emacs))
-
-    (general-create-definer
-     +enable-leader
-     :status '(motion normal visual)
-     "SPC" nil)
-
-    (general-create-definer
-     +local-leader
-     :prefix "'"
-     :non-normal-prefix "M-m m"
-     :states '(motion insert emacs)))
-#+END_SRC
-*** Leader Keys
+** Leader Keys
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:26]
 :END:
@@ -406,20 +419,6 @@ Do not clutter =init.el= please.
 
    "qf" #'delete-frame
    "qq" #'save-buffers-kill-terminal)
-#+END_SRC
-*** Truly escape key
-:PROPERTIES:
-:CREATED:  [2018-02-28 Wed 17:15]
-:END:
-#+BEGIN_SRC emacs-lisp
-  (general-define-key
-   :keymaps '(minibuffer-local-map
-              minibuffer-local-ns-map
-              minibuffer-local-completion-map
-              minibuffer-local-must-match-map
-              minibuffer-local-isearch-map
-              read-expression-map)
-   [escape] 'abort-recursive-edit)
 #+END_SRC
 ** macOS specific keybindings
 :PROPERTIES:
