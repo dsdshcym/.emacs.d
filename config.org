@@ -1238,6 +1238,89 @@ Do not clutter =init.el= please.
     :config
     (evil-find-char-pinyin-mode t))
 #+END_SRC
+** Ruby
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 14:52]
+:END:
+#+BEGIN_SRC emacs-lisp :results silent
+  (use-package ruby-mode
+    :mode "\\.rb$"
+    :mode "\\.rake$"
+    :mode "\\.gemspec$"
+    :mode "\\.\\(pry\\|irb\\)rc$"
+    :mode "/\\(Gem\\|Cap\\|Vagrant\\|Rake\\|Pod\\|Puppet\\|Berks\\)file$"
+    :interpreter "ruby"
+    :hook (ruby-mode . flycheck-mode))
+
+  (use-package inf-ruby
+    :commands (inf-ruby inf-ruby-console-auto))
+
+  (use-package company-inf-ruby
+    :after inf-ruby)
+
+  (use-package robe
+    :after ruby-mode
+    :hook (ruby-mode . robe-mode))
+
+  (use-package rbenv
+    :after ruby-mode
+    :hook (ruby-mode . rbenv-use-corresponding)
+    :config
+    (global-rbenv-mode))
+
+  (use-package bundler
+    :commands (bundle-check
+               bundle-install
+               bundle-console
+               bundle-update
+               bundle-exec
+               bundle-open))
+
+  (use-package rspec-mode
+    :after ruby
+    :config
+    (defun ruby/rspec-verify-directory (dir)
+      "Launch tests in DIR directory.
+  Called interactively it prompts for a directory."
+      (interactive "Drspec directory: ")
+      (rspec-run-single-file dir (rspec-core-options)))
+
+    (+local-leader
+     :keymaps '(rspec-mode-map rspec-verifiable-mode-map)
+     "ta"    'rspec-verify-all
+     "tb"    'rspec-verify
+     "tc"    'rspec-verify-continue
+     "td"    'ruby/rspec-verify-directory
+     "te"    'rspec-toggle-example-pendingness
+     "tf"    'rspec-verify-method
+     "tl"    'rspec-run-last-failed
+     "tm"    'rspec-verify-matching
+     "tr"    'rspec-rerun
+     "tt"    'rspec-verify-single
+     "t~"    'rspec-toggle-spec-and-target-find-example
+     "t TAB" 'rspec-toggle-spec-and-target))
+
+  (use-package minitest)
+
+  (use-package rubocop
+    :commands (rubocop-mode)
+    :hook (ruby-mode . rubocop-mode)
+    :general
+    (+local-leader
+     :keymaps 'rubocop-mode-map
+     "cd" #'rubocop-check-directory
+     "cD" #'rubocop-autocorrect-directory
+     "cf" #'rubocop-check-current-file
+     "cF" #'rubocop-autocorrect-current-file
+     "cp" #'rubocop-check-project
+     "cP" #'rubocop-autocorrect-project))
+
+  (use-package rake
+    :commands (rake rake-find-task)
+    :init
+    (setq rake-cache-file (concat +local-directory "rake.cache"))
+    (setq rake-completion-system 'default))
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
