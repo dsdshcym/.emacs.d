@@ -296,21 +296,25 @@ Do not clutter =init.el= please.
     (general-evil-setup t)
 
     (general-create-definer
-     +leader
-     :prefix "SPC"
-     :non-normal-prefix "M-m"
-     :states '(motion insert emacs))
+      +leader
+      :prefix "SPC"
+      :non-normal-prefix "M-m"
+      :states '(motion insert emacs))
 
     (general-create-definer
-     +enable-leader
-     :status '(motion normal visual)
-     "SPC" nil)
+      +enable-leader
+      :status '(motion normal visual)
+      "SPC" nil)
 
     (general-create-definer
-     +local-leader
-     :prefix "'"
-     :non-normal-prefix "M-m m"
-     :states '(motion insert emacs)))
+      +local-leader
+      :prefix "'"
+      :non-normal-prefix "M-m m"
+      :states '(motion insert emacs))
+
+    (general-define-key
+     :keymaps 'input-decode-map
+     "C-h" [backspace]))
 #+END_SRC
 *** Truly escape key
 :PROPERTIES:
