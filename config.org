@@ -568,6 +568,19 @@ Do not clutter =init.el= please.
     :init
     (setq company-statistics-file (concat private/local-directory "company-statistics-cache.el")))
 #+END_SRC
+** smartparens
+   #+BEGIN_SRC emacs-lisp
+     (use-package smartparens
+       :config
+       (smartparens-global-mode)
+       (show-smartparens-mode)
+       :general
+       (imap
+	 "C-s" #'sp-forward-slurp-sexp
+	 "S-C-s" #'sp-forward-barf-sexp
+	 "M-s" #'sp-backward-slurp-sexp
+	 "S-M-s" #'sp-backward-barf-sexp))
+   #+END_SRC
 * Projectile
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:10]
