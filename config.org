@@ -803,6 +803,21 @@ Do not clutter =init.el= please.
       "jj" #'avy-goto-char-2
       "jl" #'avy-goto-line))
 #+END_SRC
+** undo-tree
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 16:52]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package undo-tree
+    :init
+    (setq undo-tree-history-directory-alist `(("." . ,(concat +local-directory "undo-tree-history"))))
+    (setq undo-tree-auto-save-history t)
+    (setq undo-tree-visualizer-timestamps t)
+    (global-undo-tree-mode)
+    :general
+    (+leader
+      "au" #'undo-tree-visualize))
+#+END_SRC
 * Window Management
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 14:40]
