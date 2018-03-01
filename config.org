@@ -1,5 +1,5 @@
 #+TITLE: Emacs Literate Configuration
-#+PROPERTY: header-args :tangle yes
+#+PROPERTY: header-args :tangle yes :results silent
 
 * About this file
 This is an Emacs literate configuration template. It contains the basic structure
