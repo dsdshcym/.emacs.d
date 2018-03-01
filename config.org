@@ -195,7 +195,7 @@ Do not clutter =init.el= please.
     :if (>= emacs-major-version 26)
     :hook (prog-mode . display-line-numbers-mode)
     :init
-    (setq-default display-line-numbers-width 4)
+    (setq-default display-line-numbers-width 3)
     (setq display-line-numbers-type 'visual))
 #+END_SRC
 ** Core
