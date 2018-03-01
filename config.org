@@ -387,25 +387,7 @@ Do not clutter =init.el= please.
    "en"  #'next-error
    "ep"  #'previous-error
 
-   ;; Window Management
-   "wd" #'delete-window
-   "wm" #'delete-other-windows
-   "wf" #'make-frame
-   "wH" #'evil-window-move-far-left
-   "wh" #'evil-window-left
-   "wJ" #'evil-window-move-very-bottom
-   "wj" #'evil-window-down
-   "wK" #'evil-window-move-very-top
-   "wk" #'evil-window-up
-   "wL" #'evil-window-move-far-right
-   "wl" #'evil-window-right
-   "wo" #'other-frame
-   "wS" #'split-window-below
-   "ws" #'split-window-below-and-focus
-   "wV" #'split-window-right
-   "wv" #'split-window-right-and-focus
-   "ww" #'other-window
-   "w=" #'balance-windows
+   "w" evil-window-map
 
    "qf" #'delete-frame
    "qq" #'save-buffers-kill-terminal)
