@@ -379,7 +379,7 @@ Do not clutter =init.el= please.
    "sj" #'imenu
 
    ;; Help
-   "h" (general-simulate-keys "<f1>")
+   "h" (general-simulate-key "<f1>")
 
    ;; Themes
    "Ts"  #'load-theme
