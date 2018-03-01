@@ -944,7 +944,7 @@ Do not clutter =init.el= please.
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package swiper
-    :after ivy
+    :commands (swiper swiper-all)
     :general
     (+leader
      "ss" #'swiper))
