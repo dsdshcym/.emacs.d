@@ -531,6 +531,25 @@ Do not clutter =init.el= please.
   (setq mac-command-modifier 'meta
         mac-option-modifier  'alt)
 #+END_SRC
+* Editing/Jumping
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 12:06]
+:END:
+** avy
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 12:29]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package avy
+    :commands (avy-goto-char-2 avy-goto-line)
+    :config
+    (setq avy-all-windows nil
+          avy-background t)
+    :general
+    (+leader
+      "jj" #'avy-goto-char-2
+      "jl" #'avy-goto-line))
+#+END_SRC
 * Window Management
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 14:40]
