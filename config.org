@@ -650,6 +650,14 @@ Do not clutter =init.el= please.
     (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
     (setq magit-repository-directories '(("~/Projects/" . 2)))
     :general
+    (private/enable-leader
+     :keymaps
+     '(magit-mode-map
+       magit-status-mode-map
+       magit-diff-mode-map
+       magit-process-mode-map
+       magit-blame-mode-map
+       magit-log-mode-map))
     (private/leader
      "gs" 'magit-status
      "gi" 'magit-init
