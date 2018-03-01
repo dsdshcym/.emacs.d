@@ -1043,8 +1043,9 @@ Do not clutter =init.el= please.
   (use-package projectile
     :init
     (setq projectile-sort-order 'recentf
-	  projectile-cache-file (concat +local-directory "projectile.cache")
-	  projectile-known-projects-file (concat +local-directory "projectile-bookmarks.eld"))
+          projectile-cache-file (concat +local-directory "projectile.cache")
+          projectile-known-projects-file (concat +local-directory "projectile-bookmarks.eld")
+          projectile-completion-system 'ivy)
     :config
     (projectile-mode +1)
     :general
