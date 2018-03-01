@@ -246,6 +246,7 @@ Do not clutter =init.el= please.
   (setq delete-old-versions -1)
   (setq version-control t)
   (setq vc-make-backup-files t)
+  (setq auto-save-list-file-prefix (concat +local-directory "auto-save-list/.saves-"))
   (setq auto-save-file-name-transforms `((".*" ,(concat +local-directory "auto-save-list/") t)))
 #+END_SRC
 *** Rencentf mode
