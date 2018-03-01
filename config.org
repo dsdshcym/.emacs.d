@@ -1162,6 +1162,28 @@ Do not clutter =init.el= please.
         (add-hook 'company-completion-finished-hook '+vcs|enable-diff-hl-flydiff-mode)
         (add-hook 'company-completion-cancelled-hook '+vcs|enable-diff-hl-flydiff-mode))))
 #+END_SRC
+* Spell Checking
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 16:03]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package flyspell
+    :hook (text-mode . flyspell-mode)
+    :hook (prog-mode . flyspell-prog-mode)
+    :init
+    (setq ispell-program-name (executable-find "hunspell")
+          ispell-dictionary "en_US"
+          ispell-local-dictionary-alist '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "en_US,en_US-med") nil utf-8))))
+
+  (use-package flyspell-correct-ivy
+    :after flyspell-correct)
+
+  (use-package flyspell-correct
+    :commands (flyspell-correct-word-generic
+               flyspell-correct-previous-word-generic)
+    :general
+    (nmap "C-;" #'flyspell-correct-previous-word-generic))
+#+END_SRC
 * Syntax Checking
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 16:27]
