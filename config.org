@@ -104,6 +104,29 @@ previously compiled manually then all of the package initialization will still t
     (require 'use-package)
     (setq use-package-always-ensure t))
 #+END_SRC
+*** Quelpa
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 17:30]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (setq quelpa-checkout-melpa-p nil
+        quelpa-update-melpa-p nil
+        quelpa-melpa-recipe-stores nil
+        quelpa-dir (expand-file-name "quelpa" +packages-directory))
+
+  (eval-when-compile
+    (if (require 'quelpa nil t)
+        (quelpa-self-upgrade)
+      (with-temp-buffer
+        (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
+        (eval-buffer)))
+    (quelpa
+     '(quelpa-use-package
+       :fetcher github
+       :repo "quelpa/quelpa-use-package"))
+    (require 'quelpa-use-package)
+    (quelpa-use-package-activate-advice))
+  #+END_SRC
 ** Server
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 15:43]
