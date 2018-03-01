@@ -1161,6 +1161,17 @@ Do not clutter =init.el= please.
         (add-hook 'company-completion-finished-hook '+vcs|enable-diff-hl-flydiff-mode)
         (add-hook 'company-completion-cancelled-hook '+vcs|enable-diff-hl-flydiff-mode))))
 #+END_SRC
+* Syntax Checking
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 16:27]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :commands (flycheck-mode flycheck-list-errors flycheck-buffer)
+    :config
+    ;; Emacs feels snappier without checks on newline
+    (setq flycheck-check-syntax-automatically '(save idle-change mode-enabled)))
+#+END_SRC
 * Languages
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 14:51]
