@@ -376,6 +376,18 @@ Do not clutter =init.el= please.
         (forward-line (1- count)))
       (evil-first-non-blank)))
 #+END_SRC
+*** evil-commentary
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 12:07]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-commentary
+    :commands (evil-commentary evil-commentary-yank evil-commentary-line)
+    :config (evil-commentary-mode 1)
+    :general
+    (mmap
+     "gc" #'evil-commentary))
+#+END_SRC
 ** Leader Keys
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:26]
