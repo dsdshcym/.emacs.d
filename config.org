@@ -510,6 +510,23 @@ Do not clutter =init.el= please.
   (setq mac-command-modifier 'meta
         mac-option-modifier  'alt)
 #+END_SRC
+* Window Management
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 14:40]
+:END:
+** winner mode
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 14:40]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package winner
+    :init
+    (winner-mode)
+    :general
+    (+leader
+     "wU" 'winner-redo
+     "wu" 'winner-undo))
+#+END_SRC
 * macOS
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:39]
