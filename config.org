@@ -1003,8 +1003,8 @@ Do not clutter =init.el= please.
           image-dired-temp-rotate-image-file (concat image-dired-dir "temp-rotate-image"))
     :general
     (+leader
-     "fj" 'dired-jump
-     "fJ" 'dired-jump-other-window)
+     "fd" 'dired-jump
+     "fD" 'dired-jump-other-window)
     (+enable-leader
      :keymaps 'dired-mode-map))
 
