@@ -237,6 +237,15 @@ Do not clutter =init.el= please.
   (setq save-place-file (concat +local-directory "saveplace"))
   (save-place-mode 1)
 #+END_SRC
+*** Auto Revert mode
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 12:03]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package autorevert
+    :init
+    (global-auto-revert-mode))
+#+END_SRC
 *** Auto Backup
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:58]
