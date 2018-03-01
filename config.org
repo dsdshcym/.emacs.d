@@ -343,6 +343,11 @@ Do not clutter =init.el= please.
      :states '(motion insert emacs))
 
     (general-create-definer
+     private/enable-leader
+     :status '(motion normal visual)
+     "SPC" nil)
+
+    (general-create-definer
      private/local-leader
      :prefix "'"
      :non-normal-prefix "M-m m"
