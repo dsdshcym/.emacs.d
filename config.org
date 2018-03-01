@@ -920,12 +920,23 @@ Do not clutter =init.el= please.
 #+BEGIN_SRC emacs-lisp
   (use-package counsel
     :after ivy
-    :config (counsel-mode)
     :general
+    (general-define-key
+     [remap apropos]                  #'counsel-apropos
+     [remap bookmark-jump]            #'counsel-bookmark
+     [remap describe-face]            #'counsel-describe-face
+     [remap describe-function]        #'counsel-describe-function
+     [remap describe-variable]        #'counsel-describe-variable
+     [remap execute-extended-command] #'counsel-M-x
+     [remap find-file]                #'counsel-find-file
+     [remap find-library]             #'counsel-find-library
+     [remap yank-pop]                 #'counsel-yank-pop
+     [remap info-lookup-symbol]       #'counsel-info-lookup-symbol
+     [remap recentf-open-files]       #'counsel-recentf)
     (+leader
-     "iu" #'counsel-unicode-char
-     "ry" #'counsel-yank-pop
-     "rm" #'counsel-mark-ring))
+      "iu" #'counsel-unicode-char
+      "ry" #'counsel-yank-pop
+      "rm" #'counsel-mark-ring))
 #+END_SRC
 ** Swiper
 :PROPERTIES:
