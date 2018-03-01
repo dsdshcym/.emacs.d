@@ -384,6 +384,23 @@ Do not clutter =init.el= please.
         (forward-line (1- count)))
       (evil-first-non-blank)))
 #+END_SRC
+*** evil-surround
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 14:42]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-surround
+    :commands (global-evil-surround-mode
+               evil-surround-edit
+               evil-Surround-edit
+               evil-surround-region)
+    :config (global-evil-surround-mode 1)
+    :general
+    (vmap "s" #'evil-surround-region)
+    (omap
+      "s" #'evil-surround-edit
+      "S" #'evil-Surround-edit))
+#+END_SRC
 *** evil-commentary
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 12:07]
