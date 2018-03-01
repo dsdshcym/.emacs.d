@@ -695,6 +695,45 @@ Do not clutter =init.el= please.
     :config
     (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
 #+END_SRC
+* Dired
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 15:48]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package dired
+    :ensure nil
+    :config
+    (setq dired-dwim-target t
+          dired-listing-switches "-alh"
+          global-auto-revert-non-file-buffers t
+          image-dired-dir (concat +local-directory "image-dired/")
+          image-dired-db-file (concat image-dired-dir "image-dired/db.el")
+          image-dired-gallery-dir (concat image-dired-dir "gallery/")
+          image-dired-temp-image-file (concat image-dired-dir "temp-image")
+          image-dired-temp-rotate-image-file (concat image-dired-dir "temp-rotate-image"))
+    :general
+    (+leader
+     "fj" 'dired-jump
+     "fJ" 'dired-jump-other-window)
+    (+enable-leader
+     :keymaps 'dired-mode-map))
+
+  (use-package dired-x
+    :ensure nil
+    :commands (dired-jump
+               dired-jump-other-window))
+
+  (use-package dired-quick-sort
+    :init
+    (dired-quick-sort-setup))
+
+  (use-package wdired
+    :ensure nil
+    :general
+    (nmap
+      :keymaps 'dired-mode-map
+      "w" 'wdired-change-to-wdired-mode))
+#+END_SRC
 * Auto Completion
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 18:16]
