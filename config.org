@@ -1300,14 +1300,14 @@ Do not clutter =init.el= please.
                bundle-open))
 
   (use-package rspec-mode
-    :after ruby
+    :after ruby-mode
     :config
     (defun ruby/rspec-verify-directory (dir)
       "Launch tests in DIR directory.
   Called interactively it prompts for a directory."
       (interactive "Drspec directory: ")
       (rspec-run-single-file dir (rspec-core-options)))
-
+    :general
     (+local-leader
      :keymaps '(rspec-mode-map rspec-verifiable-mode-map)
      "ta"    'rspec-verify-all
