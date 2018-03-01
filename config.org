@@ -1463,8 +1463,6 @@ Ensure ELPA org is prioritized above built-in org.
 
       "a" #'org-agenda
 
-      "p" #'org-rich-yank
-
       "t" #'org-todo
 
       ;; More cycling options (timestamps, headlines, items, properties)
@@ -1992,7 +1990,11 @@ Ensure ELPA org is prioritized above built-in org.
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package org-rich-yank
-    :commands (org-rich-yank))
+    :commands (org-rich-yank)
+    :general
+    (+local-leader
+      :keymaps 'org-mode-map
+      "p" #'org-rich-yank))
 #+END_SRC
 ** smartparens-org
 :PROPERTIES:
