@@ -914,6 +914,18 @@ CLOCK: [2018-03-02 Fri 14:35]
     (+leader
       "au" #'undo-tree-visualize))
 #+END_SRC
+** editorconfig
+:PROPERTIES:
+:CREATED:  [2018-03-02 Fri 16:18]
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-02 Fri 16:18]--[2018-03-02 Fri 16:22] =>  0:04
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package editorconfig
+    :config
+    (editorconfig-mode 1))
+#+END_SRC
 * Window Management
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 14:40]
