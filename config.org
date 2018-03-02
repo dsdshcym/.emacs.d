@@ -1150,6 +1150,10 @@ Do not clutter =init.el= please.
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package magit
+    :init
+    ;; avoid max-specpdl-size error,
+    ;; See also [[id:CF8198D2-285C-4E0C-9548-2EBBD13D5F50][diff-hl + Magit == 'max-lisp-eval-depth' 'lisp nesting exceeds max-lisp-eval-depth {Mac OS X} · Issue #65 · dgutov/diff-hl]]
+    (magit-auto-revert-mode -1)
     :config
     (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
     (setq magit-repository-directories '(("~/Projects/" . 2)))
