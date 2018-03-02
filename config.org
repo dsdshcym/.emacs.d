@@ -445,11 +445,20 @@ Do not clutter =init.el= please.
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:11]
 :END:
-#+BEGIN_SRC emacs-lisp
-  (use-package smart-mode-line
-    :init
-    (sml/setup))
-#+END_SRC
+- smart mode line
+  #+BEGIN_SRC emacs-lisp
+    (use-package smart-mode-line
+      :init
+      (sml/setup))
+  #+END_SRC
+- Use rich-minority to hide all minor modes (like in doom-emacs),
+  since I don't use any of them, and they are just messing with the
+  mode line
+  #+BEGIN_SRC emacs-lisp
+    (use-package rich-minority
+      :init
+      (setq rm-blacklist "^ .*"))
+  #+END_SRC
 *** Line Numbers
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:15]
