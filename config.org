@@ -877,6 +877,28 @@ previously compiled manually then all of the package initialization will still t
      "wU" 'winner-redo
      "wu" 'winner-undo))
 #+END_SRC
+** Popup
+:PROPERTIES:
+:CREATED:  [2018-03-02 Fri 11:09]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package shackle
+    :init
+    (shackle-mode t)
+    :config
+    (add-to-list 'shackle-rules '("*Help*" :popup t :align 'below :size 0.33))
+
+    (defun +compilation-popup (buffer alist plist)
+      (if (get-buffer-window buffer 'visible)
+          'fail
+        (shackle--display-buffer-aligned-window buffer alist plist))))
+#+END_SRC
+* Compilation
+  #+BEGIN_SRC emacs-lisp
+    (use-package compile
+      :config
+      (add-to-list 'shackle-rules '(compilation-mode :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33)))
+  #+END_SRC
 * macOS
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:39]
@@ -1341,6 +1363,8 @@ previously compiled manually then all of the package initialization will still t
   Called interactively it prompts for a directory."
       (interactive "Drspec directory: ")
       (rspec-run-single-file dir (rspec-core-options)))
+
+    (add-to-list 'shackle-rules '(rspec-compilation-mode :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33))
     :general
     (+local-leader
      :keymaps '(rspec-mode-map rspec-verifiable-mode-map)
@@ -1411,6 +1435,8 @@ previously compiled manually then all of the package initialization will still t
       :quelpa (alchemist :fetcher github :repo "dsdshcym/alchemist.el" :files (:defaults "*.exs" "alchemist-server"))
       :after elixir-mode
       :hook (elixir-mode . alchemist-mode)
+      :config
+      (add-to-list 'shackle-rules '("\\*alchemist .*\\*" :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33))
       :general
       (+local-leader
        :keymaps 'alchemist-mode-map
