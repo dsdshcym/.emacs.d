@@ -1589,7 +1589,7 @@ Ensure ELPA org is prioritized above built-in org.
 
     (defun +remove-dups-in-org-stored-links (&rest args)
       (delete-dups org-stored-links))
-    (advice-add #'org-insert-link :before #'remove-dups-in-org-stored-links)
+    (advice-add #'org-insert-link :before #'+remove-dups-in-org-stored-links)
     :general
     (nmap
       :keymaps '(org-mode-map)
