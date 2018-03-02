@@ -717,6 +717,39 @@ CLOCK: [2018-03-02 Fri 14:23]
     :config
     (evil-embrace-enable-evil-surround-integration))
 #+END_SRC
+*** evil-multiedit
+:PROPERTIES:
+:CREATED:  [2018-03-02 Fri 14:24]
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-02 Fri 14:35]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-multiedit
+    :commands (evil-multiedit-match-all
+               evil-multiedit-match-and-next
+               evil-multiedit-match-and-prev
+               evil-multiedit-toggle-marker-here
+               evil-multiedit-ex-match)
+    :config
+    (evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match)
+    :general
+    (+leader
+     "se" 'evil-multiedit-match-all
+     "sr" 'evil-multiedit-restore
+     "sm" 'evil-multiedit-toggle-marker-here)
+
+    (general-define-key
+     :keymaps 'evil-multiedit-state-map
+     "C-f" 'iedit-restrict-function
+     "S" 'evil-multiedit--substitute
+     "C-n" 'evil-multiedit-next
+     "C-p" 'evil-multiedit-prev)
+
+    (general-define-key
+     :keymaps '(motion evil-multiedit-state-map)
+     "RET" 'evil-multiedit-toggle-or-restrict-region))
+#+END_SRC
 *** evil-commentary
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 12:07]
