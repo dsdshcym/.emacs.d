@@ -129,14 +129,28 @@ previously compiled manually then all of the package initialization will still t
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:40]
 :END:
-** Custom variables
+** Better Defaults
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:40]
 :END:
-Do not clutter =init.el= please.
-#+BEGIN_SRC emacs-lisp
-  (setq custom-file (expand-file-name "custom.el" +local-directory))
-#+END_SRC
+- Do not clutter =init.el= please.
+  #+BEGIN_SRC emacs-lisp
+    (setq custom-file (expand-file-name "custom.el" +local-directory))
+  #+END_SRC
+- Do not ring bell
+  #+BEGIN_SRC emacs-lisp
+    (setq ring-bell-function 'ignore)
+  #+END_SRC
+- y/n instead of yes/no
+  #+BEGIN_SRC emacs-lisp
+    (fset #'yes-or-no-p #'y-or-n-p)
+  #+END_SRC
+- Smooth Scroll
+  #+BEGIN_SRC emacs-lisp
+    (setq scroll-conservatively 1001)
+    (setq scroll-margin 0)
+    (setq scroll-preserve-screen-position t)
+  #+END_SRC
 ** UI
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:59]
