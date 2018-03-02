@@ -1141,6 +1141,10 @@ CLOCK: [2018-03-02 Fri 14:35]
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 18:16]
 :END:
+:LOGBOOK:
+CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
+- fix C-w in company-active-mode
+:END:
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :init
@@ -1160,6 +1164,7 @@ CLOCK: [2018-03-02 Fri 14:35]
     :general
     (general-define-key
      :keymaps 'company-active-map
+     "C-w" nil
      "C-n" 'company-select-next
      "C-p" 'company-select-previous))
 
