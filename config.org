@@ -700,6 +700,23 @@ previously compiled manually then all of the package initialization will still t
       "s" #'evil-surround-edit
       "S" #'evil-Surround-edit))
 #+END_SRC
+*** evil-embrace
+:PROPERTIES:
+:CREATED:  [2018-03-02 Fri 14:23]
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-02 Fri 14:23]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-embrace
+    :after evil-surround
+    :hook (org-mode . embrace-org-mode-hook)
+    :hook (ruby-mode . embrace-ruby-mode-hook)
+    :init
+    (setq evil-embrace-show-help-p nil)
+    :config
+    (evil-embrace-enable-evil-surround-integration))
+#+END_SRC
 *** evil-commentary
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 12:07]
