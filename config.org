@@ -2396,3 +2396,80 @@ CLOCK: [2018-03-02 Fri 16:10]--[2018-03-02 Fri 16:17] =>  0:07
     (interactive)
     (+org-page/new-post "clipping" "Clipping, "))
 #+END_SRC
+* elfeed
+:PROPERTIES:
+:CREATED:  [2018-03-02 Fri 17:51]
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-02 Fri 17:51]--[2018-03-02 Fri 18:04] =>  0:13
+:END:
+- elfeed
+  #+BEGIN_SRC emacs-lisp
+    (use-package elfeed
+      :commands 'elfeed
+      :config
+      (defun +elfeed/org-elfeed-entry-store-link ()
+        (interactive)
+        (when (and (boundp 'elfeed-show-entry) elfeed-show-entry)
+          (let* ((link (elfeed-entry-link elfeed-show-entry))
+                 (title (elfeed-entry-title elfeed-show-entry)))
+            (message title)
+            (org-store-link-props
+             :link link
+             :description title))))
+      (org-link-set-parameters "elfeed" :store #'+elfeed/org-elfeed-entry-store-link)
+      :general
+      (+leader
+        "af" #'elfeed)
+      (nmap
+        :keymaps 'elfeed-search-mode-map
+        "RET" #'elfeed-search-show-entry
+        "s"   #'elfeed-search-live-filter
+        "b"   #'elfeed-search-browse-url
+        "c"   #'elfeed-db-compact
+        "r"   #'elfeed-search-untag-all-unread
+        "u"   #'elfeed-search-tag-all-unread
+        "y"   #'elfeed-search-yank
+        "gr"  #'elfeed-update
+        "gR"  #'elfeed-search-update--force
+        "gu"  #'elfeed-unjam
+        "q"   #'elfeed-search-quit-window)
+      (nmap
+        :keymaps 'elfeed-show-mode-map
+        "C-n" #'elfeed-show-next
+        "C-p" #'elfeed-show-prev
+        "y"   #'elfeed-show-yank
+        "b"   #'elfeed-show-visit
+        "q"   #'elfeed-kill-buffer))
+  #+END_SRC
+** org-elfeed
+:PROPERTIES:
+:CREATED:  [2018-03-02 Fri 17:53]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package elfeed-org
+    :after elfeed
+    :init
+    (setq rmh-elfeed-org-files '("~/Org/rss_feed.org"))
+    :config
+    (elfeed-org)
+
+    (defun +elfeed-org-convert-tree-to-headlines (parsed-org)
+      (org-element-map parsed-org 'headline
+        (lambda (h)
+          (let* ((heading (org-element-property :raw-value h))
+                 (tags (mapcar 'intern (org-element-property :tags h))))
+            (-concat (list heading) tags)))))
+    (advice-add #'rmh-elfeed-org-convert-tree-to-headlines :override #'+elfeed-org-convert-tree-to-headlines)
+
+    (defun +elfeed-org-filter-relevant (list)
+      "Filter relevant entries from the LIST."
+      (-filter
+       (lambda (entry)
+         (and
+          (string-match "\\(http\\|entry-title\\)" (car entry))
+          (member (intern rmh-elfeed-org-tree-id) entry)
+          (not (member (intern rmh-elfeed-org-ignore-tag) entry))))
+       list))
+    (advice-add #'rmh-elfeed-org-filter-relevant :override #'+elfeed-org-filter-relevant))
+#+END_SRC
