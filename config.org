@@ -897,7 +897,10 @@ previously compiled manually then all of the package initialization will still t
   #+BEGIN_SRC emacs-lisp
     (use-package compile
       :config
-      (add-to-list 'shackle-rules '(compilation-mode :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33)))
+      (add-to-list 'shackle-rules '(compilation-mode :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33))
+      :general
+      (+enable-leader
+        :keymaps '(compilation-mode-map)))
   #+END_SRC
 * macOS
 :PROPERTIES:
