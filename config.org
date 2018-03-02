@@ -1408,7 +1408,7 @@ previously compiled manually then all of the package initialization will still t
 - alchemist
   #+BEGIN_SRC emacs-lisp
     (use-package alchemist
-      :quelpa (alchemist :fetcher github :repo "dsdshcym/alchemist.el")
+      :quelpa (alchemist :fetcher github :repo "dsdshcym/alchemist.el" :files (:defaults "*.exs" "alchemist-server"))
       :after elixir-mode
       :hook (elixir-mode . alchemist-mode)
       :general
