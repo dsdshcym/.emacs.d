@@ -476,6 +476,13 @@ Do not clutter =init.el= please.
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:51]
 :END:
+*** Bookmarks
+:PROPERTIES:
+:CREATED:  [2018-03-02 Fri 11:01]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (setq bookmark-default-file (concat +local-directory "bookmarks"))
+#+END_SRC
 *** Encoding
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:51]
