@@ -104,8 +104,7 @@ previously compiled manually then all of the package initialization will still t
         quelpa-dir (expand-file-name "quelpa" +packages-directory))
 
   (eval-when-compile
-    (if (require 'quelpa nil t)
-        (quelpa-self-upgrade)
+    (unless (require 'quelpa nil t)
       (with-temp-buffer
         (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
         (eval-buffer)))
