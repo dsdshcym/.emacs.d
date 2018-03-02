@@ -150,6 +150,12 @@ previously compiled manually then all of the package initialization will still t
     (setq scroll-margin 0)
     (setq scroll-preserve-screen-position t)
   #+END_SRC
+- Do not create lock files
+  1. it will conflicts sometimes
+  2. it messes with find-file
+  #+BEGIN_SRC emacs-lisp
+     (setq create-lockfiles nil)
+  #+END_SRC
 ** UI
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:59]
