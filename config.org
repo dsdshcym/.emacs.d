@@ -1,6 +1,47 @@
 #+TITLE: Emacs Literate Configuration
+#+FILETAGS: Emacs
 #+PROPERTY: header-args :tangle yes :results silent
 
+* Literate Emacs Config
+:PROPERTIES:
+:CREATED:  [2018-02-28 Wed 11:46]
+:ID:       862BFFED-2F54-4769-8064-FFF87E8B6A6F
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-02 Fri 11:45]--[2018-03-02 Fri 11:58] =>  0:13
+CLOCK: [2018-03-02 Fri 10:52]--[2018-03-02 Fri 11:38] =>  0:46
+CLOCK: [2018-03-02 Fri 10:42]--[2018-03-02 Fri 10:48] =>  0:06
+CLOCK: [2018-03-01 Thu 17:16]--[2018-03-01 Thu 18:21] =>  1:05
+CLOCK: [2018-03-01 Thu 15:42]--[2018-03-01 Thu 17:15] =>  1:33
+CLOCK: [2018-03-01 Thu 14:12]--[2018-03-01 Thu 15:22] =>  1:10
+CLOCK: [2018-03-01 Thu 13:57]--[2018-03-01 Thu 14:09] =>  0:12
+CLOCK: [2018-03-01 Thu 11:28]--[2018-03-01 Thu 13:03] =>  1:35
+CLOCK: [2018-02-28 Wed 17:29]--[2018-02-28 Wed 18:32] =>  1:03
+CLOCK: [2018-02-28 Wed 15:53]--[2018-02-28 Wed 17:24] =>  1:31
+CLOCK: [2018-02-28 Wed 15:09]--[2018-02-28 Wed 15:47] =>  0:38
+CLOCK: [2018-02-28 Wed 11:46]--[2018-02-28 Wed 11:47] =>  0:01
+:END:
+** TODO [[https://github.com/gilbertw1/emacs-literate-starter][gilbertw1/emacs-literate-starter: A simple template that can be used to get started with an efficient literate Emacs configuration]]
+:PROPERTIES:
+:CREATED: [2018-02-27 Tue 17:38]
+:END:
+:LOGBOOK:
+CLOCK: [2018-02-28 Wed 11:47]--[2018-02-28 Wed 11:56] =>  0:09
+CLOCK: [2018-02-28 Wed 11:27]--[2018-02-28 Wed 11:34] =>  0:07
+CLOCK: [2018-02-27 Tue 17:30]--[2018-02-27 Tue 17:45] =>  0:15
+:END:
+- [[id:D32DF1C0-3FBB-4832-9CFA-1F5118DB9D08][nilcons/emacs-use-package-fast: Discussion on how to achieve fast initialization of emacs using melpa with use-package]]
+*** TODO [[https://github.com/gilbertw1/bmacs][gilbertw1/bmacs: Bryan's Emacs Configuration]]
+:PROPERTIES:
+:CREATED: [2018-02-28 Wed 11:34]
+:END:
+:LOGBOOK:
+CLOCK: [2018-02-28 Wed 11:34]--[2018-02-28 Wed 11:46] =>  0:12
+:END:
+** TODO [[https://github.com/auwsmit/emacsconfig/blob/master/config.org][emacsconfig/config.org at master · auwsmit/emacsconfig]]
+:PROPERTIES:
+:CREATED: [2017-08-11 Fri 17:44]
+:END:
 * About this file
 This is an Emacs literate configuration template. It contains the basic structure
 of a literate config along with some optimizations to ensure a fast load time.
