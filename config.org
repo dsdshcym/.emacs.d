@@ -594,6 +594,7 @@ previously compiled manually then all of the package initialization will still t
   (use-package general
     :config
     (general-evil-setup t)
+    (general-auto-unbind-keys)
 
     (general-create-definer
       +leader
@@ -835,8 +836,6 @@ CLOCK: [2018-03-02 Fri 14:35]
 :END:
 #+BEGIN_SRC emacs-lisp
   (+leader
-   "" nil
-
    "SPC" #'execute-extended-command
 
    "u" #'universal-argument
