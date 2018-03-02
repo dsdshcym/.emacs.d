@@ -1480,6 +1480,46 @@ Do not clutter =init.el= please.
                                        (setq mixfmt-args (list "--dot-formatter" (concat (locate-dominating-file default-directory ".formatter.exs") "/.formatter.exs")))
                                      (setq mixfmt-args nil)))))
   #+END_SRC
+** Ledger
+:PROPERTIES:
+:CREATED:  [2018-03-02 Fri 10:30]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package ledger-mode
+    :mode ("\\.\\(ledger\\|ldg\\)\\'" . ledger-mode)
+    :init
+    (progn
+      (setq ledger-post-amount-alignment-column 62))
+    :config
+    (with-eval-after-load company-mode
+      (add-to-list 'company-backends 'company-capf))
+    :general
+    (+local-leader
+     :keymaps 'ledger-mode-map
+     "a" 'ledger-add-transaction
+     "b" 'ledger-post-edit-amount
+     "c" 'ledger-mode-clean-buffer
+     "C" 'ledger-toggle-current
+     "d" 'ledger-delete-current-transaction
+     "l" 'ledger-display-ledger-stats
+     "m" 'ledger-set-month
+     "p" 'ledger-display-balance-at-point
+     "q" 'ledger-post-align-xact
+     "r" 'ledger-report
+     "R" 'ledger-reconcile
+     "t" 'ledger-insert-effective-date
+     "y" 'ledger-set-year)
+    (+local-leader
+     :keymaps 'ledger-reconcile-mode-map
+     "'" 'ledger-reconcile-toggle
+     "a" 'ledger-reconcile-add
+     "q" 'ledger-reconcile-quit
+     "t" 'ledger-reconcile-change-target
+     "RET" 'ledger-reconcile-finish))
+
+  (use-package flycheck-ledger
+    :after ledger-mode)
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
