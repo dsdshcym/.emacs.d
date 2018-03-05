@@ -173,6 +173,10 @@ previously compiled manually then all of the package initialization will still t
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:40]
 :END:
+- url directory
+  #+BEGIN_SRC emacs-lisp
+    (setq url-configuration-directory (concat +local-directory "url"))
+  #+END_SRC
 - Do not clutter =init.el= please.
   #+BEGIN_SRC emacs-lisp
     (setq custom-file (expand-file-name "custom.el" +local-directory))
@@ -654,6 +658,8 @@ previously compiled manually then all of the package initialization will still t
       :non-normal-prefix "M-m m"
       :states '(motion insert emacs))
 
+    (mmap "M-s" #'evil-write)
+
     (general-define-key
      :keymaps 'input-decode-map
      "C-h" [backspace]))
@@ -672,6 +678,16 @@ previously compiled manually then all of the package initialization will still t
               read-expression-map)
    [escape] 'abort-recursive-edit)
 #+END_SRC
+*** DONE [[https://github.com/noctuid/general.el/issues/97][Non-prefix key error but still working? · Issue #97 · noctuid/general.el]]
+CLOSED: [2018-03-02 Fri 15:33]
+:PROPERTIES:
+:CREATED: [2018-03-02 Fri 15:22]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-03-02 Fri 15:33]
+CLOCK: [2018-03-02 Fri 15:07]--[2018-03-02 Fri 15:32] =>  0:25
+- use =general-auto-unbind-keys= to unbind leader key
+:END:
 ** Evil
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:53]
@@ -683,6 +699,7 @@ previously compiled manually then all of the package initialization will still t
     (setq evil-symbol-word-search t)
     (setq evil-want-C-u-scroll t)
     (setq evil-want-visual-char-semi-exclusive t)
+    (setq evil-ex-search-highlight-all nil)
     (evil-mode)
     :config
     (evil-select-search-module 'evil-search-module 'evil-search)
@@ -752,11 +769,10 @@ previously compiled manually then all of the package initialization will still t
 :CREATED:  [2018-03-02 Fri 14:23]
 :END:
 :LOGBOOK:
-CLOCK: [2018-03-02 Fri 14:23]
+CLOCK: [2018-03-02 Fri 14:23]--[2018-03-02 Fri 14:35] =>  0:12
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package evil-embrace
-    :after evil-surround
     :hook (org-mode . embrace-org-mode-hook)
     :hook (ruby-mode . embrace-ruby-mode-hook)
     :init
@@ -769,7 +785,7 @@ CLOCK: [2018-03-02 Fri 14:23]
 :CREATED:  [2018-03-02 Fri 14:24]
 :END:
 :LOGBOOK:
-CLOCK: [2018-03-02 Fri 14:35]
+CLOCK: [2018-03-02 Fri 14:35]--[2018-03-02 Fri 14:47] =>  0:12
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package evil-multiedit
@@ -782,20 +798,20 @@ CLOCK: [2018-03-02 Fri 14:35]
     (evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match)
     :general
     (+leader
-     "se" 'evil-multiedit-match-all
-     "sr" 'evil-multiedit-restore
-     "sm" 'evil-multiedit-toggle-marker-here)
+     "se" #'evil-multiedit-match-all
+     "sr" #'evil-multiedit-restore
+     "sm" #'evil-multiedit-toggle-marker-here)
 
     (general-define-key
      :keymaps 'evil-multiedit-state-map
-     "C-f" 'iedit-restrict-function
-     "S" 'evil-multiedit--substitute
-     "C-n" 'evil-multiedit-next
-     "C-p" 'evil-multiedit-prev)
+     "C-f" #'iedit-restrict-function
+     "S" #'evil-multiedit--substitute
+     "C-n" #'evil-multiedit-next
+     "C-p" #'evil-multiedit-prev)
 
     (general-define-key
      :keymaps '(motion evil-multiedit-state-map)
-     "RET" 'evil-multiedit-toggle-or-restrict-region))
+     "RET" #'evil-multiedit-toggle-or-restrict-region))
 #+END_SRC
 *** evil-commentary
 :PROPERTIES:
@@ -894,10 +910,12 @@ CLOCK: [2018-03-02 Fri 14:35]
    "bb" #'switch-to-buffer
    "bd" #'kill-this-buffer
    "bw" #'read-only-mode
+   "bs" (lambda () (interactive) (switch-to-buffer "*scratch*"))
+   "bm" (lambda () (interactive) (switch-to-buffer "*Messages*"))
    "TAB" (lambda () (interactive) (switch-to-buffer nil))
 
    ;; Jumping
-   "sj" #'imenu
+   "si" #'imenu
 
    ;; Help
    "h" (general-simulate-key "<f1>")
@@ -909,6 +927,8 @@ CLOCK: [2018-03-02 Fri 14:35]
    "ep"  #'previous-error
 
    "w" evil-window-map
+   "wd" #'evil-window-delete
+   "wf" #'make-frame
 
    "qf" #'delete-frame
    "qq" #'save-buffers-kill-terminal)
@@ -1078,7 +1098,7 @@ CLOCK: [2018-03-02 Fri 16:18]--[2018-03-02 Fri 16:22] =>  0:04
     (setq ivy-initial-inputs-alist nil)
     (setq ivy-truncate-lines nil)
     (setq ivy-re-builders-alist
-          '((t . ivy--regex-plus)))
+          '((t . ivy--regex-ignore-order)))
     :general
     (general-define-key
      :keymaps 'ivy-minibuffer-map
@@ -1106,6 +1126,7 @@ CLOCK: [2018-03-02 Fri 16:18]--[2018-03-02 Fri 16:22] =>  0:04
      [remap find-library]             #'counsel-find-library
      [remap yank-pop]                 #'counsel-yank-pop
      [remap info-lookup-symbol]       #'counsel-info-lookup-symbol
+     [remap imenu]                    #'counsel-imenu
      [remap recentf-open-files]       #'counsel-recentf)
     (+leader
       "iu" #'counsel-unicode-char
@@ -1201,19 +1222,28 @@ CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :init
-    (setq company-idle-delay nil
+    (setq company-idle-delay 0.2
           company-require-match 'never
           company-tooltip-align-annotations t
           company-dabbrev-ignore-case nil
           company-dabbrev-downcase nil)
-    :config
-    (global-company-mode)
+
     (setq company-backends
           '(company-keywords
             company-files
             company-capf
             company-dabbrev-code
             company-dabbrev))
+
+    (global-company-mode)
+    :config
+    (defun +evil-complete (arg)
+      (interactive)
+      (unless (company-complete)
+        (hippie-expand arg)))
+
+    (setq evil-complete-next-func '+evil-complete)
+    (setq evil-complete-previous-func '+evil-complete)
     :general
     (general-define-key
      :keymaps 'company-active-map
@@ -1279,7 +1309,6 @@ CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package counsel-projectile
-    :after projectile
     :general
     (general-define-key
      [remap projectile-find-file]        #'counsel-projectile-find-file
@@ -1295,6 +1324,9 @@ CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:54]
 :END:
+#+BEGIN_SRC emacs-lisp
+  (setq vc-follow-symlinks t)
+#+END_SRC
 ** magit
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:54]
@@ -1986,7 +2018,7 @@ Ensure ELPA org is prioritized above built-in org.
                org-agenda-to-appt)
     :config
     (setq org-agenda-diary-file "~/Org/journal.org")
-    (setq org-agenda-files '("~/Org" "~/Org/notes"  "~/Org/lists"))
+    (setq org-agenda-files '("~/Org" "~/Org/notes" "~/Org/lists" "~/.emacs.d/config.org"))
 
     ;; Overwrite the current window with the agenda
     (setq org-agenda-window-setup 'current-window)
@@ -2364,7 +2396,7 @@ Ensure ELPA org is prioritized above built-in org.
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package org-rich-yank
-    :commands (org-rich-yank)
+    :after org
     :general
     (+local-leader
       :keymaps 'org-mode-map
