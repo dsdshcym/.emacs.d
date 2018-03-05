@@ -1014,7 +1014,7 @@ CLOCK: [2018-03-02 Fri 16:18]--[2018-03-02 Fri 16:22] =>  0:04
 :CREATED:  [2018-03-05 Mon 14:26]
 :END:
 :LOGBOOK:
-CLOCK: [2018-03-05 Mon 14:26]
+CLOCK: [2018-03-05 Mon 14:26]--[2018-03-05 Mon 14:40] =>  0:14
 :END:
 - setup dumb-jump
   #+BEGIN_SRC emacs-lisp
