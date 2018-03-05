@@ -747,6 +747,28 @@ CLOCK: [2018-03-02 Fri 15:07]--[2018-03-02 Fri 15:32] =>  0:25
         (forward-line (1- count)))
       (evil-first-non-blank)))
 #+END_SRC
+*** evil-args
+:PROPERTIES:
+:CREATED:  [2018-03-05 Mon 15:03]
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-05 Mon 15:03]--[2018-03-05 Mon 15:06] =>  0:03
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-args
+    :commands (evil-inner-arg
+               evil-outer-arg
+               evil-forward-arg
+               evil-backward-arg
+               evil-jump-out-args)
+    :general
+    (general-define-key
+     :keymaps 'evil-inner-text-objects-map
+     "a" 'evil-inner-arg)
+    (general-define-key
+     :keymaps 'evil-outer-text-objects-map
+     "a" 'evil-outer-arg))
+#+END_SRC
 *** evil-surround
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 14:42]
