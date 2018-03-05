@@ -1406,6 +1406,10 @@ CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:54]
 :END:
+:LOGBOOK:
+CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
+- bind magit-blame to SPC g b
+:END:
 #+BEGIN_SRC emacs-lisp
   (use-package magit
     :init
@@ -1425,9 +1429,10 @@ CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
        magit-blame-mode-map
        magit-log-mode-map))
     (+leader
-     "gs" 'magit-status
-     "gi" 'magit-init
-     "gl" 'magit-log-buffer-file))
+      "gb" #'magit-blame
+      "gs" #'magit-status
+      "gi" #'magit-init
+      "gl" #'magit-log-buffer-file))
 #+END_SRC
 ** evil-magit
 :PROPERTIES:
