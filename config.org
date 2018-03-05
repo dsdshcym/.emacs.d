@@ -987,6 +987,59 @@ CLOCK: [2018-03-02 Fri 16:18]--[2018-03-02 Fri 16:22] =>  0:04
     :config
     (editorconfig-mode 1))
 #+END_SRC
+** dumb-jump
+:PROPERTIES:
+:CREATED:  [2018-03-05 Mon 14:26]
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-05 Mon 14:26]
+:END:
+- setup dumb-jump
+  #+BEGIN_SRC emacs-lisp
+    (use-package dumb-jump
+      :commands (dumb-jump-go dumb-jump-quick-look
+                 dumb-jump-back dumb-jump-result-follow)
+      :config
+      (setq dumb-jump-selector 'ivy))
+  #+END_SRC
+- override goto definition
+  #+BEGIN_SRC emacs-lisp
+    (defun +goto-definition (identifier &optional other-window)
+      (interactive
+       (list (thing-at-point 'symbol t)
+             current-prefix-arg))
+      (cond ((null identifier)
+             (user-error "Nothing under point"))
+
+            ((and (require 'dumb-jump nil t)
+                  ;; dumb-jump doesn't tell us if it succeeded or not
+                  (let ((old-fn (symbol-function 'dumb-jump-get-results))
+                        successful)
+                    (cl-letf (((symbol-function 'dumb-jump-get-results)
+                               (lambda (&optional prompt)
+                                 (let* ((plist (funcall old-fn prompt))
+                                        (results (plist-get plist :results)))
+                                   (when (and results (> (length results) 0))
+                                     (setq successful t))
+                                   plist))))
+                      (if other-window
+                          (dumb-jump-go-other-window)
+                        (dumb-jump-go))
+                      successful))))
+
+            ((and evil-mode
+                  (cl-destructuring-bind (beg . end)
+                      (bounds-of-thing-at-point 'symbol)
+                    (evil-goto-definition)
+                    (let ((pt (point)))
+                      (not (and (>= pt beg)
+                                (<  pt end)))))))
+
+            (t (user-error "Couldn't find '%s'" identifier))))
+
+    (mmap
+      "gd" #'+goto-definition)
+  #+END_SRC
 * Window Management
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 14:40]
