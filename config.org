@@ -695,6 +695,7 @@ CLOCK: [2018-03-02 Fri 15:07]--[2018-03-02 Fri 15:32] =>  0:25
 #+BEGIN_SRC emacs-lisp
   (use-package evil
     :init
+    (setq evil-respect-visual-line-mode t)
     (setq evil-want-Y-yank-to-eol t)
     (setq evil-symbol-word-search t)
     (setq evil-want-C-u-scroll t)
