@@ -791,16 +791,20 @@ CLOCK: [2018-03-05 Mon 15:03]--[2018-03-05 Mon 15:06] =>  0:03
 :CREATED:  [2018-03-02 Fri 14:23]
 :END:
 :LOGBOOK:
+CLOCK: [2018-03-06 Tue 15:08]--[2018-03-06 Tue 15:10] =>  0:02
+- fix lazy-loading issue
 CLOCK: [2018-03-02 Fri 14:23]--[2018-03-02 Fri 14:35] =>  0:12
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package evil-embrace
+    :commands (evil-embrace-enable-evil-surround-integration)
     :hook (org-mode . embrace-org-mode-hook)
     :hook (ruby-mode . embrace-ruby-mode-hook)
     :init
-    (setq evil-embrace-show-help-p nil)
+    (eval-after-load 'evil-surround
+      (evil-embrace-enable-evil-surround-integration))
     :config
-    (evil-embrace-enable-evil-surround-integration))
+    (setq evil-embrace-show-help-p nil))
 #+END_SRC
 *** evil-multiedit
 :PROPERTIES:
