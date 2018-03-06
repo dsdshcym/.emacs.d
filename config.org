@@ -2647,6 +2647,8 @@ CLOCK: [2018-03-02 Fri 17:51]--[2018-03-02 Fri 18:04] =>  0:13
 :CREATED:  [2018-03-05 Mon 11:46]
 :END:
 :LOGBOOK:
+CLOCK: [2018-03-06 Tue 16:50]--[2018-03-06 Tue 16:51] =>  0:01
+- replace =add-hook!= with =add-hook=
 CLOCK: [2018-03-05 Mon 11:46]--[2018-03-05 Mon 11:48] =>  0:02
 :END:
 #+BEGIN_SRC emacs-lisp
@@ -2788,6 +2790,5 @@ CLOCK: [2018-03-05 Mon 11:46]--[2018-03-05 Mon 11:48] =>  0:02
 
     ;; Only render to html once. If the first send fails for whatever reason,
     ;; org-mu4e would do so each time you try again.
-    (add-hook! 'message-send-hook
-      (setq-local org-mu4e-convert-to-html nil)))
+    (add-hook 'message-send-hook (lambda () (setq-local org-mu4e-convert-to-html nil))))
 #+END_SRC
