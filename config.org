@@ -1101,13 +1101,22 @@ CLOCK: [2018-03-05 Mon 14:26]--[2018-03-05 Mon 14:40] =>  0:14
         (shackle--display-buffer-aligned-window buffer alist plist))))
 #+END_SRC
 * Compilation
+:LOGBOOK:
+CLOCK: [2018-03-06 Tue 16:45]--[2018-03-06 Tue 16:47] =>  0:02
+- fix gg in =compilation-mode-map=
+:END:
   #+BEGIN_SRC emacs-lisp
     (use-package compile
       :config
       (add-to-list 'shackle-rules '(compilation-mode :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33))
       :general
+      (mmap
+        :keymaps 'compilation-mode-map
+        "g" nil
+        "gg" #'evil-goto-first-line
+        "gr" #'recompile)
       (+enable-leader
-        :keymaps '(compilation-mode-map)))
+        :keymaps 'compilation-mode-map))
   #+END_SRC
 * macOS
 :PROPERTIES:
