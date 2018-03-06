@@ -1575,6 +1575,8 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
   (use-package rbenv
     :after ruby-mode
     :hook (ruby-mode . rbenv-use-corresponding)
+    :init
+    (setq rbenv-show-active-ruby-in-modeline nil)
     :config
     (global-rbenv-mode))
 
