@@ -824,6 +824,8 @@ CLOCK: [2018-03-02 Fri 14:35]--[2018-03-02 Fri 14:47] =>  0:12
     :config
     (evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match)
     :general
+    (nvmap
+      "R" #'evil-multiedit-match-all)
     (+leader
      "se" #'evil-multiedit-match-all
      "sr" #'evil-multiedit-restore
