@@ -1350,10 +1350,10 @@ CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
 ** smartparens
 #+BEGIN_SRC emacs-lisp
   (use-package smartparens
-    :init
-    (smartparens-global-mode)
     :config
+    (smartparens-global-mode)
     (show-smartparens-mode)
+    (require 'smartparens-config)
     :general
     (imap
       "C-s" #'sp-forward-slurp-sexp
