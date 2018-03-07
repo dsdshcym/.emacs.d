@@ -1681,7 +1681,7 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
       :after elixir-mode
       :hook (elixir-mode . alchemist-mode)
       :config
-      (add-to-list 'shackle-rules '("\\*alchemist .*\\*" :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33))
+      (add-to-list 'shackle-rules '("\\*alchemist.*\\*" :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33))
       :general
       (+local-leader
        :keymaps 'alchemist-mode-map
