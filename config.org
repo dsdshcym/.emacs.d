@@ -1666,6 +1666,9 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 17:08]
 :END:
+:LOGBOOK:
+CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
+:END:
 - elixir itself
   #+BEGIN_SRC emacs-lisp
     (use-package elixir-mode
@@ -1795,10 +1798,14 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
       :config
       (setq mixfmt-mix (executable-find "mix"))
       (add-hook 'before-save-hook #'mix-format-before-save)
-      (add-hook 'mix-format-hook (lambda ()
-                                   (if (projectile-project-p)
-                                       (setq mixfmt-args (list "--dot-formatter" (concat (locate-dominating-file default-directory ".formatter.exs") "/.formatter.exs")))
-                                     (setq mixfmt-args nil)))))
+
+      (defun +reset-mixfmt-args ()
+        (let* ((formatter-directory (locate-dominating-file default-directory ".formatter.exs"))
+               (formatter-file (concat formatter-directory ".formatter.exs")))
+          (if formatter-directory
+              (setq mixfmt-args (list "--dot-formatter" formatter-file))
+            (setq mixfmt-args nil))))
+      (add-hook 'mix-format-hook #'+reset-mixfmt-args))
   #+END_SRC
 ** Ledger
 :PROPERTIES:
