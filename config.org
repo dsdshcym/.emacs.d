@@ -2567,6 +2567,40 @@ CLOCK: [2018-03-02 Fri 16:10]--[2018-03-02 Fri 16:17] =>  0:07
     (interactive)
     (+org-page/new-post "clipping" "Clipping, "))
 #+END_SRC
+** DONE [[elfeed:planet.emacsen.org#http://acidwords.com/posts/2018-03-02-extending-org-mode-easy-templates.html][Sanel Zukan: Extending org-mode Easy Templates]]
+CLOSED: [2018-03-06 Tue 16:42]
+:PROPERTIES:
+:CREATED: [2018-03-06 Tue 16:41]
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-07 Wed 15:51]--[2018-03-07 Wed 15:55] =>  0:04
+- State "DONE"       from "TODO"       [2018-03-06 Tue 16:42]
+CLOCK: [2018-03-06 Tue 16:41]--[2018-03-06 Tue 16:42] =>  0:01
+:END:
+#+BEGIN_SRC emacs-lisp
+  (setq org-structure-template-alist
+        '(("l" "#+BEGIN_SRC emacs-lisp
+  ?
+  ,#+END_SRC")
+          ("r" "#+BEGIN_SRC ruby
+  ?
+  ,#+END_SRC")
+          ("x" "#+BEGIN_SRC elixir
+  ?
+  ,#+END_SRC")
+          ("s" "#+BEGIN_SRC ?
+
+  ,#+END_SRC")
+          ("e" "#+BEGIN_EXAMPLE
+  ?
+  ,#+END_EXAMPLE")
+          ("q" "#+BEGIN_QUOTE
+  ?
+  ,#+END_QUOTE")
+          ("c" "#+BEGIN_CENTER
+  ?
+  ,#+END_CENTER")))
+#+END_SRC
 * elfeed
 :PROPERTIES:
 :CREATED:  [2018-03-02 Fri 17:51]
