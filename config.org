@@ -970,6 +970,21 @@ CLOCK: [2018-03-02 Fri 14:35]--[2018-03-02 Fri 14:47] =>  0:12
   (setq mac-command-modifier 'meta
         mac-option-modifier  'alt)
 #+END_SRC
+** CANCELLED [[https://github.com/purcell/disable-mouse][purcell/disable-mouse: Disable the mouse in Emacs]]
+CLOSED: [2018-03-07 Wed 17:55]
+:PROPERTIES:
+:CREATED: [2018-03-07 Wed 17:53]
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2018-03-07 Wed 17:55] \\
+  Don't disable mouse clicking for cursor positioning in buffers
+CLOCK: [2018-03-07 Wed 17:53]--[2018-03-07 Wed 17:54] =>  0:01
+:END:
+#+BEGIN_SRC emacs-lisp :tangle no
+  (use-package disable-mouse
+    :config
+    (global-disable-mouse-mode))
+#+END_SRC
 * Editing/Jumping
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 12:06]
