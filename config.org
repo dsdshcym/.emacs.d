@@ -1346,19 +1346,19 @@ CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
     (setq company-statistics-file (concat +local-directory "company-statistics-cache.el")))
 #+END_SRC
 ** smartparens
-   #+BEGIN_SRC emacs-lisp
-     (use-package smartparens
-       :init
-       (smartparens-global-mode)
-       :config
-       (show-smartparens-mode)
-       :general
-       (imap
-	 "C-s" #'sp-forward-slurp-sexp
-	 "S-C-s" #'sp-forward-barf-sexp
-	 "M-s" #'sp-backward-slurp-sexp
-	 "S-M-s" #'sp-backward-barf-sexp))
-   #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  (use-package smartparens
+    :init
+    (smartparens-global-mode)
+    :config
+    (show-smartparens-mode)
+    :general
+    (imap
+      "C-s" #'sp-forward-slurp-sexp
+      "S-C-s" #'sp-forward-barf-sexp
+      "M-s" #'sp-backward-slurp-sexp
+      "S-M-s" #'sp-backward-barf-sexp))
+#+END_SRC
 * Projectile
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:10]
