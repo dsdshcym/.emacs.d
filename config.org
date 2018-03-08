@@ -2045,12 +2045,18 @@ Ensure ELPA org is prioritized above built-in org.
               (lambda ()
                 (evil-org-set-key-theme)))
     :config
+    (imap
+      :keymaps 'org-mode-map
+      "M-h" #'org-metaleft
+      "M-j" #'org-metadown
+      "M-k" #'org-metaup
+      "M-l" #'org-metaright)
     (nmap
-     :keymaps '(org-mode-map)
-     "C-<return>" #'org-insert-heading-respect-content
-     "C-S-<return>" #'org-insert-todo-heading-respect-content
-     "M-<return>" (evil-org-define-eol-command org-meta-return)
-     "M-S-<return>" (evil-org-define-eol-command org-insert-todo-heading)))
+      :keymaps '(org-mode-map)
+      "C-<return>" #'org-insert-heading-respect-content
+      "C-S-<return>" #'org-insert-todo-heading-respect-content
+      "M-<return>" (evil-org-define-eol-command org-meta-return)
+      "M-S-<return>" (evil-org-define-eol-command org-insert-todo-heading)))
 #+END_SRC
 ** Clock
 :PROPERTIES:
