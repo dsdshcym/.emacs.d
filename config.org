@@ -691,6 +691,9 @@ CLOCK: [2018-03-02 Fri 15:07]--[2018-03-02 Fri 15:32] =>  0:25
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:53]
 :END:
+:LOGBOOK:
+CLOCK: [2018-03-09 Fri 12:11]--[2018-03-09 Fri 12:12] =>  0:01
+:END:
 #+BEGIN_SRC emacs-lisp
   (use-package evil
     :init
@@ -745,7 +748,19 @@ CLOCK: [2018-03-02 Fri 15:07]--[2018-03-02 Fri 15:32] =>  0:25
           (goto-char (buffer-size))
         (goto-char (point-min))
         (forward-line (1- count)))
-      (evil-first-non-blank)))
+      (evil-first-non-blank))
+
+    (defun +evil/reselect-paste ()
+      "Go back into visual mode and reselect the last pasted region."
+      (interactive)
+      (cl-destructuring-bind (_ _ _ beg end &optional _)
+          evil-last-paste
+        (evil-visual-make-selection
+         (save-excursion (goto-char beg) (point-marker))
+         end)))
+    :general
+    (nmap
+      "gp" #'+evil/reselect-paste))
 #+END_SRC
 *** evil-args
 :PROPERTIES:
