@@ -659,7 +659,6 @@ CLOCK: [2018-03-12 Mon 18:12]--[2018-03-12 Mon 18:21] =>  0:09
           recentf-filename-handlers '(file-truename)
           recentf-auto-cleanup 'never)
     :config
-    (add-to-list 'recentf-exclude (file-truename +local-directory))
     (add-to-list 'recentf-exclude "COMMIT_EDITMSG\\'"))
 #+END_SRC
 *** Indentations
