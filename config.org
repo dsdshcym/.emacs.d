@@ -720,11 +720,15 @@ CLOCK: [2018-03-02 Fri 15:07]--[2018-03-02 Fri 15:32] =>  0:25
 :CREATED:  [2018-02-28 Wed 15:53]
 :END:
 :LOGBOOK:
+CLOCK: [2018-03-12 Mon 16:00]--[2018-03-12 Mon 16:02] =>  0:02
+- disable evil mode-line segment
+- use cursor to recognize the mode
 CLOCK: [2018-03-09 Fri 12:11]--[2018-03-09 Fri 12:12] =>  0:01
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package evil
     :init
+    (setq evil-mode-line-format nil)
     (setq evil-respect-visual-line-mode t)
     (setq evil-want-Y-yank-to-eol t)
     (setq evil-symbol-word-search t)
