@@ -227,12 +227,24 @@ previously compiled manually then all of the package initialization will still t
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:01]
 :END:
+**** solarized
+:PROPERTIES:
+:CREATED:  [2018-03-12 Mon 15:45]
+:END:
 #+BEGIN_SRC emacs-lisp
   (use-package solarized-theme
     :init
     (setq solarized-use-variable-pitch nil)
     (setq solarized-scale-org-headlines nil)
-    (load-theme 'solarized-dark t))
+    :config
+    (load-theme 'solarized-dark t)
+    (let ((line (face-attribute 'mode-line :underline)))
+      (set-face-attribute 'mode-line          nil :overline   line)
+      (set-face-attribute 'mode-line-inactive nil :overline   line)
+      (set-face-attribute 'mode-line-inactive nil :underline  line)
+      (set-face-attribute 'mode-line          nil :box        nil)
+      (set-face-attribute 'mode-line-inactive nil :box        nil)
+      (set-face-attribute 'mode-line-inactive nil :background "#002b36")))
 #+END_SRC
 *** Fonts
 :PROPERTIES:
@@ -508,20 +520,36 @@ previously compiled manually then all of the package initialization will still t
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:11]
 :END:
-- smart mode line
-  #+BEGIN_SRC emacs-lisp
-    (use-package smart-mode-line
-      :init
-      (sml/setup))
-  #+END_SRC
-- Use rich-minority to hide all minor modes (like in doom-emacs),
-  since I don't use any of them, and they are just messing with the
-  mode line
-  #+BEGIN_SRC emacs-lisp
-    (use-package rich-minority
-      :init
-      (setq rm-blacklist "^ .*"))
-  #+END_SRC
+**** [[https://github.com/tarsius/minions][tarsius/minions: A minor-mode menu for the mode line]]
+:PROPERTIES:
+:CREATED: [2018-03-12 Mon 15:41]
+:ID:       475CEDB6-60DB-4E8B-B7C4-654E454C62DD
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package minions
+    :config
+    (minions-mode 1))
+#+END_SRC
+**** [[https://github.com/tarsius/moody][tarsius/moody: Tabs and ribbons for the mode-line]]
+:PROPERTIES:
+:CREATED: [2018-03-12 Mon 15:40]
+:ID:       BCAD745F-F5D0-4B09-961D-E8E619DA34FC
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-12 Mon 15:43]--[2018-03-12 Mon 15:59] =>  0:16
+CLOCK: [2018-03-12 Mon 15:39]--[2018-03-12 Mon 15:41] =>  0:02
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package moody
+    :config
+    (setq moody-slant-function #'moody-slant-apple-rgb)
+    (moody-replace-mode-line-buffer-identification)
+    (moody-replace-vc-mode))
+#+END_SRC
+***** [[https://github.com/tarsius/moody/commit/04b3503edd607ec6456826e6b395c6fd44b86a71][moody-slant-apple-rgb: New function · tarsius/moody@04b3503]]
+:PROPERTIES:
+:CREATED: [2018-03-12 Mon 15:59]
+:END:
 *** Line Numbers
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:15]
