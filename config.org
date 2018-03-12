@@ -543,6 +543,10 @@ CLOCK: [2018-03-12 Mon 15:39]--[2018-03-12 Mon 15:41] =>  0:02
   (use-package moody
     :config
     (setq moody-slant-function #'moody-slant-apple-rgb)
+
+    (require 'smart-mode-line)
+    (moody-replace-sml/mode-line-buffer-identification)
+
     (moody-replace-mode-line-buffer-identification)
     (moody-replace-vc-mode))
 #+END_SRC
@@ -550,6 +554,18 @@ CLOCK: [2018-03-12 Mon 15:39]--[2018-03-12 Mon 15:41] =>  0:02
 :PROPERTIES:
 :CREATED: [2018-03-12 Mon 15:59]
 :END:
+***** DONE [[https://github.com/tarsius/moody/issues/1][smart-mode-line integration? · Issue #1 · tarsius/moody]]
+CLOSED: [2018-03-12 Mon 18:21]
+:PROPERTIES:
+:CREATED: [2018-03-12 Mon 18:12]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-03-12 Mon 18:21]
+CLOCK: [2018-03-12 Mon 18:12]--[2018-03-12 Mon 18:21] =>  0:09
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package smart-mode-line)
+#+END_SRC
 *** Line Numbers
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:15]
