@@ -2958,3 +2958,28 @@ CLOCK: [2018-03-05 Mon 11:46]--[2018-03-05 Mon 11:48] =>  0:02
     ;; org-mu4e would do so each time you try again.
     (add-hook 'message-send-hook (lambda () (setq-local org-mu4e-convert-to-html nil))))
 #+END_SRC
+* Chrome
+:PROPERTIES:
+:CREATED:  [2018-03-13 Tue 11:59]
+:END:
+** DONE [[https://github.com/alpha22jp/atomic-chrome][alpha22jp/atomic-chrome: Edit text area on Chrome with Emacs using Atomic Chrome]]
+CLOSED: [2018-03-13 Tue 11:58]
+:PROPERTIES:
+:CREATED: [2018-03-13 Tue 11:54]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-03-13 Tue 11:58]
+CLOCK: [2018-03-13 Tue 11:54]--[2018-03-13 Tue 11:58] =>  0:04
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package atomic-chrome
+    :hook (atomic-chrome-edit-done . delete-frame)
+    :init
+    (atomic-chrome-start-server)
+    :config
+    (setq atomic-chrome-default-major-mode 'org-mode)
+    (setq atomic-chrome-url-major-mode-alist
+          '(("github" . gfm-mode)
+            ("gitlab" . gfm-mode)))
+    (setq atomic-chrome-buffer-open-style 'frame))
+#+END_SRC
