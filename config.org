@@ -1921,6 +1921,34 @@ CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
   (use-package flycheck-ledger
     :after ledger-mode)
 #+END_SRC
+** Markdown
+:PROPERTIES:
+:CREATED: [2018-03-13 Tue 11:59]
+:END:
+*** DONE [[https://github.com/defunkt/markdown-mode][defunkt/markdown-mode: Emacs Markdown mode]]
+CLOSED: [2018-03-13 Tue 12:03]
+:PROPERTIES:
+:CREATED: [2018-03-13 Tue 12:00]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-03-13 Tue 12:03]
+CLOCK: [2018-03-13 Tue 12:00]--[2018-03-13 Tue 12:03] =>  0:03
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package markdown-mode
+    :mode "/README$"
+    :mode ("/README\\.md$" . gfm-mode)
+    :mode "\\.m\\(d\\|arkdown\\)$"
+    :init
+    (setq markdown-enable-wiki-links t
+          markdown-enable-math t
+          markdown-italic-underscore t
+          markdown-asymmetric-header t
+          markdown-make-gfm-checkboxes-buttons t
+          markdown-gfm-additional-languages '("sh")
+          markdown-fontify-code-blocks-natively t
+          markdown-hide-urls nil))
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
