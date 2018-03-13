@@ -1575,6 +1575,19 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
         (add-hook 'company-completion-finished-hook '+vcs|enable-diff-hl-flydiff-mode)
         (add-hook 'company-completion-cancelled-hook '+vcs|enable-diff-hl-flydiff-mode))))
 #+END_SRC
+** DONE [[https://github.com/magit/orgit][magit/orgit: Support for Org links to Magit buffers]]
+CLOSED: [2018-03-13 Tue 10:36]
+:PROPERTIES:
+:CREATED: [2018-03-13 Tue 10:35]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-03-13 Tue 10:36]
+CLOCK: [2018-03-13 Tue 10:35]--[2018-03-13 Tue 10:36] =>  0:01
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package orgit
+    :after (org magit))
+#+END_SRC
 * Spell Checking
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 16:03]
