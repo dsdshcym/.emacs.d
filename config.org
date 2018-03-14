@@ -550,6 +550,16 @@ CLOCK: [2018-03-12 Mon 15:39]--[2018-03-12 Mon 15:41] =>  0:02
     (moody-replace-mode-line-buffer-identification)
     (moody-replace-vc-mode))
 #+END_SRC
+***** CANCELLED [[https://emacs.stackexchange.com/questions/2338/how-can-i-display-the-parent-directory-of-the-current-file-in-the-modeline][mode line - How can I display the parent directory of the current file in the modeline? - Emacs Stack Exchange]]
+CLOSED: [2018-03-12 Mon 18:12]
+:PROPERTIES:
+:CREATED: [2018-03-12 Mon 18:05]
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2018-03-12 Mon 18:12] \\
+  Cannot get it working for moody (moody has it own customizations)
+CLOCK: [2018-03-12 Mon 18:05]--[2018-03-12 Mon 18:12] =>  0:07
+:END:
 ***** [[https://github.com/tarsius/moody/commit/04b3503edd607ec6456826e6b395c6fd44b86a71][moody-slant-apple-rgb: New function · tarsius/moody@04b3503]]
 :PROPERTIES:
 :CREATED: [2018-03-12 Mon 15:59]
