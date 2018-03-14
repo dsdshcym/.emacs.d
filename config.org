@@ -1423,6 +1423,37 @@ CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
     :init
     (setq company-statistics-file (concat +local-directory "company-statistics-cache.el")))
 #+END_SRC
+*** DONE [[https://twitter.com/EmacsReddit/status/973571278014525441][/r/Emacs on Twitter: "Configuring company-mode? https://t.co/N1FDEE9PpN #emacs"]] :Twitter:
+CLOSED: [2018-03-14 Wed 11:25] SCHEDULED: <2018-03-13 Tue>
+:PROPERTIES:
+:CREATED: [2018-03-13 Tue 23:11]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-03-14 Wed 11:25]
+CLOCK: [2018-03-14 Wed 11:20]--[2018-03-14 Wed 11:25] =>  0:05
+:END:
+#+BEGIN_QUOTE
+Their is a buffer local variable called company-backends that holds a
+list all the backends that can be used for the current
+buffer. company-mode starts with the first backend in the list and
+calls it’s prefix function. If that prefix function returns non-nil it
+will use that backend and skip the rest (unless it is a grouped
+backend, which you can read about in the doc string). If it returns
+nil it will keep calling the prefix function of each backend in the
+list.
+
+Once a backend gives a non-nil prefix, company calls the candidate
+function which populates the pop up. You can use the function
+company-diag to see which backend is being used at point and what it
+returns. You can reorder the backends to give priority to the ones you
+want to run first.
+
+Note that some “dumb” backends, such as company-dabbrev, company-capf,
+and company-ctags, will always return non-nil for their prefix even if
+they have no candidates to provide. Therefore they should almost
+always be grouped at the back of company-backends.
+#+END_QUOTE
+- [[id:FA75D853-6514-487F-A0E9-91F212EB8CCB][ananthakumaran/tide: Tide - TypeScript Interactive Development Environment for Emacs]]
 ** smartparens
 #+BEGIN_SRC emacs-lisp
   (use-package smartparens
