@@ -1168,6 +1168,20 @@ CLOCK: [2018-03-05 Mon 14:26]--[2018-03-05 Mon 14:40] =>  0:14
     (mmap
       "gd" #'+goto-definition)
   #+END_SRC
+** ediff
+:PROPERTIES:
+:CREATED:  [2018-03-15 Thu 15:15]
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-15 Thu 15:15]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package ediff
+    :config
+    (setq ediff-diff-options "-w"
+          ediff-split-window-function #'split-window-horizontally
+          ediff-window-setup-function #'ediff-setup-windows-plain))
+#+END_SRC
 * Window Management
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 14:40]
