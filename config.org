@@ -987,6 +987,19 @@ CLOCK: [2018-03-02 Fri 14:35]--[2018-03-02 Fri 14:47] =>  0:12
     :after evil
     :config (evil-lion-mode))
 #+END_SRC
+*** DONE [[https://github.com/emacs-evil/evil-ediff][emacs-evil/evil-ediff: Make ediff a little more evil]]
+CLOSED: [2018-03-15 Thu 15:15]
+:PROPERTIES:
+:CREATED: [2018-03-15 Thu 15:12]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-03-15 Thu 15:15]
+CLOCK: [2018-03-15 Thu 15:12]--[2018-03-15 Thu 15:15] =>  0:03
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-ediff
+    :after (evil ediff))
+#+END_SRC
 ** Leader Keys
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:26]
