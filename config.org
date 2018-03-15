@@ -1173,7 +1173,7 @@ CLOCK: [2018-03-05 Mon 14:26]--[2018-03-05 Mon 14:40] =>  0:14
 :CREATED:  [2018-03-15 Thu 15:15]
 :END:
 :LOGBOOK:
-CLOCK: [2018-03-15 Thu 15:15]
+CLOCK: [2018-03-15 Thu 15:15]--[2018-03-15 Thu 15:16] =>  0:01
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package ediff
@@ -1655,6 +1655,24 @@ CLOCK: [2018-03-13 Tue 10:35]--[2018-03-13 Tue 10:36] =>  0:01
 #+BEGIN_SRC emacs-lisp
   (use-package orgit
     :after (org magit))
+#+END_SRC
+** DONE [[https://github.com/sshaw/git-link][sshaw/git-link: Emacs package to get the GitHub/Bitbucket/GitLab/... URL for a buffer location]]
+CLOSED: [2018-03-15 Thu 15:21]
+:PROPERTIES:
+:CREATED: [2018-03-15 Thu 15:18]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-03-15 Thu 15:21]
+CLOCK: [2018-03-15 Thu 15:18]--[2018-03-15 Thu 15:21] =>  0:03
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package git-link
+    :commands (git-link git-link-commit git-link-homepage)
+    :general
+    (+leader
+      "gll" #'git-link
+      "glc" #'git-link-commit
+      "glh" #'git-link-homepage))
 #+END_SRC
 * Spell Checking
 :PROPERTIES:
