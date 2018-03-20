@@ -2035,6 +2035,16 @@ CLOCK: [2018-03-13 Tue 12:00]--[2018-03-13 Tue 12:03] =>  0:03
           markdown-fontify-code-blocks-natively t
           markdown-hide-urls nil))
 #+END_SRC
+** YAML
+:PROPERTIES:
+:CREATED:  [2018-03-20 Tue 17:01]
+:END:
+:LOGBOOK:
+CLOCK: [2018-03-20 Tue 17:01]--[2018-03-20 Tue 17:02] =>  0:01
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package yaml-mode :mode "\\.ya?ml$")
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
