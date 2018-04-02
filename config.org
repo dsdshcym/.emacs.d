@@ -1514,7 +1514,7 @@ always be grouped at the back of company-backends.
   (use-package smartparens
     :config
     (smartparens-global-mode)
-    (show-smartparens-mode)
+    (show-smartparens-global-mode)
     (require 'smartparens-config)
     :general
     (imap
