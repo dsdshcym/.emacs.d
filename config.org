@@ -1829,9 +1829,9 @@ CLOCK: [2018-04-09 Mon 16:25]--[2018-04-09 Mon 16:28] =>  0:03
     (+local-leader
       :keymaps 'minitest-mode-map
       "ta" #'minitest-verify-all
-      "tb" #'minitest-verify-single
+      "tb" #'minitest-verify
       "tr" #'minitest-rerun
-      "tt" #'minitest-verify))
+      "tt" #'minitest-verify-single))
 
   (use-package rubocop
     :commands (rubocop-mode)
