@@ -1823,6 +1823,8 @@ CLOCK: [2018-04-09 Mon 16:25]--[2018-04-09 Mon 16:28] =>  0:03
       "t TAB" 'rspec-toggle-spec-and-target))
 
   (use-package minitest
+    :config
+    (add-to-list 'shackle-rules '(minitest-compilation-mode :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33))
     :general
     (+local-leader
       :keymaps 'minitest-mode-map
