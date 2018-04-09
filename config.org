@@ -1757,6 +1757,9 @@ CLOCK: [2018-03-15 Thu 15:18]--[2018-03-15 Thu 15:21] =>  0:03
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 14:52]
 :END:
+:LOGBOOK:
+CLOCK: [2018-04-09 Mon 16:25]--[2018-04-09 Mon 16:28] =>  0:03
+:END:
 #+BEGIN_SRC emacs-lisp :results silent
   (use-package ruby-mode
     :mode "\\.rb$"
@@ -1805,34 +1808,41 @@ CLOCK: [2018-03-15 Thu 15:18]--[2018-03-15 Thu 15:21] =>  0:03
     (add-to-list 'shackle-rules '(rspec-compilation-mode :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33))
     :general
     (+local-leader
-     :keymaps '(rspec-mode-map rspec-verifiable-mode-map)
-     "ta"    'rspec-verify-all
-     "tb"    'rspec-verify
-     "tc"    'rspec-verify-continue
-     "td"    'ruby/rspec-verify-directory
-     "te"    'rspec-toggle-example-pendingness
-     "tf"    'rspec-verify-method
-     "tl"    'rspec-run-last-failed
-     "tm"    'rspec-verify-matching
-     "tr"    'rspec-rerun
-     "tt"    'rspec-verify-single
-     "t~"    'rspec-toggle-spec-and-target-find-example
-     "t TAB" 'rspec-toggle-spec-and-target))
+      :keymaps '(rspec-mode-map rspec-verifiable-mode-map)
+      "ta"    'rspec-verify-all
+      "tb"    'rspec-verify
+      "tc"    'rspec-verify-continue
+      "td"    'ruby/rspec-verify-directory
+      "te"    'rspec-toggle-example-pendingness
+      "tf"    'rspec-verify-method
+      "tl"    'rspec-run-last-failed
+      "tm"    'rspec-verify-matching
+      "tr"    'rspec-rerun
+      "tt"    'rspec-verify-single
+      "t~"    'rspec-toggle-spec-and-target-find-example
+      "t TAB" 'rspec-toggle-spec-and-target))
 
-  (use-package minitest)
+  (use-package minitest
+    :general
+    (+local-leader
+      :keymaps 'minitest-mode-map
+      "ta" #'minitest-verify-all
+      "tb" #'minitest-verify-single
+      "tr" #'minitest-rerun
+      "tt" #'minitest-verify))
 
   (use-package rubocop
     :commands (rubocop-mode)
     :hook (ruby-mode . rubocop-mode)
     :general
     (+local-leader
-     :keymaps 'rubocop-mode-map
-     "cd" #'rubocop-check-directory
-     "cD" #'rubocop-autocorrect-directory
-     "cf" #'rubocop-check-current-file
-     "cF" #'rubocop-autocorrect-current-file
-     "cp" #'rubocop-check-project
-     "cP" #'rubocop-autocorrect-project))
+      :keymaps 'rubocop-mode-map
+      "cd" #'rubocop-check-directory
+      "cD" #'rubocop-autocorrect-directory
+      "cf" #'rubocop-check-current-file
+      "cF" #'rubocop-autocorrect-current-file
+      "cp" #'rubocop-check-project
+      "cP" #'rubocop-autocorrect-project))
 
   (use-package rake
     :commands (rake rake-find-task)
