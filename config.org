@@ -1604,7 +1604,7 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
        magit-status-mode-map
        magit-diff-mode-map
        magit-process-mode-map
-       magit-blame-mode-map
+       magit-blame-read-only-mode-map
        magit-log-mode-map))
     (+leader
       "gb" #'magit-blame
