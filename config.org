@@ -1322,12 +1322,14 @@ CLOCK: [2018-03-06 Tue 16:45]--[2018-03-06 Tue 16:47] =>  0:02
     (setq ivy-re-builders-alist
           '((t . ivy--regex-ignore-order)))
     :general
+    (+enable-leader
+      :keymaps 'ivy-occur-grep-mode-map)
     (general-define-key
      :keymaps 'ivy-minibuffer-map
      [escape] 'minibuffer-keyboard-quit)
     (+local-leader
-     :keymaps 'ivy-occur-grep-mode-map
-     "w" #'ivy-wgrep-change-to-wgrep-mode))
+      :keymaps 'ivy-occur-grep-mode-map
+      "w" #'ivy-wgrep-change-to-wgrep-mode))
 #+END_SRC
 ** Counsel
 :PROPERTIES:
