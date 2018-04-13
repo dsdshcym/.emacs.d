@@ -1622,6 +1622,15 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
   (use-package evil-magit
     :after magit)
 #+END_SRC
+*** DONE [[https://github.com/emacs-evil/evil-magit/pull/41][Naming changes in project. by MichaelStergianis · Pull Request #41 · emacs-evil/evil-magit]]
+CLOSED: [2018-04-11 Wed 14:24]
+:PROPERTIES:
+:CREATED: [2018-04-11 Wed 14:22]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-04-11 Wed 14:24]
+CLOCK: [2018-04-11 Wed 14:20]--[2018-04-11 Wed 14:24] =>  0:04
+:END:
 ** gitconfig-mode and gitignore-mode
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 18:08]
