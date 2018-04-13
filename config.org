@@ -2375,6 +2375,10 @@ Ensure ELPA org is prioritized above built-in org.
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 12:37]
 :END:
+:LOGBOOK:
+CLOCK: [2018-04-13 Fri 11:32]--[2018-04-13 Fri 11:41] =>  0:09
+CLOCK: [2018-04-13 Fri 11:12]--[2018-04-13 Fri 11:30] =>  0:18
+:END:
 #+BEGIN_SRC emacs-lisp
   (use-package org-agenda
     :ensure org-plus-contrib
@@ -2396,11 +2400,12 @@ Ensure ELPA org is prioritized above built-in org.
           '(:link t :maxlevel 9 :fileskip0 t :narrow 70! :formula "$4=$3*(60/25);t" :compact t))
 
     (setq org-agenda-custom-commands
-          '(("d" "Agenda and Home-related tasks"
-             ((agenda ""))
-             ((org-agenda-tag-filter-preset '("-TV -Movie"))))
-            ("w" "@WORK"
-             ((agenda ""))
+          '(("d" agenda "Agenda for today's tasks only"
+             ((org-agenda-entry-types '(:scheduled))
+              (org-agenda-skip-scheduled-if-done t)
+              (org-agenda-todo-ignore-scheduled 'all)
+              (org-agenda-tag-filter-preset '("-TV" "-Movie"))))
+            ("w" agenda "@WORK"
              ((org-agenda-tag-filter-preset '("+@WORK"))))))
 
     (setq org-agenda-skip-scheduled-if-deadline-is-shown 'not-today)
