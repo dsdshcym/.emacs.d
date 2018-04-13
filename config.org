@@ -2396,9 +2396,9 @@ Ensure ELPA org is prioritized above built-in org.
           '(:link t :maxlevel 9 :fileskip0 t :narrow 70! :formula "$4=$3*(60/25);t" :compact t))
 
     (setq org-agenda-custom-commands
-          '(("h" "Agenda and Home-related tasks"
-             ((agenda "")
-              (tags-todo "@HOME")))
+          '(("d" "Agenda and Home-related tasks"
+             ((agenda ""))
+             ((org-agenda-tag-filter-preset '("-TV -Movie"))))
             ("w" "@WORK"
              ((agenda ""))
              ((org-agenda-tag-filter-preset '("+@WORK"))))))
@@ -2458,6 +2458,18 @@ Ensure ELPA org is prioritized above built-in org.
      "R" #'org-agenda-clockreport-mode
      "gj" #'org-agenda-next-line
      "gk" #'org-agenda-previous-line))
+#+END_SRC
+*** DONE [[https://emacs.stackexchange.com/questions/20130/exclude-tag-from-default-agenda-view][org mode - Exclude tag from default agenda view - Emacs Stack Exchange]]
+CLOSED: [2018-04-13 Fri 11:12]
+:PROPERTIES:
+:CREATED: [2018-04-13 Fri 11:07]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-04-13 Fri 11:12]
+CLOCK: [2018-04-13 Fri 11:07]--[2018-04-13 Fri 11:12] =>  0:05
+:END:
+#+BEGIN_SRC emacs-lisp :tangle no
+  (setq org-agenda-tag-filter-preset nil)
 #+END_SRC
 ** Capture
 :PROPERTIES:
