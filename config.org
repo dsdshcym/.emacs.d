@@ -5165,7 +5165,7 @@ CLOCK: [2018-04-13 Fri 11:12]--[2018-04-13 Fri 11:30] =>  0:18
              ((org-agenda-entry-types '(:scheduled))
               (org-agenda-skip-scheduled-if-done t)
               (org-agenda-todo-ignore-scheduled 'all)
-              (org-agenda-tag-filter-preset '("-TV" "-Movie"))))
+              (org-agenda-tag-filter-preset '("-TV" "-Movie" "-Animation"))))
             ("w" agenda "@WORK"
              ((org-agenda-tag-filter-preset '("+@WORK"))))))
 
