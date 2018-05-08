@@ -5486,6 +5486,19 @@ CLOCK: [2018-04-13 Fri 11:07]--[2018-04-13 Fri 11:12] =>  0:05
     (setq org-export-babel-evaluate nil
           org-confirm-babel-evaluate nil))
 #+END_SRC
+*** DONE [[https://github.com/astahlman/ob-async][astahlman/ob-async: Asynchronous src_block execution for org-babel]]
+CLOSED: [2018-05-08 Tue 14:14]
+:PROPERTIES:
+:CREATED: [2018-05-08 Tue 14:12]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-05-08 Tue 14:14]
+CLOCK: [2018-05-08 Tue 14:12]--[2018-05-08 Tue 14:14] =>  0:02
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package ob-async
+    :after ox)
+#+END_SRC
 ** org-list
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 12:34]
