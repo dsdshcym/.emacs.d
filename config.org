@@ -165,6 +165,18 @@ previously compiled manually then all of the package initialization will still t
     :init
     (server-start))
 #+END_SRC
+** DONE [[http://emacsredux.com/blog/2014/07/25/configure-the-scratch-buffers-mode/][Configure the scratch buffer's mode - Emacs Redux]]
+CLOSED: [2018-05-08 Tue 13:47]
+:PROPERTIES:
+:CREATED: [2018-05-08 Tue 13:46]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-05-08 Tue 13:47]
+CLOCK: [2018-05-08 Tue 13:46]--[2018-05-08 Tue 13:47] =>  0:01
+:END:
+#+BEGIN_SRC emacs-lisp
+  (setq initial-major-mode 'org-mode)
+#+END_SRC
 * Emacs Configurations
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:40]
