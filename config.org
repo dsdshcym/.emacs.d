@@ -4859,6 +4859,19 @@ CLOCK: [2018-03-20 Tue 17:01]--[2018-03-20 Tue 17:02] =>  0:01
 #+BEGIN_SRC emacs-lisp
   (use-package yaml-mode :mode "\\.ya?ml$")
 #+END_SRC
+** DONE [[https://elpa.gnu.org/packages/csv-mode.html][GNU ELPA - csv-mode]]
+CLOSED: [2018-05-09 Wed 11:26]
+:PROPERTIES:
+:CREATED: [2018-05-09 Wed 11:25]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-05-09 Wed 11:26]
+CLOCK: [2018-05-09 Wed 11:25]--[2018-05-09 Wed 11:26] =>  0:01
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package csv-mode
+    :mode "/\\.csv$")
+#+END_SRC
 * Org
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
