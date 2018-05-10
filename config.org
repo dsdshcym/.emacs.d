@@ -4387,6 +4387,24 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
       "gi" #'magit-init
       "gl" #'magit-log-buffer-file))
 #+END_SRC
+*** DONE [[id:4C85A0E7-DC91-43FC-A180-56BAF3A07967][vermiculus/magithub]]
+CLOSED: [2018-05-10 Thu 10:38]
+:PROPERTIES:
+:CREATED: [2018-05-10 Thu 10:25]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-05-10 Thu 10:38]
+CLOCK: [2018-05-10 Thu 10:32]--[2018-05-10 Thu 10:38] =>  0:06
+CLOCK: [2018-05-10 Thu 10:25]--[2018-05-10 Thu 10:30] =>  0:05
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package magithub
+    :after magit
+    :config
+    (setq magithub-clone-default-directory "~/Projects")
+    (setq magithub-dir (concat +local-directory "magithub/"))
+    (magithub-feature-autoinject t))
+#+END_SRC
 ** evil-magit
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:55]
