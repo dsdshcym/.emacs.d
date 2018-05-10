@@ -62,6 +62,7 @@ Let's set some variables with basic user information.
   (setq +local-directory (concat +emacs-directory ".local/"))
   (setq +packages-directory (concat +local-directory "packages/"))
   (setq +is-emacs-mac-port (eq window-system 'mac))
+  (setq +is-emacs-ns (eq window-system 'ns))
 #+END_SRC
 * Emacs Initialization
 ** Settings
@@ -558,7 +559,8 @@ CLOCK: [2018-03-12 Mon 15:39]--[2018-03-12 Mon 15:41] =>  0:02
 #+BEGIN_SRC emacs-lisp
   (use-package moody
     :config
-    (setq moody-slant-function #'moody-slant-apple-rgb)
+    (if +is-emacs-ns
+        (setq moody-slant-function #'moody-slant-apple-rgb))
 
     (require 'smart-mode-line)
     (moody-replace-sml/mode-line-buffer-identification)
