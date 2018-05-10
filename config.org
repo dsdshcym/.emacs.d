@@ -5955,3 +5955,16 @@ CLOCK: [2018-03-13 Tue 11:54]--[2018-03-13 Tue 11:58] =>  0:04
             ("gitlab" . gfm-mode)))
     (setq atomic-chrome-buffer-open-style 'frame))
 #+END_SRC
+* eshell
+:PROPERTIES:
+:CREATED:  [2018-05-10 Thu 10:40]
+:END:
+:LOGBOOK:
+CLOCK: [2018-05-10 Thu 10:40]--[2018-05-10 Thu 10:41] =>  0:01
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package eshell
+    :commands 'eshell
+    :config
+    (setq eshell-directory-name (concat +local-directory "eshell/")))
+#+END_SRC
