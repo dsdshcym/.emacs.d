@@ -5383,10 +5383,7 @@ CLOCK: [2018-04-13 Fri 11:07]--[2018-04-13 Fri 11:12] =>  0:05
              (function +org/capture-template)
              :content-before "* NEXT Review %u"
              :content-after "- Amazing things that happened today\n  1. %?\n- How could today have been even better?\n  1. "
-             :clock-in t)
-            ("D" "Daily Report at Ekohe" plain
-             (file+headline "~/Org/ekohe.org" "Daily Report")
-             "- %u\n  + Yesterday%?\n  + Today"))))
+             :clock-in t))))
 #+END_SRC
 ** Export
 :PROPERTIES:
