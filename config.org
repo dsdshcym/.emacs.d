@@ -5795,6 +5795,8 @@ CLOCK: [2018-03-02 Fri 17:51]--[2018-03-02 Fri 18:04] =>  0:13
 :CREATED:  [2018-03-05 Mon 11:46]
 :END:
 :LOGBOOK:
+CLOCK: [2018-05-17 Thu 16:10]--[2018-05-17 Thu 16:11] =>  0:01
+- auto update every 10 minutes
 CLOCK: [2018-05-17 Thu 10:50]--[2018-05-17 Thu 10:51] =>  0:01
 - auto update every 5 minutes
 CLOCK: [2018-05-14 Mon 10:12]--[2018-05-14 Mon 10:13] =>  0:01
@@ -5828,7 +5830,7 @@ CLOCK: [2018-03-05 Mon 11:46]--[2018-03-05 Mon 11:48] =>  0:02
     ;; don't save message to Sent Messages, GMail/IMAP will take care of this
     (setq mu4e-sent-messages-behavior 'delete)
 
-    (setq mu4e-update-interval 300)
+    (setq mu4e-update-interval 600)
 
     (setq mu4e-html2text-command "pandoc -f html -t org")
 
