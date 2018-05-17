@@ -4905,6 +4905,9 @@ CLOCK: [2018-05-09 Wed 11:25]--[2018-05-09 Wed 11:26] =>  0:01
     :mode "/\\.csv$")
 #+END_SRC
 * Org
+:LOGBOOK:
+CLOCK: [2018-05-17 Thu 16:22]--[2018-05-17 Thu 16:23] =>  0:01
+:END:
 Let's include a newer version of org-mode than the one that is built in. We're going
 to manually remove the org directories from the load path, to ensure the version we
 want is prioritized instead.
@@ -4966,7 +4969,7 @@ Ensure ELPA org is prioritized above built-in org.
     (setq org-outline-path-complete-in-steps nil)
     (setq org-refile-allow-creating-parent-nodes 'confirm)
     (setq org-refile-use-cache t)
-    (run-with-idle-timer 300 t (lambda ()
+    (run-with-idle-timer 600 t (lambda ()
                                  (org-refile-cache-clear)
                                  (org-refile-get-targets)))
 
@@ -5713,6 +5716,16 @@ CLOCK: [2018-03-06 Tue 16:41]--[2018-03-06 Tue 16:42] =>  0:01
   ?
   ,#+END_CENTER")))
 #+END_SRC
+** CANCELLED regenerate org-refile-targets when mac goes to sleep using hs.caffine.watcher
+CLOSED: [2018-05-17 Thu 16:22] SCHEDULED: <2018-05-12 Sat>
+:PROPERTIES:
+:CREATED: [2018-05-09 Wed 18:18]
+:END:
+:LOGBOOK:
+- State "CANCELLED"  from "TODO"       [2018-05-17 Thu 16:22] \\
+  Do not couple with macOS too much
+:END:
+- [[id:7DE3DDBC-2287-4EC2-A19D-3F441A8F7623][Hammerspoon hooks for better screen lock security on Mac OS X - Tony Finch's blog]]
 * elfeed
 :PROPERTIES:
 :CREATED:  [2018-03-02 Fri 17:51]
