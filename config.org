@@ -4508,6 +4508,26 @@ CLOCK: [2018-03-15 Thu 15:18]--[2018-03-15 Thu 15:21] =>  0:03
       "glc" #'git-link-commit
       "glh" #'git-link-homepage))
 #+END_SRC
+** git-timemachine
+:PROPERTIES:
+:CREATED:  [2018-05-18 Fri 11:24]
+:END:
+:LOGBOOK:
+CLOCK: [2018-05-18 Fri 11:24]--[2018-05-18 Fri 11:30] =>  0:06
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package git-timemachine
+    :commands (+git-timemachine-hydra/body)
+    :config
+    (defhydra +git-timemachine-hydra (:body-pre (git-timemachine))
+      ("p" git-timemachine-show-previous-revision "previous revision")
+      ("n" git-timemachine-show-next-revision "next revision")
+      ("g" git-timemachine-show-nth-revision "goto revision")
+      ("q" git-timemachine-quit "quit timemachine"))
+    :general
+    (+leader
+     "gt" '+git-timemachine-hydra/body))
+#+END_SRC
 * Spell Checking
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 16:03]
