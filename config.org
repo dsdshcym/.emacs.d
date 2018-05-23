@@ -77,7 +77,7 @@ too high or it will result in long GC pauses during normal usage.
 
   (defun +set-gc-cons-variables ()
     (setq gc-cons-threshold 16777216
-          gc-cons-percentage 0.1))
+          gc-cons-percentage 0.15))
 
   (add-hook 'after-init-hook #'+set-gc-cons-variables)
 #+END_SRC
