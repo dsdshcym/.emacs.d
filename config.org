@@ -4046,6 +4046,14 @@ CLOCK: [2018-03-06 Tue 16:45]--[2018-03-06 Tue 16:47] =>  0:02
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:39]
 :END:
+:LOGBOOK:
+CLOCK: [2018-05-24 Thu 17:13]--[2018-05-24 Thu 17:15] =>  0:02
+:END:
+#+BEGIN_SRC emacs-lisp
+  (if +is-emacs-mac-port
+      (setq mac-pass-command-to-system nil
+            mac-pass-control-to-system nil))
+#+END_SRC
 ** exec-path-from-shell
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 17:39]
