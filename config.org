@@ -227,7 +227,6 @@ CLOCK: [2018-05-08 Tue 13:46]--[2018-05-08 Tue 13:47] =>  0:01
   (blink-cursor-mode -1)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
-  (menu-bar-mode -1)
   (tooltip-mode -1)
   (setq mouse-highlight nil)
   (setq column-number-mode t)
@@ -237,6 +236,12 @@ CLOCK: [2018-05-08 Tue 13:46]--[2018-05-08 Tue 13:47] =>  0:01
   (setq frame-resize-pixelwise t)
   (setq inhibit-startup-screen t)
 #+END_SRC
+- Disable menu-bar unless it's emacs-mac-port, see also [[id:74F218B5-AEB3-4A90-A403-C07F4557AC5C]["Sticky" frame
+  in Emacs Mac port 25.1 : emacs]]
+  #+BEGIN_SRC emacs-lisp
+    (unless +is-emacs-mac-port
+      (menu-bar-mode -1))
+  #+END_SRC
 *** Theme
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:01]
