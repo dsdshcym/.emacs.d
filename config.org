@@ -4725,10 +4725,11 @@ CLOCK: [2018-04-09 Mon 16:25]--[2018-04-09 Mon 16:28] =>  0:03
 ** Elixir
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 17:08]
+:ID:       CAFF5A75-04BE-4D6F-94FE-EB834BB8EBC8
 :END:
 :LOGBOOK:
 CLOCK: [2018-05-28 Mon 12:45]--[2018-05-28 Mon 12:53] =>  0:08
-- use elixir-mode's built-in elixir-format to replace mix-fmt
+- use elixir-mode's built-in [[id:897CCD6C-0416-46A2-BCB7-76F0FF2574BA][elixir-format]] to replace mix-fmt
 CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
 :END:
 - elixir itself
