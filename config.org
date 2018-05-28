@@ -187,6 +187,9 @@ CLOCK: [2018-05-08 Tue 13:46]--[2018-05-08 Tue 13:47] =>  0:01
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:40]
 :END:
+:LOGBOOK:
+CLOCK: [2018-05-28 Mon 12:57]--[2018-05-28 Mon 12:58] =>  0:01
+:END:
 - url directory
   #+BEGIN_SRC emacs-lisp
     (setq url-configuration-directory (concat +local-directory "url"))
@@ -194,7 +197,20 @@ CLOCK: [2018-05-08 Tue 13:46]--[2018-05-08 Tue 13:47] =>  0:01
 - Do not clutter =init.el= please.
   #+BEGIN_SRC emacs-lisp
     (setq custom-file (expand-file-name "custom.el" +local-directory))
+    (load custom-file)
   #+END_SRC
+  + [[help:custom-file][help:custom-file]]
+    #+BEGIN_QUOTE
+    You can set this option through Custom, if you carefully read the
+    last paragraph below.  However, usually it is simpler to write
+    something like the following in your init file:
+
+    (setq custom-file "~/.emacs-custom.el")
+    (load custom-file)
+
+    Note that both lines are necessary: the first line tells Custom to
+    save all customizations in this file, but does not load it.
+    #+END_QUOTE
 - Do not ring bell
   #+BEGIN_SRC emacs-lisp
     (setq ring-bell-function 'ignore)
