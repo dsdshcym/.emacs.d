@@ -3781,13 +3781,18 @@ CLOCK: [2018-03-02 Fri 14:35]--[2018-03-02 Fri 14:47] =>  0:12
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 12:22]
 :END:
+:LOGBOOK:
+CLOCK: [2018-05-28 Mon 12:59]--[2018-05-28 Mon 12:59] =>  0:00
+- bind +/- to inc-at-pt and dec-at-pt
+  + C-x cannot be bind correctly
+:END:
 #+BEGIN_SRC emacs-lisp
   (use-package evil-numbers
     :commands (evil-numbers/inc-at-pt evil-numbers/inc-at-pt)
     :general
     (mmap
-     "C-a" #'evil-numbers/inc-at-pt
-     "C-x" #'evil-numbers/dec-at-pt))
+     "+" #'evil-numbers/inc-at-pt
+     "-" #'evil-numbers/dec-at-pt))
 #+END_SRC
 *** evil-visualstar
 :PROPERTIES:
