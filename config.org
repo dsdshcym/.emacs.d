@@ -4706,6 +4706,8 @@ CLOCK: [2018-04-09 Mon 16:25]--[2018-04-09 Mon 16:28] =>  0:03
 :CREATED:  [2018-03-01 Thu 17:08]
 :END:
 :LOGBOOK:
+CLOCK: [2018-05-28 Mon 12:45]--[2018-05-28 Mon 12:53] =>  0:08
+- use elixir-mode's built-in elixir-format to replace mix-fmt
 CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
 :END:
 - elixir itself
@@ -4713,6 +4715,24 @@ CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
     (use-package elixir-mode
       :mode "\\.exs?$"
       :mode "\\.elixir2$")
+
+    (use-package elixir-format
+      :ensure elixir-mode
+      :after elixir-mode
+      :config
+      (setq elixir-format-mix-path (executable-find "mix"))
+
+      ;; Create a buffer-local hook to run elixir-format on save, only when we enable elixir-mode.
+      (add-hook 'elixir-mode-hook
+                (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
+
+      (defun +reset-mixfmt-args ()
+        (let* ((formatter-directory (locate-dominating-file default-directory ".formatter.exs"))
+               (formatter-file (concat formatter-directory ".formatter.exs")))
+          (if formatter-directory
+              (setq elixir-format-arguments (list "--dot-formatter" formatter-file))
+            (setq elixir-format-arguments nil))))
+      (add-hook 'elixir-format-hook #'+reset-mixfmt-args))
 
     (use-package ob-elixir
       :after ob
@@ -4828,23 +4848,6 @@ CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
        "ft" 'alchemist-phoenix-find-templates
        "fv" 'alchemist-phoenix-find-views
        "fw" 'alchemist-phoenix-find-web))
-  #+END_SRC
-- mix-format
-  #+BEGIN_SRC emacs-lisp
-    (use-package mix-format
-      :quelpa (mix-format :fetcher github :repo "anildigital/mix-format.el")
-      :after elixir-mode
-      :config
-      (setq mixfmt-mix (executable-find "mix"))
-      (add-hook 'before-save-hook #'mix-format-before-save)
-
-      (defun +reset-mixfmt-args ()
-        (let* ((formatter-directory (locate-dominating-file default-directory ".formatter.exs"))
-               (formatter-file (concat formatter-directory ".formatter.exs")))
-          (if formatter-directory
-              (setq mixfmt-args (list "--dot-formatter" formatter-file))
-            (setq mixfmt-args nil))))
-      (add-hook 'mix-format-hook #'+reset-mixfmt-args))
   #+END_SRC
 ** Ledger
 :PROPERTIES:
