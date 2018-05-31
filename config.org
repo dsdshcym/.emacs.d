@@ -4989,9 +4989,8 @@ Ensure ELPA org is prioritized above built-in org.
                                                   ".org-timestamps/")
           org-imenu-depth 9
           org-todo-keywords
-          '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!/!)")
-            (sequence "PENDING(p)" "|" "MERGED(m!/!)" "CANCELLED(c@/!)")
-            (sequence "WAITING(w@/!)" "SOMEDAY(s@/!)" "|" "CANCELLED(c@/!)")))
+          '((sequence "TODO(t)" "WAITING(w@/!)" "|" "SOMEDAY(s@/!)" "DONE(d!/!)" "CANCELLED(c@/!)")
+            (sequence "PENDING(p)" "|" "MERGED(m!/!)" "CANCELLED(c@/!)")))
     (setq org-return-follows-link t)
 
     (setq org-enforce-todo-dependencies nil)
@@ -5449,7 +5448,7 @@ CLOCK: [2018-04-13 Fri 11:07]--[2018-04-13 Fri 11:12] =>  0:05
             ("d" "Daily Review" entry
              (file+headline "~/Org/review.org" "Daily Review")
              (function +org/capture-template)
-             :content-before "* NEXT Review %u"
+             :content-before "* TODO Review %u"
              :content-after "- Amazing things that happened today\n  1. %?\n- How could today have been even better?\n  1. "
              :clock-in t))))
 #+END_SRC
