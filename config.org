@@ -4963,6 +4963,36 @@ CLOCK: [2018-05-09 Wed 11:25]--[2018-05-09 Wed 11:26] =>  0:01
   (use-package csv-mode
     :mode "/\\.csv$")
 #+END_SRC
+** HTML
+:PROPERTIES:
+:CREATED:  [2018-06-01 Fri 15:31]
+:END:
+*** [[id:FE7D5593-DD68-4942-BB43-51BB7BBDF186][web-mode]]
+:PROPERTIES:
+:CREATED: [2018-06-01 Fri 15:17]
+:END:
+:LOGBOOK:
+CLOCK: [2018-06-01 Fri 15:17]--[2018-06-01 Fri 15:25] =>  0:08
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package web-mode
+    :mode "\\.html.*$")
+#+END_SRC
+**** [[id:DFEE1A5F-BAD4-49C6-8FFB-BDA9F7DB5805][company-web]]
+:PROPERTIES:
+:CREATED: [2018-06-01 Fri 15:25]
+:END:
+:LOGBOOK:
+CLOCK: [2018-06-01 Fri 15:25]--[2018-06-01 Fri 15:32] =>  0:07
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package company-web
+    :after web-mode
+    :config
+    (add-hook 'web-mode-hook (lambda ()
+                               (make-local-variable 'company-backends)
+                               (push 'company-web-html company-backends))))
+#+END_SRC
 * Org
 :LOGBOOK:
 CLOCK: [2018-05-17 Thu 16:22]--[2018-05-17 Thu 16:23] =>  0:01
