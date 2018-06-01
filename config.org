@@ -291,6 +291,7 @@ CLOCK: [2018-05-28 Mon 12:57]--[2018-05-28 Mon 12:58] =>  0:01
   (setq +emoji-font (font-spec :family "Apple Color Emoji"))
 
   (set-face-attribute 'default nil :font +main-font)
+  (set-face-attribute 'fixed-pitch nil :font +main-font)
   (set-fontset-font t 'unicode +emoji-font)
 
   (dolist (charset '(kana han cjk-misc bopomofo))
