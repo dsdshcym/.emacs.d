@@ -4781,6 +4781,7 @@ CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
       :after elixir-mode
       :hook (elixir-mode . alchemist-mode)
       :config
+      (setq alchemist-goto-elixir-source-dir "~/Projects/elixir")
       (add-to-list 'shackle-rules '("\\*alchemist.*\\*" :custom +compilation-popup :regexp t :select nil :align 'below :size 0.33))
       :general
       (+local-leader
