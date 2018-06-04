@@ -5003,6 +5003,8 @@ CLOCK: [2018-06-01 Fri 15:25]--[2018-06-01 Fri 15:32] =>  0:07
 #+END_SRC
 * Org
 :LOGBOOK:
+CLOCK: [2018-06-04 Mon 15:40]--[2018-06-04 Mon 15:43] =>  0:03
+- add +org-insert-last-stored-link and bind it in insert mode
 CLOCK: [2018-05-17 Thu 16:22]--[2018-05-17 Thu 16:23] =>  0:01
 :END:
 Let's include a newer version of org-mode than the one that is built in. We're going
@@ -5113,15 +5115,23 @@ Ensure ELPA org is prioritized above built-in org.
     (defun +remove-dups-in-org-stored-links (&rest args)
       (delete-dups org-stored-links))
     (advice-add #'org-insert-link :before #'+remove-dups-in-org-stored-links)
+
+    (defun +org-insert-last-stored-link ()
+      (interactive)
+      (org-insert-all-links 1 "" ""))
     :general
     (nmap
       :keymaps '(org-mode-map)
       "<return>" #'org-open-at-point)
+    (imap
+      :states '(insert)
+      :keymaps '(org-mode-map)
+      "C-l" #'+org-insert-last-stored-link)
     (+leader
       "op" #'org-pomodoro
       "oa" #'org-agenda
       "ol" #'org-store-link
-      "oL" (lambda () (interactive) (org-insert-all-links 1 "" ""))
+      "oL" #'+org-insert-last-stored-link
       "ob" #'org-iswitchb
       "os" #'org-save-all-org-buffers
       "og" #'org-clock-goto
