@@ -4743,8 +4743,6 @@ CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
       :ensure elixir-mode
       :after elixir-mode
       :config
-      (setq elixir-format-mix-path (executable-find "mix"))
-
       ;; Create a buffer-local hook to run elixir-format on save, only when we enable elixir-mode.
       (add-hook 'elixir-mode-hook
                 (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
@@ -4873,6 +4871,15 @@ CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
        "fv" 'alchemist-phoenix-find-views
        "fw" 'alchemist-phoenix-find-web))
   #+END_SRC
+*** DONE [[https://github.com/elixir-editors/emacs-elixir/commit/c42fcad4b451a8698863b07abb935f5a1e2fc528][remove variables for elixir and mix paths · elixir-editors/emacs-elixir@c42fcad]]
+CLOSED: [2018-06-04 Mon 10:26]
+:PROPERTIES:
+:CREATED: [2018-06-04 Mon 10:25]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-06-04 Mon 10:26]
+CLOCK: [2018-06-04 Mon 10:25]--[2018-06-04 Mon 10:26] =>  0:01
+:END:
 ** Ledger
 :PROPERTIES:
 :CREATED:  [2018-03-02 Fri 10:30]
