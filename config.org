@@ -4883,6 +4883,7 @@ CLOCK: [2018-06-04 Mon 10:25]--[2018-06-04 Mon 10:26] =>  0:01
 #+BEGIN_SRC emacs-lisp
   (use-package ledger-mode
     :mode ("\\.\\(ledger\\|ldg\\)\\'" . ledger-mode)
+    :hook (ledger-mode . ledger-flymake-enable)
     :init
     (progn
       (setq ledger-post-amount-alignment-column 62))
