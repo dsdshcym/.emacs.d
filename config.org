@@ -4342,9 +4342,9 @@ always be grouped at the back of company-backends.
 ** smartparens
 #+BEGIN_SRC emacs-lisp
   (use-package smartparens
+    :hook (prog-mode . show-smartparens-mode)
     :config
     (smartparens-global-mode)
-    (show-smartparens-global-mode)
     (require 'smartparens-config)
     :general
     (imap
