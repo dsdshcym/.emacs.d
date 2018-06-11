@@ -4122,7 +4122,7 @@ CLOCK: [2018-05-24 Thu 17:13]--[2018-05-24 Thu 17:15] =>  0:02
 :END:
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (add-to-list 'default-frame-alist '(ns-appearance . 'nil))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark))
 #+END_SRC
 * Ivy
 :PROPERTIES:
