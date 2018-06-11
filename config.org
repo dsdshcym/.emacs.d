@@ -4142,15 +4142,22 @@ CLOCK: [2018-05-24 Thu 17:13]--[2018-05-24 Thu 17:15] =>  0:02
     (setq ivy-truncate-lines nil)
     (setq ivy-re-builders-alist
           '((t . ivy--regex-ignore-order)))
+
+    (add-to-list 'evil-normal-state-modes 'ivy-occur-grep-mode)
     :general
-    (+enable-leader
-      :keymaps 'ivy-occur-grep-mode-map)
     (general-define-key
      :keymaps 'ivy-minibuffer-map
      [escape] 'minibuffer-keyboard-quit)
+    (+enable-leader
+      :keymaps 'ivy-occur-grep-mode-map)
     (+local-leader
       :keymaps 'ivy-occur-grep-mode-map
-      "w" #'ivy-wgrep-change-to-wgrep-mode))
+      "w" #'ivy-wgrep-change-to-wgrep-mode)
+    (nmap
+      :keymaps 'ivy-occur-grep-mode-map
+      "w" 'evil-forward-word-begin
+      "D" 'ivy-occur-delete-candidate
+      "C-d" 'evil-scroll-down))
 #+END_SRC
 ** Counsel
 :PROPERTIES:
