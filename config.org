@@ -5908,6 +5908,7 @@ CLOCK: [2018-03-02 Fri 17:51]--[2018-03-02 Fri 18:04] =>  0:13
 :CREATED:  [2018-03-05 Mon 11:46]
 :END:
 :LOGBOOK:
+CLOCK: [2018-06-12 Tue 11:15]--[2018-06-12 Tue 11:17] =>  0:02
 CLOCK: [2018-05-17 Thu 16:10]--[2018-05-17 Thu 16:11] =>  0:01
 - auto update every 10 minutes
 CLOCK: [2018-05-17 Thu 10:50]--[2018-05-17 Thu 10:51] =>  0:01
@@ -6026,6 +6027,9 @@ CLOCK: [2018-03-05 Mon 11:46]--[2018-03-05 Mon 11:48] =>  0:02
     (add-to-list 'mu4e-view-actions
                  '("browser" . mu4e-action-view-in-browser))
     :general
+    (+enable-leader
+      :states 'normal
+      :keymaps 'mu4e-view-mode-map)
     (+leader
      "am" 'mu4e
      "aM" 'mu4e-compose-new))
