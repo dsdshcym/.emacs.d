@@ -626,7 +626,7 @@ CLOCK: [2018-03-12 Mon 18:12]--[2018-03-12 Mon 18:21] =>  0:09
     :if (>= emacs-major-version 26)
     :hook (prog-mode . display-line-numbers-mode)
     :init
-    (setq-default display-line-numbers-width 3)
+    (setq display-line-numbers-grow-only t)
     (setq display-line-numbers-type 'visual))
 #+END_SRC
 *** DONE [[https://www.emacswiki.org/emacs/zoom-frm.el][EmacsWiki: zoom-frm.el]]
