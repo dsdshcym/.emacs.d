@@ -4220,6 +4220,29 @@ CLOCK: [2018-05-24 Thu 17:13]--[2018-05-24 Thu 17:15] =>  0:02
     :config
     (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
 #+END_SRC
+* [[id:6705F338-1442-42C9-9E9F-29A7E13B455F][raxod502/prescient.el]]
+:PROPERTIES:
+:CREATED: [2018-06-13 Wed 16:04]
+:END:
+:LOGBOOK:
+CLOCK: [2018-06-13 Wed 16:04]--[2018-06-13 Wed 16:10] =>  0:06
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package prescient
+    :config
+    (setq prescient-save-file (concat +local-directory "prescient-save.el"))
+    (prescient-persist-mode))
+
+  (use-package ivy-prescient
+    :after ivy
+    :config
+    (ivy-prescient-mode))
+
+  (use-package company-prescient
+    :after company
+    :config
+    (company-prescient-mode))
+#+END_SRC
 * Dired
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 15:48]
