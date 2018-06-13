@@ -4325,11 +4325,6 @@ CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
      "C-w" nil
      "C-n" 'company-select-next
      "C-p" 'company-select-previous))
-
-  (use-package company-statistics
-    :hook (company-mode . company-statistics-mode)
-    :init
-    (setq company-statistics-file (concat +local-directory "company-statistics-cache.el")))
 #+END_SRC
 *** DONE [[https://twitter.com/EmacsReddit/status/973571278014525441][/r/Emacs on Twitter: "Configuring company-mode? https://t.co/N1FDEE9PpN #emacs"]] :Twitter:
 CLOSED: [2018-03-14 Wed 11:25] SCHEDULED: <2018-03-13 Tue>
