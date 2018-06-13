@@ -5120,6 +5120,10 @@ Ensure ELPA org is prioritized above built-in org.
     (defun +org-insert-last-stored-link ()
       (interactive)
       (org-insert-all-links 1 "" ""))
+
+    (defun +org-refile-goto ()
+      (interactive)
+      (org-refile '(4)))
     :general
     (nmap
       :keymaps '(org-mode-map)
@@ -5139,7 +5143,7 @@ Ensure ELPA org is prioritized above built-in org.
       "oo" #'org-clock-out
       "oc" #'org-capture
       "oC" #'org-capture-goto-last-stored
-      "oj" (lambda () (interactive) (org-refile '(4)))
+      "oj" #'+org-refile-goto
       "oJ" #'org-refile-goto-last-stored)
     (+local-leader
       :keymaps '(org-mode-map)
