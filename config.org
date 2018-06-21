@@ -4084,6 +4084,7 @@ CLOCK: [2018-05-24 Thu 17:13]--[2018-05-24 Thu 17:15] =>  0:02
     (setq ivy-truncate-lines nil)
     (setq ivy-re-builders-alist
           '((t . ivy--regex-ignore-order)))
+    (setq ivy-use-selectable-prompt t)
 
     (add-to-list 'evil-normal-state-modes 'ivy-occur-grep-mode)
     :general
