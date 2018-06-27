@@ -173,27 +173,6 @@ CLOCK: [2018-05-28 Mon 12:57]--[2018-05-28 Mon 12:58] =>  0:01
   #+BEGIN_SRC emacs-lisp
      (setq create-lockfiles nil)
   #+END_SRC
-*** [[id:45858887-CE5F-47EE-892E-8C161A15531B][Wilfred/helpful: A better Emacs *help* buffer]]
-:PROPERTIES:
-:CREATED: [2018-06-26 Tue 12:20]
-:END:
-:LOGBOOK:
-CLOCK: [2018-06-26 Tue 12:20]--[2018-06-26 Tue 12:28] =>  0:08
-- setup
-:END:
-#+BEGIN_SRC emacs-lisp
-  (use-package helpful
-    :config
-    (add-to-list 'shackle-rules '("\\*helpful.*\\*" :regexp t :popup t :align 'below :size 0.33))
-    :general
-    (general-define-key
-     [remap describe-function] #'helpful-callable
-     [remap describe-variable] #'helpful-variable
-     [remap describe-key]      #'helpful-key)
-    (nmap
-      :keymaps 'helpful-mode-map
-      "q" #'quit-window))
-#+END_SRC
 ** UI
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 15:59]
@@ -3862,6 +3841,27 @@ CLOCK: [2018-03-07 Wed 17:53]--[2018-03-07 Wed 17:54] =>  0:01
   (use-package disable-mouse
     :config
     (global-disable-mouse-mode))
+#+END_SRC
+* [[id:45858887-CE5F-47EE-892E-8C161A15531B][Wilfred/helpful: A better Emacs *help* buffer]]
+:PROPERTIES:
+:CREATED: [2018-06-26 Tue 12:20]
+:END:
+:LOGBOOK:
+CLOCK: [2018-06-26 Tue 12:20]--[2018-06-26 Tue 12:28] =>  0:08
+- setup
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package helpful
+    :config
+    (add-to-list 'shackle-rules '("\\*helpful.*\\*" :regexp t :popup t :align 'below :size 0.33))
+    :general
+    (general-define-key
+     [remap describe-function] #'helpful-callable
+     [remap describe-variable] #'helpful-variable
+     [remap describe-key]      #'helpful-key)
+    (nmap
+      :keymaps 'helpful-mode-map
+      "q" #'quit-window))
 #+END_SRC
 * Editing/Jumping
 :PROPERTIES:
