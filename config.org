@@ -78,6 +78,16 @@ if you would like to see any and all byte compiler warnings.
 (setq byte-compile-warnings '(not free-vars unresolved noruntime lexical make-local))
 #+END_SRC
 ** Package Management
+*** use-package-ensure-system-package
+:PROPERTIES:
+:CREATED:  [2018-06-28 Thu 12:39]
+:END:
+:LOGBOOK:
+CLOCK: [2018-06-28 Thu 12:39]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package use-package-ensure-system-package)
+#+END_SRC
 *** Quelpa
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 17:30]
@@ -4975,7 +4985,9 @@ CLOCK: [2018-06-28 Thu 11:06]--[2018-06-28 Thu 11:13] =>  0:07
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package elm-mode
-    :ensure t
+    :ensure-system-package
+    ((elm . elm)
+     (elm-format . elm-format))
     :mode "\\.elm$"
     :config
     (setq elm-format-on-save t)
