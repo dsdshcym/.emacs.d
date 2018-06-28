@@ -4966,6 +4966,24 @@ CLOCK: [2018-06-01 Fri 15:25]--[2018-06-01 Fri 15:32] =>  0:07
                                (make-local-variable 'company-backends)
                                (push 'company-web-html company-backends))))
 #+END_SRC
+** Elm
+:PROPERTIES:
+:CREATED: [2018-06-28 Thu 11:06]
+:END:
+:LOGBOOK:
+CLOCK: [2018-06-28 Thu 11:06]--[2018-06-28 Thu 11:13] =>  0:07
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package elm-mode
+    :ensure t
+    :mode "\\.elm$"
+    :config
+    (setq elm-format-on-save t)
+
+    (add-hook 'elm-mode-hook (lambda ()
+                               (make-local-variable 'company-backends)
+                               (push 'company-elm company-backends))))
+#+END_SRC
 * Org
 :LOGBOOK:
 CLOCK: [2018-06-14 Thu 10:26]--[2018-06-14 Thu 10:27] =>  0:01
