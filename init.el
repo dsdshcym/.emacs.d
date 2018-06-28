@@ -36,6 +36,7 @@
       (package-refresh-contents)
       (package-install 'use-package))
     (require 'use-package)
+    (setq use-package-always-ensure t)
 
     ;; (require 'cl)
     ;; (setq load-path (remove-if (lambda (x) (string-match-p "org$" x)) load-path))
