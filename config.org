@@ -4959,7 +4959,19 @@ CLOCK: [2018-06-01 Fri 15:17]--[2018-06-01 Fri 15:25] =>  0:08
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package web-mode
-    :mode "\\.html.*$")
+    :mode "\\.html.*$"
+    :config
+    (setq web-mode-enable-auto-pairing nil)
+
+    (sp-with-modes '(web-mode)
+      (sp-local-pair "<%" "%>"
+                     :unless '(sp-in-string-p)
+                     :post-handlers '(((lambda (&rest _ignored)
+                                         (just-one-space)
+                                         (save-excursion (insert " ")))
+                                       "SPC" "=")))
+      (sp-local-tag "%" "<% "  " %>")
+      (sp-local-tag "=" "<%= " " %>")))
 #+END_SRC
 **** [[id:DFEE1A5F-BAD4-49C6-8FFB-BDA9F7DB5805][company-web]]
 :PROPERTIES:
@@ -4976,6 +4988,19 @@ CLOCK: [2018-06-01 Fri 15:25]--[2018-06-01 Fri 15:32] =>  0:07
                                (make-local-variable 'company-backends)
                                (push 'company-web-html company-backends))))
 #+END_SRC
+**** DONE fix conflict between smartparens and web-mode
+CLOSED: [2018-07-10 Tue 15:07]
+:PROPERTIES:
+:CREATED: [2018-07-10 Tue 14:53]
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-07-10 Tue 15:07]
+CLOCK: [2018-07-10 Tue 14:53]--[2018-07-10 Tue 15:07] =>  0:14
+:END:
+***** [[https://github.com/bbatsov/prelude/blob/master/modules/prelude-web.el#L50][prelude/prelude-web.el at master · bbatsov/prelude]]
+:PROPERTIES:
+:CREATED: [2018-07-10 Tue 14:58]
+:END:
 ** Elm
 :PROPERTIES:
 :CREATED: [2018-06-28 Thu 11:06]
