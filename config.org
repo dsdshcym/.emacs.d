@@ -6144,3 +6144,17 @@ CLOCK: [2018-05-10 Thu 10:40]--[2018-05-10 Thu 10:41] =>  0:01
     :config
     (setq eshell-directory-name (concat +local-directory "eshell/")))
 #+END_SRC
+* DONE [[id:F187E5B2-190E-4435-B51C-A7D3F0F039D4][tarsius/hl-todo: Highlight TODO keywords]]
+CLOSED: [2018-07-12 Thu 10:16]
+:PROPERTIES:
+:CREATED: [2018-07-12 Thu 10:14]
+:ID:       EE05AA2B-0789-445C-A1E7-1A11B2ADD877
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-07-12 Thu 10:16]
+CLOCK: [2018-07-12 Thu 10:14]--[2018-07-12 Thu 10:16] =>  0:02
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package hl-todo
+    :hook (prog-mode . hl-todo-mode))
+#+END_SRC
