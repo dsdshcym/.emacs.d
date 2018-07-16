@@ -3918,6 +3918,7 @@ CLOCK: [2018-03-02 Fri 16:18]--[2018-03-02 Fri 16:22] =>  0:04
 #+BEGIN_SRC emacs-lisp
   (use-package editorconfig
     :config
+    (add-to-list 'editorconfig-exclude-regexps "/git-rebase-todo\\'")
     (editorconfig-mode 1))
 #+END_SRC
 ** dumb-jump
