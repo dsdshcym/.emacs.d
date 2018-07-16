@@ -83,7 +83,7 @@ if you would like to see any and all byte compiler warnings.
 :CREATED:  [2018-06-28 Thu 12:39]
 :END:
 :LOGBOOK:
-CLOCK: [2018-06-28 Thu 12:39]
+CLOCK: [2018-06-28 Thu 12:39]--[2018-06-28 Thu 12:45] =>  0:06
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package use-package-ensure-system-package)
@@ -581,12 +581,13 @@ CLOCK: [2018-03-12 Mon 18:12]--[2018-03-12 Mon 18:21] =>  0:09
     (setq display-line-numbers-grow-only t)
     (setq display-line-numbers-type 'visual))
 #+END_SRC
-*** DONE [[https://www.emacswiki.org/emacs/zoom-frm.el][EmacsWiki: zoom-frm.el]]
-CLOSED: [2018-04-19 Thu 10:52]
+*** TODO [[https://www.emacswiki.org/emacs/zoom-frm.el][EmacsWiki: zoom-frm.el]]
 :PROPERTIES:
 :CREATED: [2018-04-19 Thu 10:49]
 :END:
 :LOGBOOK:
+- State "TODO"       from "DONE"       [2018-06-26 Tue 12:24]
+  install through quelpa
 - State "DONE"       from "TODO"       [2018-04-19 Thu 10:52]
 CLOCK: [2018-04-19 Thu 10:49]--[2018-04-19 Thu 10:52] =>  0:03
 :END:
@@ -4409,7 +4410,8 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
        magit-diff-mode-map
        magit-process-mode-map
        magit-blame-read-only-mode-map
-       magit-log-mode-map))
+       magit-log-mode-map
+       git-rebase-mode-map))
     (+leader
       "gb" #'magit-blame
       "gs" #'magit-status
