@@ -4172,17 +4172,6 @@ CLOCK: [2018-05-24 Thu 17:13]--[2018-05-24 Thu 17:15] =>  0:02
     (+leader
      "ss" #'swiper))
 #+END_SRC
-** Sort M-x candidates using smex
-:PROPERTIES:
-:CREATED:  [2018-02-28 Wed 16:36]
-:END:
-#+BEGIN_SRC emacs-lisp
-  (use-package smex
-    :after ivy
-    :init
-    (setq-default smex-history-length 32
-                  smex-save-file (concat +local-directory ".smex-items")))
-#+END_SRC
 ** ivy-rich
 :PROPERTIES:
 :CREATED:  [2018-02-28 Wed 16:37]
@@ -4278,11 +4267,6 @@ CLOCK: [2018-03-02 Fri 16:17]--[2018-03-02 Fri 16:18] =>  0:01
      "C-w" nil
      "C-n" 'company-select-next
      "C-p" 'company-select-previous))
-
-  (use-package company-statistics
-    :hook (company-mode . company-statistics-mode)
-    :init
-    (setq company-statistics-file (concat +local-directory "company-statistics-cache.el")))
 #+END_SRC
 *** DONE [[https://twitter.com/EmacsReddit/status/973571278014525441][/r/Emacs on Twitter: "Configuring company-mode? https://t.co/N1FDEE9PpN #emacs"]] :Twitter:
 CLOSED: [2018-03-14 Wed 11:25] SCHEDULED: <2018-03-13 Tue>
@@ -6160,4 +6144,35 @@ CLOCK: [2018-07-12 Thu 10:14]--[2018-07-12 Thu 10:16] =>  0:02
 #+BEGIN_SRC emacs-lisp
   (use-package hl-todo
     :hook (prog-mode . hl-todo-mode))
+#+END_SRC
+* [[id:6705F338-1442-42C9-9E9F-29A7E13B455F][raxod502/prescient.el: ☄️ Simple but effective sorting and filtering for Emacs.]]
+:PROPERTIES:
+:CREATED:  [2018-07-16 Mon 10:47]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package prescient
+    :config
+    (setq prescient-save-file (concat +local-directory "prescient-save.el"))
+    (prescient-persist-mode))
+#+END_SRC
+** ivy-prescient
+:PROPERTIES:
+:CREATED:  [2018-07-16 Mon 10:50]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy-prescient
+    :after ivy
+    :config
+    (setq ivy-prescient-retain-classic-highlighting t)
+    (ivy-prescient-mode))
+#+END_SRC
+** company-prescient
+:PROPERTIES:
+:CREATED:  [2018-07-16 Mon 10:50]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package company-prescient
+    :after company
+    :config
+    (company-prescient-mode))
 #+END_SRC
