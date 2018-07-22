@@ -5073,7 +5073,7 @@ CLOCK: [2018-05-17 Thu 16:22]--[2018-05-17 Thu 16:23] =>  0:01
           org-imenu-depth 9
           org-todo-keywords
           '((sequence "TODO(t)" "WAITING(w@/!)" "|" "SOMEDAY(s@/!)" "DONE(d!/!)" "CANCELLED(c@/!)")
-            (sequence "PENDING(p)" "|" "MERGED(m!/!)" "CANCELLED(c@/!)")))
+            (sequence "PENDING(p!/!)" "|" "MERGED(m!/!)" "CANCELLED(c@/!)")))
     (setq org-return-follows-link t)
 
     (setq org-enforce-todo-dependencies nil)
