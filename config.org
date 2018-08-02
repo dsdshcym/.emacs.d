@@ -3877,10 +3877,10 @@ CLOCK: [2018-06-26 Tue 12:20]--[2018-06-26 Tue 12:28] =>  0:08
     :config
     (add-to-list 'shackle-rules '("\\*helpful.*\\*" :regexp t :popup t :align 'below :size 0.33))
     :general
-    (general-define-key
-     [remap describe-function] #'helpful-callable
-     [remap describe-variable] #'helpful-variable
-     [remap describe-key]      #'helpful-key)
+    (+leader
+     "hf" #'helpful-callable
+     "hv" #'helpful-variable
+     "hk" #'helpful-key)
     (nmap
       :keymaps 'helpful-mode-map
       "q" #'quit-window))
