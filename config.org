@@ -4390,6 +4390,10 @@ always be grouped at the back of company-backends.
 CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
 - bind magit-blame to SPC g b
 :END:
+*** base settings
+:PROPERTIES:
+:CREATED:  [2018-08-04 Sat 08:24]
+:END:
 #+BEGIN_SRC emacs-lisp
   (use-package magit
     :init
@@ -4401,14 +4405,14 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
     (setq magit-repository-directories '(("~/Projects/" . 2)))
     :general
     (+enable-leader
-     :keymaps
-     '(magit-mode-map
-       magit-status-mode-map
-       magit-diff-mode-map
-       magit-process-mode-map
-       magit-blame-read-only-mode-map
-       magit-log-mode-map
-       git-rebase-mode-map))
+      :keymaps
+      '(magit-mode-map
+        magit-status-mode-map
+        magit-diff-mode-map
+        magit-process-mode-map
+        magit-blame-read-only-mode-map
+        magit-log-mode-map
+        git-rebase-mode-map))
     (+leader
       "gb" #'magit-blame
       "gs" #'magit-status
