@@ -4390,6 +4390,39 @@ always be grouped at the back of company-backends.
 CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
 - bind magit-blame to SPC g b
 :END:
+*** DONE setup commit templates
+CLOSED: [2018-08-04 Sat 08:26]
+:PROPERTIES:
+:CREATED: [2018-01-03 Wed 10:13]
+:ID:       1C99158C-AAAB-4428-A0B8-85460DCC5050
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2018-08-04 Sat 08:26]
+CLOCK: [2018-08-04 Sat 08:11]--[2018-08-04 Sat 08:26] =>  0:15
+:END:
+#+BEGIN_SRC emacs-lisp
+  (defun +setup-magit-commit-prompt ()
+    (defconst +magit-commit-headers '("feat: " "fix: " "docs: " "style: " "refactor: " "perf: " "test: " "chore: "))
+
+    (setq +use-magit-commit-prompt-p nil)
+    (defun +use-magit-commit-prompt (&rest args)
+      (setq +use-magit-commit-prompt-p t))
+
+    (defun +magit-commit-prompt ()
+      "Magit prompt and insert commit header."
+      (interactive)
+      (when +use-magit-commit-prompt-p
+        (setq +use-magit-commit-prompt-p nil)
+        (insert (ivy-read "Commit Type: " +magit-commit-headers
+                          :require-match t :sort t :preselect "Add: "))
+        (evil-insert 1)))
+
+    (remove-hook 'git-commit-setup-hook 'with-editor-usage-message)
+    (add-hook 'git-commit-setup-hook '+magit-commit-prompt)
+    (advice-add 'magit-commit :after '+use-magit-commit-prompt))
+#+END_SRC
+- [[id:108D4EE7-F9FC-4431-880A-546AF008BEAD][Pretty Magit - Integrating commit leaders - Modern Emacs]]
+- [[id:89EB39D9-3F60-49E9-B3D7-7157C56E2CB3][commitizen/cz-cli: The commitizen command line utility.]]
 *** base settings
 :PROPERTIES:
 :CREATED:  [2018-08-04 Sat 08:24]
@@ -4403,6 +4436,8 @@ CLOCK: [2018-03-05 Mon 15:16]--[2018-03-05 Mon 15:18] =>  0:02
     :config
     (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
     (setq magit-repository-directories '(("~/Projects/" . 2)))
+
+    (+setup-magit-commit-prompt)
     :general
     (+enable-leader
       :keymaps
