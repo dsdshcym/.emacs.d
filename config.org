@@ -6200,9 +6200,13 @@ CLOCK: [2018-07-12 Thu 10:14]--[2018-07-12 Thu 10:16] =>  0:02
 :PROPERTIES:
 :CREATED:  [2018-07-16 Mon 10:47]
 :END:
+:LOGBOOK:
+CLOCK: [2018-08-05 Sun 08:52]--[2018-08-05 Sun 08:54] =>  0:02
+:END:
 #+BEGIN_SRC emacs-lisp
   (use-package prescient
     :config
+    (setq prescient-filter-method 'regexp)
     (setq prescient-save-file (concat +local-directory "prescient-save.el"))
     (prescient-persist-mode))
 #+END_SRC
