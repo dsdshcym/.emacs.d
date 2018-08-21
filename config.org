@@ -5106,7 +5106,7 @@ CLOCK: [2018-05-17 Thu 16:22]--[2018-05-17 Thu 16:23] =>  0:01
     (add-hook 'org-mode-hook 'auto-fill-mode)
 
     (setq org-directory "~/Org")
-    (setq org-default-notes-file "~/Org/refile.org")
+    (setq org-default-notes-file "~/Org/inbox.org")
     (setq org-publish-timestamp-directory (concat +local-directory
                                                   ".org-timestamps/")
           org-imenu-depth 9
@@ -5520,16 +5520,16 @@ CLOCK: [2018-04-13 Fri 11:07]--[2018-04-13 Fri 11:12] =>  0:05
        ((string-match-p "weixin.qq.com" url) " :WeChat:")))
     (setq org-capture-templates
           '(("t" "Todo Later" entry
-             (file+headline "~/Org/refile.org" "Todo Later")
+             (file+headline "~/Org/inbox.org" "Todo Later")
              (function +org/capture-template)
              :content-before "* TODO %?")
             ("w" "Watch Later" entry
-             (file+headline "~/Org/refile.org" "Watch Later")
+             (file+headline "~/Org/inbox.org" "Watch Later")
              (function +org/capture-template)
              :content-before "* TODO %a"
              :immediate-finish t)
             ("r" "Read Later" entry
-             (file+headline "~/Org/refile.org" "Read Later")
+             (file+headline "~/Org/inbox.org" "Read Later")
              (function +org/capture-template)
              :content-before "* TODO %a"
              :immediate-finish t)
@@ -5539,22 +5539,22 @@ CLOCK: [2018-04-13 Fri 11:07]--[2018-04-13 Fri 11:12] =>  0:05
              :content-before "* TODO %^{Title}"
              :immediate-finish t)
             ("T" "Clock-in Task" entry
-             (file "~/Org/refile.org")
+             (file "~/Org/inbox.org")
              (function +org/capture-template)
              :content-before "* TODO %^{prompt}"
              :clock-in t
              :clock-resume t)
             ("i" "Interruption" entry
-             (file+headline "~/Org/refile.org" "Todo Later")
+             (file+headline "~/Org/inbox.org" "Todo Later")
              (function +org/capture-template)
              :content-before "* TODO %^{Task}\nSCHEDULED: %t"
              :immediate-finish t)
             ("l" "Link to current file" entry
-             (file "~/Org/refile.org")
+             (file "~/Org/inbox.org")
              (function +org/capture-template)
              :content-before "* TODO %a")
             ("L" "(Clocked in) Link to current file" entry
-             (file "~/Org/refile.org")
+             (file "~/Org/inbox.org")
              (function +org/capture-template)
              :content-before "* TODO %a"
              :clock-in t
@@ -5570,7 +5570,7 @@ CLOCK: [2018-04-13 Fri 11:07]--[2018-04-13 Fri 11:12] =>  0:05
              :clock-in t
              :clock-resume t)
             ("k" "Push to Kindle" entry
-             (file+headline "~/Org/refile.org" "Push to Kindle")
+             (file+headline "~/Org/inbox.org" "Push to Kindle")
              (function +org/capture-template)
              :content-before "* TODO %a %(private/push-to-kindle \"%l\")"
              :immediate-finish t)
