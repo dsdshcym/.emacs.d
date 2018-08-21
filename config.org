@@ -3491,7 +3491,6 @@ CLOCK: [2018-05-17 Thu 11:07]--[2018-05-17 Thu 11:08] =>  0:01
 
     (general-create-definer
       +enable-leader
-      :status '(motion normal visual)
       "SPC" nil)
 
     (general-create-definer
