@@ -4731,6 +4731,7 @@ CLOCK: [2018-04-09 Mon 16:25]--[2018-04-09 Mon 16:28] =>  0:03
 :ID:       CAFF5A75-04BE-4D6F-94FE-EB834BB8EBC8
 :END:
 :LOGBOOK:
+CLOCK: [2018-08-30 Thu 11:15]--[2018-08-30 Thu 11:19] =>  0:04
 CLOCK: [2018-05-28 Mon 12:45]--[2018-05-28 Mon 12:53] =>  0:08
 - use elixir-mode's built-in [[id:897CCD6C-0416-46A2-BCB7-76F0FF2574BA][elixir-format]] to replace mix-fmt
 CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
@@ -4773,6 +4774,14 @@ CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
         (sp-local-pair "do" "end" :when '(("RET" "<evil-ret>")) :post-handlers '("||\n[i]"))
         (sp-local-pair "do " " end")
         (sp-local-pair "fn " " end")))
+  #+END_SRC
+- flycheck-credo
+  #+BEGIN_SRC emacs-lisp
+    (use-package flycheck-credo
+      :after flycheck
+      :hook (elixir-mode . flycheck-mode)
+      :config
+      (flycheck-credo-setup))
   #+END_SRC
 - alchemist
   #+BEGIN_SRC emacs-lisp
