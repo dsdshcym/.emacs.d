@@ -5760,8 +5760,7 @@ CLOCK: [2018-08-30 Thu 11:41]
   (use-package ob-plantuml
     :after ob
     :config
-    (setq org-plantuml-jar-path
-          "/usr/local/Cellar/plantuml/1.2018.10/libexec/plantuml.jar"))
+    (setq org-plantuml-jar-path plantuml-jar-path))
 #+END_SRC
 ** org-list
 :PROPERTIES:
