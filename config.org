@@ -4587,6 +4587,17 @@ CLOCK: [2018-05-18 Fri 11:24]--[2018-05-18 Fri 11:30] =>  0:06
     :general
     (nmap "C-;" #'flyspell-correct-previous-word-generic))
 #+END_SRC
+* Syntax Checking
+:PROPERTIES:
+:CREATED:  [2018-03-01 Thu 16:27]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :commands (flycheck-mode flycheck-list-errors flycheck-buffer)
+    :config
+    ;; Emacs feels snappier without checks on newline
+    (setq flycheck-check-syntax-automatically '(save idle-change mode-enabled)))
+#+END_SRC
 * Languages
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 14:51]
