@@ -5091,6 +5091,17 @@ CLOCK: [2018-06-28 Thu 11:26]--[2018-06-28 Thu 11:30] =>  0:04
       "ta" #'elm-test-run-project
       "td" #'elm-test-run-directory))
 #+END_SRC
+** plantuml
+:PROPERTIES:
+:CREATED:  [2018-08-30 Thu 12:00]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package plantuml-mode
+    :mode "\\.plantuml\\'"
+    :config
+    (setq plantuml-jar-path "/usr/local/Cellar/plantuml/1.2018.10/libexec/plantuml.jar")
+    (setq plantuml-output-type "png"))
+#+END_SRC
 * Org
 :LOGBOOK:
 CLOCK: [2018-06-14 Thu 10:26]--[2018-06-14 Thu 10:27] =>  0:01
