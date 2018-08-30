@@ -5738,6 +5738,20 @@ CLOCK: [2018-05-08 Tue 14:12]--[2018-05-08 Tue 14:14] =>  0:02
   (use-package ob-async
     :after ox)
 #+END_SRC
+*** ob-plantuml
+:PROPERTIES:
+:CREATED:  [2018-08-30 Thu 11:41]
+:END:
+:LOGBOOK:
+CLOCK: [2018-08-30 Thu 11:41]
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package ob-plantuml
+    :after ob
+    :config
+    (setq org-plantuml-jar-path
+          "/usr/local/Cellar/plantuml/1.2018.10/libexec/plantuml.jar"))
+#+END_SRC
 ** org-list
 :PROPERTIES:
 :CREATED:  [2018-03-01 Thu 12:34]
