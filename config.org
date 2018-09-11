@@ -5900,6 +5900,58 @@ CLOCK: [2018-03-02 Fri 16:10]--[2018-03-02 Fri 16:17] =>  0:07
     (interactive)
     (+org-page/new-post "clipping" "Clipping, "))
 #+END_SRC
+** [[id:8BEE4AE5-7281-4AE9-9F5B-022F701E1903][org-super-agenda]]
+:PROPERTIES:
+:CREATED:  [2018-09-11 Tue 11:43]
+:END:
+:LOGBOOK:
+CLOCK: [2018-09-11 Tue 11:12]--[2018-09-11 Tue 11:47] =>  0:35
+:END:
+#+BEGIN_SRC emacs-lisp
+  (use-package org-super-agenda
+    :after org-agenda
+    :config
+    (setq org-super-agenda-groups
+          '(;; Each group has an implicit boolean OR operator between its selectors.
+            (:name "DONE"
+                   :todo "DONE"
+                   :order 100)
+            (:order-multi
+             (8
+              (:name "Animation"
+                     :category "anime"
+                     :tag "Anime")
+              (:name "TV"
+                     :category "tv"
+                     :tag "TV")))
+
+            (:name "Family"
+                   :tag "GF")
+            (:name "Work"
+                   :tag "@WORK")
+            (:name "Reading"
+                   :category "books"
+                   :tag "Book")
+            (:name "Writing"
+                   :category "blogs"
+                   :tag "Blog")
+            (:name "Side Projects"
+                   :category "side_projects"
+                   :tag "SideProject")
+            (:name "To Watch"
+                   :tag "YouTube")
+            (:name "MOOC"
+                   :category "mooc"
+                   :tag "MOOC")
+            (:name "Today"
+                   :time-grid t
+                   :tag "routine"
+                   :habit t
+                   :scheduled today)
+            ;; After the last group, the agenda will display items that didn't
+            ;; match any of these groups, with the default order position of 99
+            )))
+#+END_SRC
 ** DONE [[elfeed:planet.emacsen.org#http://acidwords.com/posts/2018-03-02-extending-org-mode-easy-templates.html][Sanel Zukan: Extending org-mode Easy Templates]]
 CLOSED: [2018-03-06 Tue 16:42]
 :PROPERTIES:
