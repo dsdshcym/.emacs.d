@@ -5098,7 +5098,7 @@ CLOCK: [2018-06-28 Thu 11:26]--[2018-06-28 Thu 11:30] =>  0:04
 #+BEGIN_SRC emacs-lisp
   (use-package plantuml-mode
     :mode "\\.plantuml\\'"
-    :config
+    :init
     (setq plantuml-jar-path "/usr/local/Cellar/plantuml/1.2018.10/libexec/plantuml.jar")
     (setq plantuml-output-type "png"))
 #+END_SRC
@@ -5754,10 +5754,11 @@ CLOCK: [2018-05-08 Tue 14:12]--[2018-05-08 Tue 14:14] =>  0:02
 :CREATED:  [2018-08-30 Thu 11:41]
 :END:
 :LOGBOOK:
-CLOCK: [2018-08-30 Thu 11:41]
+CLOCK: [2018-08-30 Thu 11:41]--[2018-08-30 Thu 11:56] =>  0:15
 :END:
 #+BEGIN_SRC emacs-lisp
   (use-package ob-plantuml
+    :ensure org-plus-contrib
     :after ob
     :config
     (setq org-plantuml-jar-path plantuml-jar-path))
