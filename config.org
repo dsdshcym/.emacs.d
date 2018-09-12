@@ -5905,6 +5905,8 @@ CLOCK: [2018-03-02 Fri 16:10]--[2018-03-02 Fri 16:17] =>  0:07
 :CREATED:  [2018-09-11 Tue 11:43]
 :END:
 :LOGBOOK:
+CLOCK: [2018-09-12 Wed 10:31]--[2018-09-12 Wed 10:34] =>  0:03
+- add waiting
 CLOCK: [2018-09-11 Tue 15:00]--[2018-09-11 Tue 15:11] =>  0:11
 - add Log group
 CLOCK: [2018-09-11 Tue 11:12]--[2018-09-11 Tue 11:47] =>  0:35
@@ -5917,9 +5919,13 @@ CLOCK: [2018-09-11 Tue 11:12]--[2018-09-11 Tue 11:47] =>  0:35
           '(;; Each group has an implicit boolean OR operator between its selectors.
             (:name "Log"
                    :log t)
-            (:name "DONE"
-                   :todo "DONE"
-                   :order 100)
+            (:order-multi
+             (100
+              (:name "Waiting"
+                     :todo ("WAITING" "PENDING"))
+              (:name "DONE"
+                     :todo "DONE")))
+
             (:order-multi
              (8
               (:name "Animation"
