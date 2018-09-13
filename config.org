@@ -5906,6 +5906,7 @@ CLOCK: [2018-03-02 Fri 16:10]--[2018-03-02 Fri 16:17] =>  0:07
 :CREATED:  [2018-09-11 Tue 11:43]
 :END:
 :LOGBOOK:
+CLOCK: [2018-09-13 Thu 16:00]--[2018-09-13 Thu 16:02] =>  0:02
 CLOCK: [2018-09-12 Wed 10:31]--[2018-09-12 Wed 10:34] =>  0:03
 - add waiting
 CLOCK: [2018-09-11 Tue 15:00]--[2018-09-11 Tue 15:11] =>  0:11
@@ -5942,7 +5943,7 @@ CLOCK: [2018-09-11 Tue 11:12]--[2018-09-11 Tue 11:47] =>  0:35
                    :tag "@WORK")
             (:name "Reading"
                    :category "books"
-                   :tag "Book")
+                   :tag ("Book" "Paper" "Essay"))
             (:name "Writing"
                    :category "blogs"
                    :tag "Blog")
