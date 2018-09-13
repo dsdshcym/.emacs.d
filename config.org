@@ -5961,7 +5961,8 @@ CLOCK: [2018-09-11 Tue 11:12]--[2018-09-11 Tue 11:47] =>  0:35
                    :scheduled today)
             ;; After the last group, the agenda will display items that didn't
             ;; match any of these groups, with the default order position of 99
-            )))
+            ))
+    (org-super-agenda-mode))
 #+END_SRC
 ** DONE [[elfeed:planet.emacsen.org#http://acidwords.com/posts/2018-03-02-extending-org-mode-easy-templates.html][Sanel Zukan: Extending org-mode Easy Templates]]
 CLOSED: [2018-03-06 Tue 16:42]
