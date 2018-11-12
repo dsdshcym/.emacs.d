@@ -5889,15 +5889,16 @@ CLOCK: [2018-03-05 Mon 11:46]--[2018-03-05 Mon 11:48] =>  0:02
           '(("/gmail/inbox"    . ?i)
             ("/gmail/sent"     . ?s)
             ("/gmail/trash"    . ?t)
-            ("/gmail/all mail" . ?a)))
+            ("/gmail/all mail" . ?a)
+            ("/ekohe/inbox"    . ?w)))
 
     (setq mu4e-bookmarks
           '(
-            ("flag:unread AND NOT flag:trashed AND NOT maildir:\"/gmail/all mail\""
+            ("flag:unread AND NOT flag:trashed AND NOT maildir:\"/gmail/all mail\" AND NOT maildir:\"/ekohe/all mail\""
              "Unread messages"  ?u)
-            ("date:today..now AND NOT maildir:\"/gmail/all mail\""
+            ("date:today..now AND NOT maildir:\"/gmail/all mail\" AND NOT maildir:\"/ekohe/all mail\""
              "Today's messages" ?t)
-            ("date:7d..now AND NOT maildir:\"/gmail/all mail\""
+            ("date:7d..now AND NOT maildir:\"/gmail/all mail\" AND NOT maildir:\"/ekohe/all mail\""
              "Last 7 days"      ?w)
             )
           )
@@ -5937,7 +5938,17 @@ CLOCK: [2018-03-05 Mon 11:46]--[2018-03-05 Mon 11:48] =>  0:02
          (smtpmail-smtp-user "dsdshcym")
          (smtpmail-smtp-server "smtp.gmail.com")
          ;; (smtpmail-stream-type starttls)
-         (smtpmail-smtp-service 587))))
+         (smtpmail-smtp-service 587))
+        ("ekohe"
+         (mu4e-sent-folder   "/ekohe/sent")
+         (mu4e-drafts-folder "/ekohe/drafts")
+         (user-mail-address "yiming@ekohe.com")
+         (smtpmail-default-smtp-server "smtp.gmail.com")
+         (smtpmail-smtp-user "yiming@ekohe.com")
+         (smtpmail-smtp-server "smtp.gmail.com")
+         ;; (smtpmail-stream-type starttls)
+         (smtpmail-smtp-service 587))
+        ))
 
     (defun my-mu4e-set-account ()
       "Set the account for composing a message."
