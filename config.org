@@ -4154,7 +4154,7 @@ CLOCK: [2018-08-04 Sat 08:11]--[2018-08-04 Sat 08:26] =>  0:15
       (when +use-magit-commit-prompt-p
         (setq +use-magit-commit-prompt-p nil)
         (insert (ivy-read "Commit Type: " +magit-commit-headers
-                          :require-match t :sort t :preselect "Add: "))
+                          :sort t :preselect "Add: "))
         (evil-insert 1)))
 
     (remove-hook 'git-commit-setup-hook 'with-editor-usage-message)
