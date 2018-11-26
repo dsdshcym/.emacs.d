@@ -4500,7 +4500,9 @@ CLOCK: [2018-03-07 Wed 17:56]--[2018-03-07 Wed 18:07] =>  0:11
   #+BEGIN_SRC emacs-lisp
     (use-package elixir-mode
       :mode "\\.exs?$"
-      :mode "\\.elixir2$")
+      :mode "\\.elixir2$"
+      :config
+      (modify-syntax-entry ?& "." elixir-mode-syntax-table))
 
     (use-package elixir-format
       :ensure elixir-mode
