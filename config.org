@@ -4197,24 +4197,16 @@ CLOCK: [2018-08-04 Sat 08:11]--[2018-08-04 Sat 08:26] =>  0:15
       "gi" #'magit-init
       "gl" #'magit-log-buffer-file))
 #+END_SRC
-*** DONE [[id:4C85A0E7-DC91-43FC-A180-56BAF3A07967][vermiculus/magithub]]
-CLOSED: [2018-05-10 Thu 10:38]
+*** [[id:08A0B38E-89B5-4B3B-9B55-D60E3F95A724][magit/forge: Work with Git forges from the comfort of Magit]]
 :PROPERTIES:
-:CREATED: [2018-05-10 Thu 10:25]
-:ID:       9FDF221C-789D-498A-965C-AE802CE5EFD1
-:END:
-:LOGBOOK:
-- State "DONE"       from "TODO"       [2018-05-10 Thu 10:38]
-CLOCK: [2018-05-10 Thu 10:32]--[2018-05-10 Thu 10:38] =>  0:06
-CLOCK: [2018-05-10 Thu 10:25]--[2018-05-10 Thu 10:30] =>  0:05
+:CREATED:  [2018-12-20 Thu 14:17]
 :END:
 #+BEGIN_SRC emacs-lisp
-  (use-package magithub
-    :after magit
+  (use-package forge
     :config
-    (setq magithub-clone-default-directory "~/Projects")
-    (setq magithub-dir (concat +local-directory "magithub/"))
-    (magithub-feature-autoinject t))
+    (add-to-list 'forge-alist
+                 '("gitlab.ekohe.com" "gitlab.ekohe.com/api/v4"
+                   "gitlab.ekohe.com" forge-gitlab-repository)))
 #+END_SRC
 ** evil-magit
 :PROPERTIES:
