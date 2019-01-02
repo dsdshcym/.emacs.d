@@ -5189,6 +5189,7 @@ CLOCK: [2018-04-13 Fri 11:12]--[2018-04-13 Fri 11:30] =>  0:18
             ("w" agenda "@WORK"
              ((org-agenda-tag-filter-preset '("+@WORK"))))))
 
+    (setq org-deadline-warning-days 30)
     (setq org-agenda-skip-scheduled-if-deadline-is-shown 'not-today)
     (evil-set-initial-state 'org-agenda-mode 'normal)
 
