@@ -4889,6 +4889,7 @@ CLOCK: [2018-05-17 Thu 16:22]--[2018-05-17 Thu 16:23] =>  0:01
                                        (plain-list-item . nil)))
 
     (setq org-modules '(org-crypt
+                        org-tempo
                         org-id
                         org-protocol))
     (eval-after-load 'org
@@ -5731,27 +5732,13 @@ CLOCK: [2018-03-06 Tue 16:41]--[2018-03-06 Tue 16:42] =>  0:01
 :END:
 #+BEGIN_SRC emacs-lisp
   (setq org-structure-template-alist
-        '(("l" "#+BEGIN_SRC emacs-lisp
-  ?
-  ,#+END_SRC")
-          ("r" "#+BEGIN_SRC ruby
-  ?
-  ,#+END_SRC")
-          ("x" "#+BEGIN_SRC elixir
-  ?
-  ,#+END_SRC")
-          ("s" "#+BEGIN_SRC ?
-
-  ,#+END_SRC")
-          ("e" "#+BEGIN_EXAMPLE
-  ?
-  ,#+END_EXAMPLE")
-          ("q" "#+BEGIN_QUOTE
-  ?
-  ,#+END_QUOTE")
-          ("c" "#+BEGIN_CENTER
-  ?
-  ,#+END_CENTER")))
+        '(("l" . "src emacs-lisp")
+          ("r" . "src ruby")
+          ("x" . "src elixir")
+          ("s" . "src")
+          ("e" . "example")
+          ("q" . "quote")
+          ("c" . "center")))
 #+END_SRC
 ** CANCELLED regenerate org-refile-targets when mac goes to sleep using hs.caffine.watcher
 CLOSED: [2018-05-17 Thu 16:22] SCHEDULED: <2018-05-12 Sat>
