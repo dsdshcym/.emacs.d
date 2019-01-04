@@ -3830,6 +3830,7 @@ CLOCK: [2018-05-24 Thu 17:13]--[2018-05-24 Thu 17:15] =>  0:02
 #+BEGIN_SRC emacs-lisp
   (use-package exec-path-from-shell
     :init
+    (setq exec-path-from-shell-arguments '("-l"))
     (exec-path-from-shell-initialize))
 #+END_SRC
 ** dash-at-point
