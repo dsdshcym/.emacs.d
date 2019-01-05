@@ -4406,14 +4406,6 @@ CLOCK: [2018-04-09 Mon 16:25]--[2018-04-09 Mon 16:28] =>  0:03
     :after ruby-mode
     :hook (ruby-mode . robe-mode))
 
-  (use-package rbenv
-    :after ruby-mode
-    :hook (ruby-mode . rbenv-use-corresponding)
-    :init
-    (setq rbenv-show-active-ruby-in-modeline nil)
-    :config
-    (global-rbenv-mode))
-
   (use-package bundler
     :commands (bundle-check
                bundle-install
