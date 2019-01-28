@@ -3252,7 +3252,7 @@ CLOCK: [2018-05-17 Thu 11:07]--[2018-05-17 Thu 11:08] =>  0:01
       :non-normal-prefix "M-m m"
       :states '(motion insert emacs))
 
-    (mmap "M-s" #'evil-write)
+    (mmap "M-s" #'save-buffer)
 
     (general-define-key
      :keymaps 'input-decode-map
@@ -3569,7 +3569,6 @@ CLOCK: [2018-03-15 Thu 15:12]--[2018-03-15 Thu 15:15] =>  0:03
    "ff" #'find-file
    "fel" #'find-library
    "fS" #'evil-write-all
-   "fs" #'save-buffer
    "fvd" #'add-dir-local-variable
    "fvf" #'add-file-local-variable
    "fvp" #'add-file-local-variable-prop-line
